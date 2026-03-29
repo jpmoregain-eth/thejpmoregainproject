@@ -44,7 +44,7 @@ const projects = [
     description:
       "Comprehensive archive of enterprise storage arrays — 50+ spec sheets covering DellEMC, IBM, HPE, NetApp, Hitachi, and Everpure from 2000 to 2025.",
     tags: ["Storage", "Enterprise", "Archive", "Hardware"],
-    link: "https://github.com/jpmoregain-eth/storage-array-history",
+    link: "https://storage-array-history.vercel.app",
     slug: "storage-history",
     image: "/images/storage-history-card.jpg",
   },
