@@ -37,6 +37,7 @@ const projects = [
     tags: ["AI", "Fun", "Personas", "Open Source"],
     link: "https://github.com/jpmoregain-eth/ai-roleplay-arena",
     slug: "roleplay-arena",
+    image: "/images/roleplay-arena-card.jpg",
   },
   {
     title: "Storage Array History",
