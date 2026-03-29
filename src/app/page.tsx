@@ -53,6 +53,7 @@ const projects = [
     tags: ["AI", "OpenClaw", "Tools", "Bilingual"],
     link: "https://github.com/jpmoregain-eth/dragonclaw",
     slug: "dragonclaw",
+    image: "/images/github-repo-card.jpg",
   },
   {
     title: "OpenClaw BRM",
@@ -61,6 +62,7 @@ const projects = [
     tags: ["OpenClaw", "CLI", "DevOps", "Python"],
     link: "https://github.com/jpmoregain-eth/openclaw-brm",
     slug: "openclaw-brm",
+    image: "/images/github-repo-card.jpg",
   },
 ];
 
