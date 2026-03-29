@@ -24,7 +24,7 @@ export default function ProjectCard({
       <div className="glass-card coming-soon-card p-6 flex flex-col h-full">
         {/* Image placeholder */}
         <div
-          className="aspect-video w-full rounded-lg mb-4 flex items-center justify-center"
+          className="aspect-[3/2] w-full rounded-lg mb-4 flex items-center justify-center"
           style={{
             background:
               "linear-gradient(135deg, rgba(50, 50, 60, 0.3) 0%, rgba(30, 30, 40, 0.3) 100%)",
@@ -52,7 +52,7 @@ export default function ProjectCard({
     >
       {/* Project image */}
       <div
-        className="aspect-video w-full rounded-lg mb-4 overflow-hidden"
+        className="aspect-[3/2] w-full rounded-lg mb-4 overflow-hidden"
         data-project={slug}
       >
         {image ? (
