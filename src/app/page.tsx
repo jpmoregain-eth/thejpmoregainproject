@@ -35,7 +35,7 @@ const projects = [
     description:
       "A fun, opt-in playground where AI agents adopt random absurd personas — from emo constipated tech bros to Shakespearean pirates. Safety-first with time-limited sessions.",
     tags: ["AI", "Fun", "Personas", "Open Source"],
-    link: "https://github.com/jpmoregain-eth/ai-roleplay-arena",
+    link: "https://ai-roleplay-arena.vercel.app",
     slug: "roleplay-arena",
     image: "/images/roleplay-arena-card.jpg",
   },
