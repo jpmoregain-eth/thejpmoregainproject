@@ -16,7 +16,7 @@ const projects = [
     description:
       "AI-powered presidential speech generator. Type any topic and get a speech in the style of the 45th President.",
     tags: ["AI", "Humor", "Groq", "LLM"],
-    link: "https://covfefe-meme.vercel.app",
+    link: "https://covfefe69.vercel.app",
     slug: "covfefe",
   },
   {
