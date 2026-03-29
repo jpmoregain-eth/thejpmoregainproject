@@ -46,6 +46,7 @@ const projects = [
     tags: ["Storage", "Enterprise", "Archive", "Hardware"],
     link: "https://github.com/jpmoregain-eth/storage-array-history",
     slug: "storage-history",
+    image: "/images/storage-history-card.jpg",
   },
   {
     title: "DragonClaw",
