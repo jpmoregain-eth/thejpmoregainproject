@@ -19,6 +19,7 @@ const projects = [
     tags: ["AI", "Humor", "Groq", "LLM"],
     link: "https://covfefe69.vercel.app",
     slug: "covfefe",
+    image: "/images/covfefe-card.jpg",
   },
   {
     title: "Virtual MPS",
