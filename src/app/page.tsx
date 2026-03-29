@@ -30,6 +30,38 @@ const projects = [
     slug: "vmps",
     image: "/images/vmps-card.jpg",
   },
+  {
+    title: "AI Roleplay Arena",
+    description:
+      "A fun, opt-in playground where AI agents adopt random absurd personas — from emo constipated tech bros to Shakespearean pirates. Safety-first with time-limited sessions.",
+    tags: ["AI", "Fun", "Personas", "Open Source"],
+    link: "https://github.com/jpmoregain-eth/ai-roleplay-arena",
+    slug: "roleplay-arena",
+  },
+  {
+    title: "Storage Array History",
+    description:
+      "Comprehensive archive of enterprise storage arrays — 50+ spec sheets covering DellEMC, IBM, HPE, NetApp, Hitachi, and Everpure from 2000 to 2025.",
+    tags: ["Storage", "Enterprise", "Archive", "Hardware"],
+    link: "https://github.com/jpmoregain-eth/storage-array-history",
+    slug: "storage-history",
+  },
+  {
+    title: "DragonClaw",
+    description:
+      "AI tools for OpenClaw power users. Includes a bilingual video summarizer for YouTube and Bilibili with automatic language detection.",
+    tags: ["AI", "OpenClaw", "Tools", "Bilingual"],
+    link: "https://github.com/jpmoregain-eth/dragonclaw",
+    slug: "dragonclaw",
+  },
+  {
+    title: "OpenClaw BRM",
+    description:
+      "Backup, Recovery, and Migration CLI tool for OpenClaw agents. Move your AI agents between systems with one command.",
+    tags: ["OpenClaw", "CLI", "DevOps", "Python"],
+    link: "https://github.com/jpmoregain-eth/openclaw-brm",
+    slug: "openclaw-brm",
+  },
 ];
 
 const comingSoonProjects = [
@@ -37,11 +69,6 @@ const comingSoonProjects = [
     title: "Coming Soon",
     description: "Something new is brewing...",
     slug: "coming-soon-1",
-  },
-  {
-    title: "Coming Soon",
-    description: "Watch this space.",
-    slug: "coming-soon-2",
   },
 ];
 
