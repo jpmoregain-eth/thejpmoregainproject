@@ -12,14 +12,6 @@ const projects = [
     slug: "agentbearcorps",
   },
   {
-    title: "In Perpetuum",
-    description:
-      "A digital romance novel experience with immersive reading UI, chapter-by-chapter storytelling, and elegant typography.",
-    tags: ["Literature", "Next.js", "Creative"],
-    link: "https://inperpetuum.vercel.app",
-    slug: "inperpetuum",
-  },
-  {
     title: "Covfefe",
     description:
       "AI-powered presidential speech generator. Type any topic and get a speech in the style of the 45th President.",
