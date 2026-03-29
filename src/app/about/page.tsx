@@ -42,7 +42,7 @@ export default function AboutPage() {
               projects.
             </p>
             <p className="text-[#E5E5E5]/80 leading-relaxed">
-              Founded in 2026 in Singapore, The JPMoreGain Project is a
+              Founded in 2013 in Singapore, The JPMoreGain Project is a
               one-person technology lab building tools, platforms, and
               experiments at the intersection of artificial intelligence, web
               technology, and creativity. Some projects are serious (an AI news
