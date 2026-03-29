@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { Inter, JetBrains_Mono } from "next/font/google";
+import Script from "next/script";
 import "./globals.css";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
@@ -89,6 +90,13 @@ export default function RootLayout({
         <Navbar />
         <main className="flex-1">{children}</main>
         <Footer />
+        <Script id="infolinks-vars" strategy="afterInteractive">
+          {`var infolinks_pid = 3444508; var infolinks_wsid = 0;`}
+        </Script>
+        <Script
+          src="//resources.infolinks.com/js/infolinks_main.js"
+          strategy="afterInteractive"
+        />
       </body>
     </html>
   );
