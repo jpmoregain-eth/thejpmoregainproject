@@ -10,6 +10,7 @@ const projects = [
     tags: ["AI", "News", "Next.js", "Python"],
     link: "https://agentbearcorps.com",
     slug: "agentbearcorps",
+    image: "/images/agentbear-card.jpg",
   },
   {
     title: "Covfefe",

@@ -1,4 +1,5 @@
 import Link from "next/link";
+import Image from "next/image";
 
 interface ProjectCardProps {
   title: string;
@@ -6,6 +7,7 @@ interface ProjectCardProps {
   tags: string[];
   link: string;
   slug: string;
+  image?: string;
   isComingSoon?: boolean;
 }
 
@@ -15,6 +17,7 @@ export default function ProjectCard({
   tags,
   link,
   slug,
+  image,
   isComingSoon = false,
 }: ProjectCardProps) {
   if (isComingSoon) {
@@ -48,20 +51,32 @@ export default function ProjectCard({
       rel="noopener noreferrer"
       className="glass-card p-6 flex flex-col h-full group cursor-pointer"
     >
-      {/* Image placeholder */}
+      {/* Project image */}
       <div
         className="aspect-video w-full rounded-lg mb-4 overflow-hidden"
-        style={{
-          background:
-            "linear-gradient(135deg, rgba(212, 168, 67, 0.15) 0%, rgba(10, 10, 15, 0.8) 100%)",
-        }}
         data-project={slug}
       >
-        <div className="w-full h-full flex items-center justify-center">
-          <span className="font-mono text-[#D4A843]/30 text-sm">
-            {slug.toUpperCase()}
-          </span>
-        </div>
+        {image ? (
+          <Image
+            src={image}
+            alt={title}
+            width={640}
+            height={360}
+            className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
+          />
+        ) : (
+          <div
+            className="w-full h-full flex items-center justify-center"
+            style={{
+              background:
+                "linear-gradient(135deg, rgba(212, 168, 67, 0.15) 0%, rgba(10, 10, 15, 0.8) 100%)",
+            }}
+          >
+            <span className="font-mono text-[#D4A843]/30 text-sm">
+              {slug.toUpperCase()}
+            </span>
+          </div>
+        )}
       </div>
 
       {/* Content */}
