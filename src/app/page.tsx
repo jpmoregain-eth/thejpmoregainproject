@@ -28,6 +28,7 @@ const projects = [
     tags: ["AI", "Singapore", "Gov", "Groq"],
     link: "https://mpsg.vercel.app",
     slug: "vmps",
+    image: "/images/vmps-card.jpg",
   },
 ];
 
