@@ -55,6 +55,8 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
+    creator: "@jp_moregain",
+    site: "@jp_moregain",
     title: "The JPMoreGain Project | Where Technology Meets Alpha",
     description:
       "Building AI-powered tools, platforms, and experiments at the intersection of technology, finance, and creativity.",
