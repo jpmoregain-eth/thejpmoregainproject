@@ -47,6 +47,7 @@ const projects = [
     link: "https://storage-array-history.vercel.app",
     slug: "storage-history",
     image: "/images/storage-history-card.jpg",
+    imageStyle: "contain" as const,
   },
   {
     title: "DragonClaw",
