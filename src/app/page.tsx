@@ -54,6 +54,7 @@ const projects = [
     link: "https://github.com/jpmoregain-eth/dragonclaw",
     slug: "dragonclaw",
     image: "/images/github-repo-card.jpg",
+    imageStyle: "contain" as const,
   },
   {
     title: "OpenClaw BRM",
@@ -63,6 +64,7 @@ const projects = [
     link: "https://github.com/jpmoregain-eth/openclaw-brm",
     slug: "openclaw-brm",
     image: "/images/github-repo-card.jpg",
+    imageStyle: "contain" as const,
   },
 ];
 
@@ -107,6 +109,7 @@ export default function Home() {
                   link={project.link}
                   slug={project.slug}
                   image={project.image}
+                  imageStyle={project.imageStyle}
                 />
               </div>
             ))}

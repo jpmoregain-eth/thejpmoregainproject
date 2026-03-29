@@ -7,6 +7,7 @@ interface ProjectCardProps {
   link: string;
   slug: string;
   image?: string;
+  imageStyle?: "cover" | "contain";
   isComingSoon?: boolean;
 }
 
@@ -17,6 +18,7 @@ export default function ProjectCard({
   link,
   slug,
   image,
+  imageStyle = "cover",
   isComingSoon = false,
 }: ProjectCardProps) {
   if (isComingSoon) {
@@ -52,14 +54,14 @@ export default function ProjectCard({
     >
       {/* Project image */}
       <div
-        className="aspect-[3/2] w-full rounded-lg mb-4 overflow-hidden"
+        className={`aspect-[3/2] w-full rounded-lg mb-4 overflow-hidden ${imageStyle === "contain" ? "bg-gradient-to-br from-[#1a1a2e] to-[#0f0f1a] flex items-center justify-center p-8" : ""}`}
         data-project={slug}
       >
         {image ? (
           <img
             src={image}
             alt={title}
-            className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
+            className={`${imageStyle === "contain" ? "max-w-full max-h-full object-contain rounded-lg drop-shadow-lg" : "w-full h-full object-cover"} group-hover:scale-105 transition-transform duration-300`}
           />
         ) : (
           <div
