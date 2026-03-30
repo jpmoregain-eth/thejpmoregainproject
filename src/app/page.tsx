@@ -1,5 +1,5 @@
 import Hero from "@/components/Hero";
-import ProjectCard from "@/components/ProjectCard";
+import ProjectCarousel from "@/components/ProjectCarousel";
 import AdSlot from "@/components/AdSlot";
 
 const projects = [
@@ -102,7 +102,7 @@ export default function Home() {
 
       {/* Projects Section */}
       <section className="py-16 px-4 sm:px-6 lg:px-8">
-        <div className="max-w-6xl mx-auto">
+        <div className="max-w-7xl mx-auto">
           {/* Section Header */}
           <div className="mb-12">
             <p className="section-title">// Our Projects</p>
@@ -111,34 +111,8 @@ export default function Home() {
             </h2>
           </div>
 
-          {/* Projects Grid */}
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-            {projects.map((project) => (
-              <div key={project.slug} className="fade-in-up">
-                <ProjectCard
-                  title={project.title}
-                  description={project.description}
-                  tags={project.tags}
-                  link={project.link}
-                  slug={project.slug}
-                  image={project.image}
-                  imageStyle={project.imageStyle}
-                />
-              </div>
-            ))}
-            {comingSoonProjects.map((project) => (
-              <div key={project.slug} className="fade-in-up">
-                <ProjectCard
-                  title={project.title}
-                  description={project.description}
-                  tags={[]}
-                  link="#"
-                  slug={project.slug}
-                  isComingSoon
-                />
-              </div>
-            ))}
-          </div>
+          {/* Projects Carousel */}
+          <ProjectCarousel projects={[...projects, ...comingSoonProjects.map(p => ({ ...p, tags: [], link: "#" }))]} />
         </div>
       </section>
 
