@@ -77,7 +77,7 @@ const projects = [
     link: "https://clawhub.com/jpmoregain-eth/agent-tiered-memory",
     slug: "tiered-memory",
     image: "/images/tiered-memory-card.png",
-    imageStyle: "cover" as const,
+    imageStyle: "contain" as const,
   },
 ];
 
