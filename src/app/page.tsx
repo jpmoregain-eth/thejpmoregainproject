@@ -69,6 +69,16 @@ const projects = [
     image: "/images/github-repo-card.png",
     imageStyle: "contain" as const,
   },
+  {
+    title: "Tiered Memory",
+    description:
+      "Two-tier memory system for OpenClaw agents published on ClawHub. Tier 0 uses QMD semantic search for hot memories, Tier 1 archives to SQLite with LLM summarization.",
+    tags: ["OpenClaw", "ClawHub", "Memory", "Python"],
+    link: "https://clawhub.com/jpmoregain-eth/agent-tiered-memory",
+    slug: "tiered-memory",
+    image: "/images/tiered-memory-card.jpg",
+    imageStyle: "cover" as const,
+  },
 ];
 
 const comingSoonProjects = [
