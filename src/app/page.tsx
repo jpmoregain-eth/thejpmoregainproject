@@ -76,7 +76,7 @@ const projects = [
     tags: ["OpenClaw", "ClawHub", "Memory", "Python"],
     link: "https://clawhub.com/jpmoregain-eth/agent-tiered-memory",
     slug: "tiered-memory",
-    image: "/images/tiered-memory-card.jpg",
+    image: "/images/tiered-memory-card.png",
     imageStyle: "cover" as const,
   },
 ];
