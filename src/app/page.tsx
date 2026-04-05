@@ -79,6 +79,16 @@ const projects = [
     image: "/images/tiered-memory-card.png",
     imageStyle: "contain" as const,
   },
+  {
+    title: "Heng Heng Casino",
+    description:
+      "Side project for a good friend who loves running casino games at home in his spare time.",
+    tags: ["Next.js", "React", "TypeScript"],
+    link: "https://henghengcasino.vercel.app",
+    slug: "heng-heng-casino",
+    image: "/images/heng-heng-casino-card.jpg",
+    imageStyle: "contain" as const,
+  },
 ];
 
 const comingSoonProjects = [
