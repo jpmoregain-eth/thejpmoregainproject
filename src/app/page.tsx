@@ -1,6 +1,5 @@
 import Hero from "@/components/Hero";
 import ProjectCarousel from "@/components/ProjectCarousel";
-import AdSlot from "@/components/AdSlot";
 
 const projects = [
   {
@@ -105,11 +104,6 @@ export default function Home() {
       {/* Hero Section */}
       <Hero />
 
-      {/* Ad Slot - Top Leaderboard */}
-      <section className="py-8">
-        <AdSlot type="leaderboard" />
-      </section>
-
       {/* Projects Section */}
       <section className="py-16 px-4 sm:px-6 lg:px-8">
         <div className="max-w-7xl mx-auto">
@@ -124,11 +118,6 @@ export default function Home() {
           {/* Projects Carousel */}
           <ProjectCarousel projects={[...projects, ...comingSoonProjects.map(p => ({ ...p, tags: [], link: "#" }))]} />
         </div>
-      </section>
-
-      {/* Ad Slot - Between Content */}
-      <section className="py-8">
-        <AdSlot type="rectangle" />
       </section>
 
       {/* Bottom Spacer */}
