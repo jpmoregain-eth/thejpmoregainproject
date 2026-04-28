@@ -94,21 +94,15 @@ export default function ForkThisDragonPage() {
         {/* Screenshots Section */}
         <section className="mt-12">
           <h2 className="text-3xl font-bold mb-8 text-center text-[#FFD700]">Screenshots</h2>
-          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6">
-            <div className="rounded-2xl overflow-hidden border border-[#FFD700]/20 shadow-lg">
-              <img src="/images/ftd-screenshot-1.jpg" alt="Screenshot 1" className="w-full h-full object-cover" />
-            </div>
-            <div className="rounded-2xl overflow-hidden border border-[#FFD700]/20 shadow-lg">
-              <img src="/images/ftd-screenshot-2.jpg" alt="Screenshot 2" className="w-full h-full object-cover" />
-            </div>
-            <div className="rounded-2xl overflow-hidden border border-[#FFD700]/20 shadow-lg">
-              <img src="/images/ftd-screenshot-3.jpg" alt="Screenshot 3" className="w-full h-full object-cover" />
-            </div>
-            <div className="rounded-2xl overflow-hidden border border-[#FFD700]/20 shadow-lg">
-              <img src="/images/ftd-screenshot-4.jpg" alt="Screenshot 4" className="w-full h-full object-cover" />
-            </div>
-            <div className="rounded-2xl overflow-hidden border border-[#FFD700]/20 shadow-lg">
-              <img src="/images/ftd-screenshot-5.jpg" alt="Screenshot 5" className="w-full h-full object-cover" />
+          <div className="relative">
+            <div className="flex gap-4 overflow-x-auto snap-x snap-mandatory pb-4 scrollbar-thin scrollbar-thumb-[#FFD700]/30 scrollbar-track-transparent">
+              {[1,2,3,4,5].map((n) => (
+                <div key={n} className="snap-center shrink-0 w-[280px] sm:w-[320px]">
+                  <div className="rounded-2xl overflow-hidden border border-[#FFD700]/20 shadow-lg">
+                    <img src={`/images/ftd-screenshot-${n}.jpg`} alt={`Screenshot ${n}`} className="w-full h-auto object-cover" />
+                  </div>
+                </div>
+              ))}
             </div>
           </div>
         </section>
