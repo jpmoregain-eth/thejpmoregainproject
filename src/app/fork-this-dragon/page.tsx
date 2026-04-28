@@ -52,21 +52,41 @@ export default function ForkThisDragonPage() {
         {/* Features Grid */}
         <section className="mt-12">
           <h2 className="text-3xl font-bold mb-8 text-center text-[#FFD700]">Features</h2>
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
             <div className="bg-[#1a1a2e]/50 backdrop-blur-sm rounded-2xl p-6 border border-[#FFD700]/20 text-center hover:border-[#FFD700]/50 transition-all">
-              <div className="text-5xl mb-4">🎮</div>
-              <h3 className="text-xl font-bold mb-2 text-[#FFD700]">[Feature 1]</h3>
-              <p className="text-[#B0B0B0]">[Feature description]</p>
+              <div className="text-5xl mb-4">💾</div>
+              <h3 className="text-xl font-bold mb-2 text-[#FFD700]">Retro Terminal Aesthetic</h3>
+              <p className="text-[#B0B0B0]">Pixel art icons and classic terminal vibes. Feels like coding in the 90s.</p>
             </div>
             <div className="bg-[#1a1a2e]/50 backdrop-blur-sm rounded-2xl p-6 border border-[#FFD700]/20 text-center hover:border-[#FFD700]/50 transition-all">
-              <div className="text-5xl mb-4">⚔️</div>
-              <h3 className="text-xl font-bold mb-2 text-[#FFD700]">[Feature 2]</h3>
-              <p className="text-[#B0B0B0]">[Feature description]</p>
+              <div className="text-5xl mb-4">🐛</div>
+              <h3 className="text-xl font-bold mb-2 text-[#FFD700]">7 Mob Tiers</h3>
+              <p className="text-[#B0B0B0]">From harmless Missing Semicolons to endgame nightmares. Scale your skills.</p>
+            </div>
+            <div className="bg-[#1a1a2e]/50 backdrop-blur-sm rounded-2xl p-6 border border-[#FFD700]/20 text-center hover:border-[#FFD700]/50 transition-all">
+              <div className="text-5xl mb-4">🔄</div>
+              <h3 className="text-xl font-bold mb-2 text-[#FFD700]">Prestige System</h3>
+              <p className="text-[#B0B0B0]">Kill the dragon, enter the next tier. Harder mobs, better loot, bigger bragging rights.</p>
             </div>
             <div className="bg-[#1a1a2e]/50 backdrop-blur-sm rounded-2xl p-6 border border-[#FFD700]/20 text-center hover:border-[#FFD700]/50 transition-all">
               <div className="text-5xl mb-4">🏆</div>
-              <h3 className="text-xl font-bold mb-2 text-[#FFD700]">[Feature 3]</h3>
-              <p className="text-[#B0B0B0]">[Feature description]</p>
+              <h3 className="text-xl font-bold mb-2 text-[#FFD700]">Global Leaderboard</h3>
+              <p className="text-[#B0B0B0]">Track dragon kills and levels. Compete for Dragon Slayer status.</p>
+            </div>
+            <div className="bg-[#1a1a2e]/50 backdrop-blur-sm rounded-2xl p-6 border border-[#FFD700]/20 text-center hover:border-[#FFD700]/50 transition-all">
+              <div className="text-5xl mb-4">💬</div>
+              <h3 className="text-xl font-bold mb-2 text-[#FFD700]">In-Game Social Chat</h3>
+              <p className="text-[#B0B0B0]">Slack-style channels, DMs, reactions. The dev community never sleeps.</p>
+            </div>
+            <div className="bg-[#1a1a2e]/50 backdrop-blur-sm rounded-2xl p-6 border border-[#FFD700]/20 text-center hover:border-[#FFD700]/50 transition-all">
+              <div className="text-5xl mb-4">🔑</div>
+              <h3 className="text-xl font-bold mb-2 text-[#FFD700]">Google Sign-In</h3>
+              <p className="text-[#B0B0B0]">One-tap login. No passwords to forget. Your progress synced across devices.</p>
+            </div>
+            <div className="bg-[#1a1a2e]/50 backdrop-blur-sm rounded-2xl p-6 border border-[#FFD700]/20 text-center hover:border-[#FFD700]/50 transition-all sm:col-span-2 lg:col-span-1">
+              <div className="text-5xl mb-4">⏱️</div>
+              <h3 className="text-xl font-bold mb-2 text-[#FFD700]">Play at Your Own Pace</h3>
+              <p className="text-[#B0B0B0]">Turns regenerate over time. No pay-to-win pressure. Grind or chill — your call.</p>
             </div>
           </div>
         </section>
