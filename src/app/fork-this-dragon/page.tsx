@@ -38,9 +38,15 @@ export default function ForkThisDragonPage() {
         {/* About Section */}
         <section className="bg-[#1a1a2e]/50 backdrop-blur-sm rounded-2xl p-8 sm:p-12 mt-12 border border-[#FFD700]/20">
           <h2 className="text-3xl font-bold mb-6 text-[#FFD700]">About the Game</h2>
-          <p className="text-lg text-[#B0B0B0] leading-relaxed">
-            [Description goes here - what is the game about? What makes it fun?]
-          </p>
+          <div className="space-y-4 text-lg text-[#B0B0B0] leading-relaxed">
+            <p><strong className="text-[#FFD700]">FIGHT BUGS IN THE CODEBASE</strong><br />Battle increasingly dangerous bugs — from Missing Semicolons to Critical Bugs in Production. Use Debug, Stack Trace, Rubber Duck, and more to squash them. Each fight costs a turn, and turns regenerate over time.</p>
+            <p><strong className="text-[#FFD700]">GEAR UP AT THE SHOP</strong><br />Spend your gold at Stack Overflow Outfitters. Upgrade your weapon from a Rubber Duck all the way to The Nuclear Option. Armor up from a Hoodie to an Air-Gapped Server Room. Better gear means tougher fights and bigger dragons.</p>
+            <p><strong className="text-[#FFD700]">CHALLENGE THE LEGACY DRAGON</strong><br />At the heart of the codebase lives the Legacy Dragon — a monstrous entity of technical debt that has been running since 2003. Gear up, level up, and take it down. Each kill unlocks a harder prestige tier with stronger monsters and better rewards.</p>
+            <p><strong className="text-[#FFD700]">PRESTIGE SYSTEM</strong><br />Kill the dragon and enter the next tier — harder mobs, stronger dragon, better gear to grind for. How many dragons can you slay?</p>
+            <p><strong className="text-[#FFD700]">COMPETE ON THE LEADERBOARD</strong><br />Track your dragon kills and level against other players on the global leaderboard. Who will be the first to reach Dragon Slayer status?</p>
+            <p><strong className="text-[#FFD700]">WATCH ADS FOR BONUS TURNS & REVIVES</strong><br />Out of turns? Watch a short ad to get back in the fight. Died to a tough bug? Watch an ad to revive with full HP.</p>
+            <p><strong className="text-[#FFD700]">CONNECT WITH OTHER PLAYERS</strong><br />Post in the in-game Slack channel, send direct messages, and react to other players' posts. The dev community is always online.</p>
+          </div>
         </section>
 
         {/* Features Grid */}
