@@ -1,125 +1,191 @@
 export default function ForkThisDragonPage() {
   return (
-    <main className="min-h-screen bg-gradient-to-br from-[#1a1a2e] via-[#16213e] to-[#0f3460] text-[#E5E5E5]">
-      <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
+    <main className="min-h-screen bg-[#0a0a0a] text-[#00ff41] font-mono selection:bg-[#00ff41] selection:text-[#0a0a0a]">
+      {/* Subtle terminal grid background */}
+      <div
+        className="fixed inset-0 opacity-[0.03] pointer-events-none"
+        style={{
+          backgroundImage: `linear-gradient(rgba(0,255,65,0.3) 1px, transparent 1px), linear-gradient(90deg, rgba(0,255,65,0.3) 1px, transparent 1px)`,
+          backgroundSize: '40px 40px',
+        }}
+      />
+
+      {/* CRT scanline overlay */}
+      <div
+        className="fixed inset-0 pointer-events-none opacity-[0.08]"
+        style={{
+          background: 'repeating-linear-gradient(0deg, transparent, transparent 2px, rgba(0,0,0,0.3) 2px, rgba(0,0,0,0.3) 4px)',
+        }}
+      />
+
+      <div className="relative max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+
+        {/* Terminal Header */}
+        <div className="border border-[#00ff41]/30 rounded-t-lg bg-[#111] px-4 py-2 flex items-center gap-2">
+          <div className="w-3 h-3 rounded-full bg-[#ff5f56]" />
+          <div className="w-3 h-3 rounded-full bg-[#ffbd2e]" />
+          <div className="w-3 h-3 rounded-full bg-[#27c93f]" />
+          <span className="ml-2 text-xs text-[#00ff41]/60">fork-this-dragon — bash — 80x24</span>
+        </div>
+
         {/* Hero Section */}
-        <header className="text-center py-12">
-          <img
-            src="/images/fork-this-dragon-icon.png"
-            alt="Fork This Dragon"
-            className="w-32 h-32 mx-auto mb-8 rounded-3xl shadow-2xl"
-          />
-          <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold mb-4 bg-gradient-to-r from-[#FFD700] to-[#FFA500] bg-clip-text text-transparent">
-            Fork This Dragon
-          </h1>
-          <p className="text-xl sm:text-2xl text-[#B0B0B0] mb-8">
-            A retro text-based RPG with a developer humor theme. You are a programmer dropped into a legacy codebase — 400,000 lines, zero comments, one developer who understood it, retired in 2003.
-          </p>
-          <a
-            href="https://play.google.com/store/apps/details?id=com.ftd.app"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="inline-block bg-[#00C853] hover:bg-[#00B048] text-white px-8 py-4 rounded-full text-lg font-bold shadow-lg transition-all hover:scale-105"
-          >
-            📱 Get it on Google Play
-          </a>
-        </header>
+        <div className="border border-[#00ff41]/30 border-t-0 rounded-b-lg bg-[#0d0d0d] p-8 sm:p-12">
+          <header className="text-center">
+            {/* App Icon with glow */}
+            <div className="relative inline-block mb-8">
+              <div className="absolute inset-0 bg-[#00ff41]/20 blur-xl rounded-3xl" />
+              <img
+                src="/images/fork-this-dragon-icon.png"
+                alt="Fork This Dragon"
+                className="relative w-28 h-28 rounded-2xl border-2 border-[#00ff41]/40 shadow-[0_0_30px_rgba(0,255,65,0.3)]"
+              />
+            </div>
+
+            <div className="mb-2 text-[#00ff41]/50 text-sm">
+              <span className="text-[#ffbd2e]">$</span> ./launch_game.sh
+            </div>
+
+            <h1 className="text-3xl sm:text-4xl lg:text-5xl font-bold mb-4 tracking-tight">
+              <span className="text-[#00ff41]">&gt;</span> Fork_This_Dragon
+              <span className="animate-pulse">_</span>
+            </h1>
+
+            <p className="text-base sm:text-lg text-[#00ff41]/70 mb-8 max-w-2xl mx-auto leading-relaxed">
+              <span className="text-[#ffbd2e]">//</span> A retro text-based RPG with developer humor.
+              <br />
+              <span className="text-[#ffbd2e]">//</span> Dropped into a legacy codebase — 400K lines, zero comments,
+              <br />
+              <span className="text-[#ffbd2e]">//</span> one dev who understood it, retired in 2003.
+            </p>
+
+            <a
+              href="https://play.google.com/store/apps/details?id=com.ftd.app"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center gap-2 bg-[#00ff41] text-[#0a0a0a] px-8 py-3 rounded font-bold hover:bg-[#00ff41]/90 transition-all hover:shadow-[0_0_20px_rgba(0,255,65,0.4)]"
+            >
+              <span>[</span> 📱 DOWNLOAD_APK <span>]</span>
+            </a>
+          </header>
+        </div>
 
         {/* About Section */}
-        <section className="bg-[#1a1a2e]/50 backdrop-blur-sm rounded-2xl p-8 sm:p-12 mt-12 border border-[#FFD700]/20">
-          <h2 className="text-3xl font-bold mb-6 text-[#FFD700]">About the Game</h2>
-          <div className="space-y-4 text-lg text-[#B0B0B0] leading-relaxed">
-            <p><strong className="text-[#FFD700]">FIGHT BUGS IN THE CODEBASE</strong><br />Battle increasingly dangerous bugs — from Missing Semicolons to Critical Bugs in Production. Use Debug, Stack Trace, Rubber Duck, and more to squash them. Each fight costs a turn, and turns regenerate over time.</p>
-            <p><strong className="text-[#FFD700]">GEAR UP AT THE SHOP</strong><br />Spend your gold at Stack Overflow Outfitters. Upgrade your weapon from a Rubber Duck all the way to The Nuclear Option. Armor up from a Hoodie to an Air-Gapped Server Room. Better gear means tougher fights and bigger dragons.</p>
-            <p><strong className="text-[#FFD700]">CHALLENGE THE LEGACY DRAGON</strong><br />At the heart of the codebase lives the Legacy Dragon — a monstrous entity of technical debt that has been running since 2003. Gear up, level up, and take it down. Each kill unlocks a harder prestige tier with stronger monsters and better rewards.</p>
-            <p><strong className="text-[#FFD700]">PRESTIGE SYSTEM</strong><br />Kill the dragon and enter the next tier — harder mobs, stronger dragon, better gear to grind for. How many dragons can you slay?</p>
-            <p><strong className="text-[#FFD700]">COMPETE ON THE LEADERBOARD</strong><br />Track your dragon kills and level against other players on the global leaderboard. Who will be the first to reach Dragon Slayer status?</p>
-            <p><strong className="text-[#FFD700]">WATCH ADS FOR BONUS TURNS & REVIVES</strong><br />Out of turns? Watch a short ad to get back in the fight. Died to a tough bug? Watch an ad to revive with full HP.</p>
-            <p><strong className="text-[#FFD700]">CONNECT WITH OTHER PLAYERS</strong><br />Post in the in-game Slack channel, send direct messages, and react to other players' posts. The dev community is always online.</p>
+        <section className="mt-8 border border-[#00ff41]/30 rounded-lg bg-[#0d0d0d] overflow-hidden">
+          <div className="border-b border-[#00ff41]/20 px-4 py-2 bg-[#111] text-xs text-[#00ff41]/50 flex items-center gap-2">
+            <span className="text-[#ffbd2e]">$</span> cat README.md
+          </div>
+          <div className="p-8 sm:p-10 space-y-5 text-[#00ff41]/80 leading-relaxed text-sm sm:text-base">
+            <div className="flex gap-3">
+              <span className="text-[#ffbd2e] shrink-0">01</span>
+              <p><span className="text-[#00ff41] font-bold">FIGHT_BUGS()</span> — Battle increasingly dangerous bugs from Missing Semicolons to Critical Bugs in Production. Use Debug, Stack Trace, Rubber Duck. Each fight costs a turn.</p>
+            </div>
+            <div className="flex gap-3">
+              <span className="text-[#ffbd2e] shrink-0">02</span>
+              <p><span className="text-[#00ff41] font-bold">GEAR_UP()</span> — Spend gold at Stack Overflow Outfitters. Upgrade weapon: Rubber Duck → The Nuclear Option. Armor: Hoodie → Air-Gapped Server Room.</p>
+            </div>
+            <div className="flex gap-3">
+              <span className="text-[#ffbd2e] shrink-0">03</span>
+              <p><span className="text-[#00ff41] font-bold">CHALLENGE_DRAGON()</span> — The Legacy Dragon lives at the heart of the codebase. Monstrous technical debt running since 2003. Gear up. Take it down.</p>
+            </div>
+            <div className="flex gap-3">
+              <span className="text-[#ffbd2e] shrink-0">04</span>
+              <p><span className="text-[#00ff41] font-bold">LEADERBOARD()</span> — Track dragon kills and level. Compete for Dragon Slayer status. Who's first?</p>
+            </div>
+            <div className="flex gap-3">
+              <span className="text-[#ffbd2e] shrink-0">05</span>
+              <p><span className="text-[#00ff41] font-bold">SOCIAL_CONNECT()</span> — In-game Slack channel, DMs, reactions. The dev community is always online.</p>
+            </div>
+            <div className="flex gap-3">
+              <span className="text-[#ffbd2e] shrink-0">06</span>
+              <p><span className="text-[#00ff41] font-bold">ADS_WATCH()</span> — Out of turns? Watch a short ad. Died to a tough bug? Watch an ad to revive.</p>
+            </div>
           </div>
         </section>
 
         {/* Features Carousel */}
-        <section className="mt-12">
-          <h2 className="text-3xl font-bold mb-8 text-center text-[#FFD700]">Features</h2>
-          <div className="flex gap-6 overflow-x-auto snap-x snap-mandatory pb-4 scrollbar-thin scrollbar-thumb-[#FFD700]/30 scrollbar-track-transparent">
-            <div className="snap-center shrink-0 w-[280px] sm:w-[320px] bg-[#1a1a2e]/50 backdrop-blur-sm rounded-2xl p-6 border border-[#FFD700]/20 text-center hover:border-[#FFD700]/50 transition-all">
-              <div className="text-5xl mb-4">💾</div>
-              <h3 className="text-xl font-bold mb-2 text-[#FFD700]">Retro Terminal Aesthetic</h3>
-              <p className="text-[#B0B0B0]">Pixel art icons and classic terminal vibes. Feels like coding in the 90s.</p>
-            </div>
-            <div className="snap-center shrink-0 w-[280px] sm:w-[320px] bg-[#1a1a2e]/50 backdrop-blur-sm rounded-2xl p-6 border border-[#FFD700]/20 text-center hover:border-[#FFD700]/50 transition-all">
-              <div className="text-5xl mb-4">🐛</div>
-              <h3 className="text-xl font-bold mb-2 text-[#FFD700]">7 Mob Tiers</h3>
-              <p className="text-[#B0B0B0]">From harmless Missing Semicolons to endgame nightmares. Scale your skills.</p>
-            </div>
-            <div className="snap-center shrink-0 w-[280px] sm:w-[320px] bg-[#1a1a2e]/50 backdrop-blur-sm rounded-2xl p-6 border border-[#FFD700]/20 text-center hover:border-[#FFD700]/50 transition-all">
-              <div className="text-5xl mb-4">⚔️</div>
-              <h3 className="text-xl font-bold mb-2 text-[#FFD700]">Challenge the Legacy Dragon</h3>
-              <p className="text-[#B0B0B0]">At the heart of the codebase lives a monstrous entity of technical debt. Gear up and take it down.</p>
-            </div>
-            <div className="snap-center shrink-0 w-[280px] sm:w-[320px] bg-[#1a1a2e]/50 backdrop-blur-sm rounded-2xl p-6 border border-[#FFD700]/20 text-center hover:border-[#FFD700]/50 transition-all">
-              <div className="text-5xl mb-4">🏆</div>
-              <h3 className="text-xl font-bold mb-2 text-[#FFD700]">Global Leaderboard</h3>
-              <p className="text-[#B0B0B0]">Track dragon kills and levels. Compete for Dragon Slayer status.</p>
-            </div>
-            <div className="snap-center shrink-0 w-[280px] sm:w-[320px] bg-[#1a1a2e]/50 backdrop-blur-sm rounded-2xl p-6 border border-[#FFD700]/20 text-center hover:border-[#FFD700]/50 transition-all">
-              <div className="text-5xl mb-4">💬</div>
-              <h3 className="text-xl font-bold mb-2 text-[#FFD700]">In-Game Social Chat</h3>
-              <p className="text-[#B0B0B0]">Slack-style channels, DMs, reactions. The dev community never sleeps.</p>
-            </div>
-            <div className="snap-center shrink-0 w-[280px] sm:w-[320px] bg-[#1a1a2e]/50 backdrop-blur-sm rounded-2xl p-6 border border-[#FFD700]/20 text-center hover:border-[#FFD700]/50 transition-all">
-              <div className="text-5xl mb-4">🔑</div>
-              <h3 className="text-xl font-bold mb-2 text-[#FFD700]">Google Sign-In</h3>
-              <p className="text-[#B0B0B0]">One-tap login. No passwords to forget. Your progress synced across devices.</p>
-            </div>
-            <div className="snap-center shrink-0 w-[280px] sm:w-[320px] bg-[#1a1a2e]/50 backdrop-blur-sm rounded-2xl p-6 border border-[#FFD700]/20 text-center hover:border-[#FFD700]/50 transition-all">
-              <div className="text-5xl mb-4">⏱️</div>
-              <h3 className="text-xl font-bold mb-2 text-[#FFD700]">Play at Your Own Pace</h3>
-              <p className="text-[#B0B0B0]">Turns regenerate over time. No pay-to-win pressure. Grind or chill — your call.</p>
-            </div>
+        <section className="mt-8">
+          <div className="flex items-center gap-2 mb-4 text-[#00ff41]/50 text-xs">
+            <span className="text-[#ffbd2e]">$</span> ls features/
+          </div>
+          <div className="flex gap-4 overflow-x-auto snap-x snap-mandatory pb-4 scrollbar-thin scrollbar-thumb-[#00ff41]/30 scrollbar-track-transparent">
+            {[
+              { icon: '💾', name: 'retro_terminal', desc: 'Pixel art icons. Classic terminal vibes. Feels like coding in the 90s.' },
+              { icon: '🐛', name: '7_mob_tiers', desc: 'Missing Semicolons to endgame nightmares. Scale your skills.' },
+              { icon: '⚔️', name: 'legacy_dragon', desc: 'Monstrous technical debt. Gear up and take it down.' },
+              { icon: '🏆', name: 'leaderboard', desc: 'Track kills and levels. Compete for Dragon Slayer status.' },
+              { icon: '💬', name: 'social_chat', desc: 'Slack-style channels, DMs, reactions. Devs never sleep.' },
+              { icon: '🔑', name: 'google_signin', desc: 'One-tap login. Progress synced across devices.' },
+              { icon: '⏱️', name: 'own_pace', desc: 'Turns regenerate. No pay-to-win. Grind or chill.' },
+            ].map((f) => (
+              <div key={f.name} className="snap-center shrink-0 w-[260px] sm:w-[300px] border border-[#00ff41]/20 rounded-lg bg-[#0d0d0d] p-5 hover:border-[#00ff41]/50 transition-all group">
+                <div className="text-4xl mb-3 group-hover:scale-110 transition-transform">{f.icon}</div>
+                <div className="text-xs text-[#00ff41]/40 mb-1 font-mono">{f.name}.js</div>
+                <h3 className="text-sm font-bold mb-2 text-[#00ff41]">{f.name.replace(/_/g, ' ').toUpperCase()}</h3>
+                <p className="text-xs text-[#00ff41]/60 leading-relaxed">{f.desc}</p>
+              </div>
+            ))}
           </div>
         </section>
 
-        {/* Screenshots Section */}
-        <section className="mt-12">
-          <h2 className="text-3xl font-bold mb-8 text-center text-[#FFD700]">Screenshots</h2>
-          <div className="relative">
-            <div className="flex gap-4 overflow-x-auto snap-x snap-mandatory pb-4 scrollbar-thin scrollbar-thumb-[#FFD700]/30 scrollbar-track-transparent">
-              {[1,2,3,4,5].map((n) => (
-                <div key={n} className="snap-center shrink-0 w-[280px] sm:w-[320px]">
-                  <div className="rounded-2xl overflow-hidden border border-[#FFD700]/20 shadow-lg">
-                    <img src={`/images/ftd-screenshot-${n}.jpg`} alt={`Screenshot ${n}`} className="w-full h-auto object-cover" />
+        {/* Screenshots */}
+        <section className="mt-8">
+          <div className="flex items-center gap-2 mb-4 text-[#00ff41]/50 text-xs">
+            <span className="text-[#ffbd2e]">$</span> ls screenshots/
+          </div>
+          <div className="flex gap-4 overflow-x-auto snap-x snap-mandatory pb-4 scrollbar-thin scrollbar-thumb-[#00ff41]/30 scrollbar-track-transparent">
+            {[1,2,3,4,5].map((n) => (
+              <div key={n} className="snap-center shrink-0 w-[240px] sm:w-[280px]">
+                <div className="border border-[#00ff41]/20 rounded-lg overflow-hidden bg-[#0d0d0d]">
+                  <div className="border-b border-[#00ff41]/10 px-3 py-1.5 bg-[#111] flex items-center gap-1.5">
+                    <div className="w-2 h-2 rounded-full bg-[#ff5f56]" />
+                    <div className="w-2 h-2 rounded-full bg-[#ffbd2e]" />
+                    <div className="w-2 h-2 rounded-full bg-[#27c93f]" />
+                    <span className="ml-2 text-[10px] text-[#00ff41]/30">screen_{n}.png</span>
                   </div>
+                  <img src={`/images/ftd-screenshot-${n}.jpg`} alt={`Screenshot ${n}`} className="w-full h-auto" />
                 </div>
-              ))}
-            </div>
+              </div>
+            ))}
           </div>
         </section>
 
         {/* CTA Section */}
-        <section className="mt-12 text-center bg-gradient-to-r from-[#FFD700]/10 to-[#FFA500]/10 rounded-2xl p-12 border border-[#FFD700]/20">
-          <h2 className="text-3xl font-bold mb-4 text-[#FFD700]">Ready to Fork This Dragon?</h2>
-          <p className="text-lg text-[#B0B0B0] mb-6">Download now and start your adventure!</p>
+        <section className="mt-8 border border-[#00ff41]/30 rounded-lg bg-[#0d0d0d] p-10 sm:p-14 text-center">
+          <div className="text-xs text-[#00ff41]/50 mb-4">
+            <span className="text-[#ffbd2e]">$</span> sudo apt install fork-this-dragon
+          </div>
+          <h2 className="text-2xl sm:text-3xl font-bold mb-4">
+            <span className="text-[#00ff41]">&gt;</span> READY_TO_COMPILE?
+            <span className="animate-pulse">_</span>
+          </h2>
+          <p className="text-[#00ff41]/60 mb-6 text-sm">
+            <span className="text-[#ffbd2e]">//</span> Download now. Start debugging.
+          </p>
           <a
             href="https://play.google.com/store/apps/details?id=com.ftd.app"
             target="_blank"
             rel="noopener noreferrer"
-            className="inline-block bg-[#00C853] hover:bg-[#00B048] text-white px-8 py-4 rounded-full text-lg font-bold shadow-lg transition-all hover:scale-105"
+            className="inline-flex items-center gap-2 bg-[#00ff41] text-[#0a0a0a] px-8 py-3 rounded font-bold hover:bg-[#00ff41]/90 transition-all hover:shadow-[0_0_20px_rgba(0,255,65,0.4)]"
           >
-            📱 Get it on Google Play
+            <span>[</span> 📱 EXECUTE_DOWNLOAD <span>]</span>
           </a>
         </section>
 
         {/* Footer */}
-        <footer className="mt-16 text-center text-[#888]">
+        <footer className="mt-10 text-center text-[#00ff41]/30 text-xs space-y-1">
           <p>
-            Made with ❤️ by{" "}
-            <a href="/" className="text-[#FFD700] hover:underline">
-              The JPMoreGain Project
+            <span className="text-[#ffbd2e]">//</span> Built with ❤️ by{" "}
+            <a href="/" className="text-[#00ff41]/50 hover:text-[#00ff41] underline">
+              The_JPMoreGain_Project
             </a>
           </p>
-          <p className="mt-2 text-sm">© 2026 The JPMoreGain Project</p>
+          <p>
+            <span className="text-[#ffbd2e]">//</span> © 2026 — All rights reserved. No bugs were harmed in the making of this page.
+          </p>
+          <p className="text-[#00ff41]/20 pt-2">
+            {/* ASCII divider */}
+            ─────────────────────────────────────
+          </p>
         </footer>
       </div>
     </main>
