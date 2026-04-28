@@ -1,28 +1,4 @@
-"use client";
-
-import { useEffect, useRef } from "react";
-
-function useAutoScroll(interval = 2000) {
-  const ref = useRef<HTMLDivElement>(null);
-  useEffect(() => {
-    const el = ref.current;
-    if (!el) return;
-    const timer = setInterval(() => {
-      if (el.scrollLeft + el.clientWidth >= el.scrollWidth - 2) {
-        el.scrollTo({ left: 0, behavior: "smooth" });
-      } else {
-        el.scrollBy({ left: el.clientWidth * 0.8, behavior: "smooth" });
-      }
-    }, interval);
-    return () => clearInterval(timer);
-  }, [interval]);
-  return ref;
-}
-
 export default function ForkThisDragonPage() {
-  const featuresRef = useAutoScroll(2000);
-  const screenshotsRef = useAutoScroll(2000);
-
   return (
     <main className="min-h-screen bg-gradient-to-br from-[#1a1a2e] via-[#16213e] to-[#0f3460] text-[#E5E5E5]">
       <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
@@ -66,7 +42,7 @@ export default function ForkThisDragonPage() {
         {/* Features Carousel */}
         <section className="mt-12">
           <h2 className="text-3xl font-bold mb-8 text-center text-[#FFD700]">Features</h2>
-          <div ref={featuresRef} className="flex gap-6 overflow-x-auto snap-x snap-mandatory pb-4 scrollbar-thin scrollbar-thumb-[#FFD700]/30 scrollbar-track-transparent">
+          <div className="flex gap-6 overflow-x-auto snap-x snap-mandatory pb-4 scrollbar-thin scrollbar-thumb-[#FFD700]/30 scrollbar-track-transparent">
             <div className="snap-center shrink-0 w-[280px] sm:w-[320px] bg-[#1a1a2e]/50 backdrop-blur-sm rounded-2xl p-6 border border-[#FFD700]/20 text-center hover:border-[#FFD700]/50 transition-all">
               <div className="text-5xl mb-4">💾</div>
               <h3 className="text-xl font-bold mb-2 text-[#FFD700]">Retro Terminal Aesthetic</h3>
@@ -109,7 +85,7 @@ export default function ForkThisDragonPage() {
         <section className="mt-12">
           <h2 className="text-3xl font-bold mb-8 text-center text-[#FFD700]">Screenshots</h2>
           <div className="relative">
-            <div ref={screenshotsRef} className="flex gap-4 overflow-x-auto snap-x snap-mandatory pb-4 scrollbar-thin scrollbar-thumb-[#FFD700]/30 scrollbar-track-transparent">
+            <div className="flex gap-4 overflow-x-auto snap-x snap-mandatory pb-4 scrollbar-thin scrollbar-thumb-[#FFD700]/30 scrollbar-track-transparent">
               {[1,2,3,4,5].map((n) => (
                 <div key={n} className="snap-center shrink-0 w-[280px] sm:w-[320px]">
                   <div className="rounded-2xl overflow-hidden border border-[#FFD700]/20 shadow-lg">
