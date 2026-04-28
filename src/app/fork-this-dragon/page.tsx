@@ -95,17 +95,20 @@ export default function ForkThisDragonPage() {
         <section className="mt-12">
           <h2 className="text-3xl font-bold mb-8 text-center text-[#FFD700]">Screenshots</h2>
           <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6">
-            <div className="bg-[#2a2a3e] rounded-2xl aspect-[9/16] flex flex-col items-center justify-center text-[#666]">
-              <div className="text-5xl mb-2">📸</div>
-              <p>Screenshot 1</p>
+            <div className="rounded-2xl overflow-hidden border border-[#FFD700]/20 shadow-lg">
+              <img src="/images/ftd-screenshot-1.jpg" alt="Screenshot 1" className="w-full h-full object-cover" />
             </div>
-            <div className="bg-[#2a2a3e] rounded-2xl aspect-[9/16] flex flex-col items-center justify-center text-[#666]">
-              <div className="text-5xl mb-2">📸</div>
-              <p>Screenshot 2</p>
+            <div className="rounded-2xl overflow-hidden border border-[#FFD700]/20 shadow-lg">
+              <img src="/images/ftd-screenshot-2.jpg" alt="Screenshot 2" className="w-full h-full object-cover" />
             </div>
-            <div className="bg-[#2a2a3e] rounded-2xl aspect-[9/16] flex flex-col items-center justify-center text-[#666]">
-              <div className="text-5xl mb-2">📸</div>
-              <p>Screenshot 3</p>
+            <div className="rounded-2xl overflow-hidden border border-[#FFD700]/20 shadow-lg">
+              <img src="/images/ftd-screenshot-3.jpg" alt="Screenshot 3" className="w-full h-full object-cover" />
+            </div>
+            <div className="rounded-2xl overflow-hidden border border-[#FFD700]/20 shadow-lg">
+              <img src="/images/ftd-screenshot-4.jpg" alt="Screenshot 4" className="w-full h-full object-cover" />
+            </div>
+            <div className="rounded-2xl overflow-hidden border border-[#FFD700]/20 shadow-lg">
+              <img src="/images/ftd-screenshot-5.jpg" alt="Screenshot 5" className="w-full h-full object-cover" />
             </div>
           </div>
         </section>
