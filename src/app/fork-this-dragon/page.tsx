@@ -64,9 +64,9 @@ export default function ForkThisDragonPage() {
               <p className="text-[#B0B0B0]">From harmless Missing Semicolons to endgame nightmares. Scale your skills.</p>
             </div>
             <div className="bg-[#1a1a2e]/50 backdrop-blur-sm rounded-2xl p-6 border border-[#FFD700]/20 text-center hover:border-[#FFD700]/50 transition-all">
-              <div className="text-5xl mb-4">🔄</div>
-              <h3 className="text-xl font-bold mb-2 text-[#FFD700]">Prestige System</h3>
-              <p className="text-[#B0B0B0]">Kill the dragon, enter the next tier. Harder mobs, better loot, bigger bragging rights.</p>
+              <div className="text-5xl mb-4">⚔️</div>
+              <h3 className="text-xl font-bold mb-2 text-[#FFD700]">Challenge the Legacy Dragon</h3>
+              <p className="text-[#B0B0B0]">At the heart of the codebase lives a monstrous entity of technical debt. Gear up and take it down.</p>
             </div>
             <div className="bg-[#1a1a2e]/50 backdrop-blur-sm rounded-2xl p-6 border border-[#FFD700]/20 text-center hover:border-[#FFD700]/50 transition-all">
               <div className="text-5xl mb-4">🏆</div>
