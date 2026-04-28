@@ -14,14 +14,16 @@ export default function ForkThisDragonPage() {
       <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
         {/* Hero Section */}
         <header className="text-center py-12">
-          <div className="w-32 h-32 mx-auto mb-8 bg-white rounded-3xl flex items-center justify-center text-7xl shadow-2xl">
-            🐉
-          </div>
+          <img
+            src="/images/fork-this-dragon-icon.png"
+            alt="Fork This Dragon"
+            className="w-32 h-32 mx-auto mb-8 rounded-3xl shadow-2xl"
+          />
           <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold mb-4 bg-gradient-to-r from-[#FFD700] to-[#FFA500] bg-clip-text text-transparent">
             Fork This Dragon
           </h1>
           <p className="text-xl sm:text-2xl text-[#B0B0B0] mb-8">
-            [Tagline goes here]
+            A retro text-based RPG with a developer humor theme. You are a programmer dropped into a legacy codebase — 400,000 lines, zero comments, one developer who understood it, retired in 2003.
           </p>
           <a
             href="https://play.google.com/store/apps/details?id=com.ftd.app"
