@@ -57,7 +57,7 @@ export default function QuietudePage() {
             </p>
 
             <a
-              href="https://play.google.com/store/apps/details?id=com.quietude.app"
+              href="https://play.google.com/store/apps/details?id=com.yourdomain.quietude"
               target="_blank"
               rel="noopener noreferrer"
               className="inline-flex items-center gap-2 bg-[#00ff41] text-[#0a0a0a] px-8 py-3 rounded font-bold hover:bg-[#00ff41]/90 transition-all hover:shadow-[0_0_20px_rgba(0,255,65,0.4)]"
@@ -126,7 +126,7 @@ export default function QuietudePage() {
             <span className="text-[#ffbd2e]">//</span> Download now. Find your quiet.
           </p>
           <a
-            href="https://play.google.com/store/apps/details?id=com.quietude.app"
+            href="https://play.google.com/store/apps/details?id=com.yourdomain.quietude"
             target="_blank"
             rel="noopener noreferrer"
             className="inline-flex items-center gap-2 bg-[#00ff41] text-[#0a0a0a] px-8 py-3 rounded font-bold hover:bg-[#00ff41]/90 transition-all hover:shadow-[0_0_20px_rgba(0,255,65,0.4)]"
