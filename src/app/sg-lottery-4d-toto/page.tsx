@@ -34,9 +34,11 @@ export default function SGLotteryPage() {
             {/* App Icon with glow */}
             <div className="relative inline-block mb-8">
               <div className="absolute inset-0 bg-[#00ff41]/20 blur-xl rounded-3xl" />
-              <div className="relative w-28 h-28 rounded-2xl border-2 border-[#00ff41]/40 shadow-[0_0_30px_rgba(0,255,65,0.3)] bg-[#1a1a2e] flex items-center justify-center text-6xl">
-                🎰
-              </div>
+              <img
+                src="/images/sg-lottery-icon.png"
+                alt="SG Lottery 4D TOTO"
+                className="relative w-28 h-28 rounded-2xl border-2 border-[#00ff41]/40 shadow-[0_0_30px_rgba(0,255,65,0.3)]"
+              />
             </div>
 
             <div className="mb-2 text-[#00ff41]/50 text-sm">
