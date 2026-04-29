@@ -98,6 +98,16 @@ const projects = [
     image: "/images/fork-this-dragon-icon.png",
     imageStyle: "contain" as const,
   },
+  {
+    title: "SG Lottery 4D TOTO",
+    description:
+      "Stay up to date with the latest Singapore Pools 4D & TOTO draw results. History, lucky number generator, and prize breakdowns.",
+    tags: ["App", "Singapore", "Lottery", "Android"],
+    link: "/sg-lottery-4d-toto",
+    slug: "sg-lottery-4d-toto",
+    image: "/images/sg-lottery-icon.png",
+    imageStyle: "contain" as const,
+  },
 ];
 
 const comingSoonProjects = [
