@@ -145,7 +145,7 @@ export default function QuietudePage() {
             <span className="text-[#ffbd2e]">$</span> ls screenshots/
           </div>
           <div className="flex gap-4 overflow-x-auto snap-x snap-mandatory pb-4 scrollbar-thin scrollbar-thumb-[#00ff41]/30 scrollbar-track-transparent">
-            {[1,2,3,4,5].map((n) => (
+            {[1,2,3].map((n) => (
               <div key={n} className="snap-center shrink-0 w-[240px] sm:w-[280px]">
                 <div className="border border-[#00ff41]/20 rounded-lg overflow-hidden bg-[#0d0d0d]">
                   <div className="border-b border-[#00ff41]/10 px-3 py-1.5 bg-[#111] flex items-center gap-1.5">
@@ -154,10 +154,7 @@ export default function QuietudePage() {
                     <div className="w-2 h-2 rounded-full bg-[#27c93f]" />
                     <span className="ml-2 text-[10px] text-[#00ff41]/30">screen_{n}.png</span>
                   </div>
-                  <div className="bg-[#2a2a3e] aspect-[9/16] flex flex-col items-center justify-center text-[#666]">
-                    <div className="text-5xl mb-2">📸</div>
-                    <p className="text-xs">Screenshot {n}</p>
-                  </div>
+                  <img src={`/images/quietude-screenshot-${n}.webp`} alt={`Screenshot ${n}`} className="w-full h-auto" />
                 </div>
               </div>
             ))}
