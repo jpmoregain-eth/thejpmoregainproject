@@ -75,23 +75,15 @@ export default function SGLotteryPage() {
           <div className="p-8 sm:p-10 space-y-5 text-[#00ff41]/80 leading-relaxed text-sm sm:text-base">
             <div className="flex gap-3">
               <span className="text-[#ffbd2e] shrink-0">01</span>
-              <p><span className="text-[#00ff41] font-bold">[FEATURE_1]()</span> — [Description goes here]</p>
+              <p><span className="text-[#00ff41] font-bold">GET_RESULTS()</span> — Get the latest 4D &amp; TOTO draw results the moment they are published. View all 6 winning numbers plus the additional number, full prize breakdown by group, and jackpot amount at a glance.</p>
             </div>
             <div className="flex gap-3">
               <span className="text-[#ffbd2e] shrink-0">02</span>
-              <p><span className="text-[#00ff41] font-bold">[FEATURE_2]()</span> — [Description goes here]</p>
+              <p><span className="text-[#00ff41] font-bold">BROWSE_HISTORY()</span> — Browse through thousands of past draw results going all the way back to 1990s. Search by draw number or date to quickly find any specific draw. Scroll through recent history or jump straight to what you're looking for.</p>
             </div>
             <div className="flex gap-3">
               <span className="text-[#ffbd2e] shrink-0">03</span>
-              <p><span className="text-[#00ff41] font-bold">[FEATURE_3]()</span> — [Description goes here]</p>
-            </div>
-            <div className="flex gap-3">
-              <span className="text-[#ffbd2e] shrink-0">04</span>
-              <p><span className="text-[#00ff41] font-bold">[FEATURE_4]()</span> — [Description goes here]</p>
-            </div>
-            <div className="flex gap-3">
-              <span className="text-[#ffbd2e] shrink-0">05</span>
-              <p><span className="text-[#00ff41] font-bold">[FEATURE_5]()</span> — [Description goes here]</p>
+              <p><span className="text-[#00ff41] font-bold">LUCKY_NUMBER_GENERATOR()</span> — Not sure what numbers to pick for the next draw? Let our generator suggest sets of numbers for you, powered by multiple prediction strategies including LSTM, Markov Chain, Mean Reversion, Frequency Analysis, Wheeling System, Sum Range, Odd/Even Balance and Positional Bias — each analysed against different historical windows of 25, 50, 100 or 200 past draws.</p>
             </div>
           </div>
         </section>
