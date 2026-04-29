@@ -545,19 +545,20 @@ export default function InstallPage() {
         </Step>
 
         <Step n={3} title="Join remaining nodes">
-          Once the first node is up and the cluster is formed, additional nodes join through the
-          WebUI or CLI. OneFS discovers nodes on the backend network automatically once they boot.
+          Once the first node is up and the cluster is formed, additional nodes are powered on one
+          at a time. Each new node boots, detects the existing cluster on the backend network, and
+          presents itself for joining. The join is approved through the WebUI under
+          {" "}<span style={S.code}>Cluster Management {">"} Add Nodes</span>, or the node may
+          join automatically depending on the cluster configuration. Monitor overall cluster state
+          with:
           <div style={{ ...S.codeBlock, marginTop: "0.5rem" }}>
-{`# Join a node via CLI (run on the existing cluster)
-isi devices node add --node-ip <new-node-backend-ip>
-
-# Monitor node join progress
+{`# Check cluster status and node state
 isi status`}
           </div>
-          Wait for each node to fully join before adding the next. Joining modifies the protection
-          group layout across the cluster -- adding nodes too quickly can cause unnecessary
-          rebalancing operations that consume backend bandwidth during a time when you want the
-          cluster to be stable.
+          Wait for each node to fully join and show healthy before powering on the next.
+          Joining modifies the protection group layout across the cluster -- adding nodes too
+          quickly can trigger unnecessary rebalancing that consumes backend bandwidth during
+          a phase when you want the cluster to be stable.
         </Step>
 
         <Step n={4} title="Compliance mode decision (if applicable)">
@@ -573,13 +574,6 @@ isi status`}
           confirmation from the customer before proceeding. Do this with Dell Support assistance.
         </Warn>
 
-        <Step n={5} title="SED pre-format (if applicable)">
-          If the cluster uses Self-Encrypting Drives, the SED pre-format procedure must run before
-          any data is written. This initialises the encryption key hierarchy for the drives.
-          Skipping this step and writing data to unformatted SEDs means the data is not actually
-          encrypted, defeating the purpose of ordering SED hardware. Check the node order
-          confirmation to determine if SEDs are included.
-        </Step>
       </div>
 
       {/* 6. Health check */}
@@ -601,7 +595,7 @@ isi status`}
 
         <div style={S.codeBlock}>
 {`# Run HealthCheck from the CLI
-isi_phone_home --healthcheck
+isi_gather_info
 
 # Check overall cluster status
 isi status
@@ -764,14 +758,9 @@ isi_dsp_update --verify`}
           <tbody>
             {[
               [
-                "Wrong chassis for H/A nodes",
-                "Midplane fuse opens, requires full chassis replacement",
-                "Confirm node model against chassis type before racking. Factory-supplied chassis only.",
-              ],
-              [
                 "IP scheme not finalised before install",
-                "Config wizard is completed with placeholder values that need to be corrected post-install",
-                "Lock down the full IP plan before the team arrives. Changes after cluster formation are possible but add unnecessary complexity.",
+                "Changing IPs post-install is possible but has a cost. Backend IP changes require node reboots. Frontend IP changes are non-disruptive before production, but once the cluster is live, any IP change requires a planned maintenance window -- customer notification, change management, downtime. A 30-minute planning conversation before install avoids all of that.",
+                "Lock down the full IP plan, SmartConnect zone IP, and management IPs before the team arrives. Get sign-off from the network team in advance.",
               ],
               [
                 "MTU mismatch not caught at install",
@@ -782,11 +771,6 @@ isi_dsp_update --verify`}
                 "Compliance mode enabled by mistake",
                 "Root access permanently disabled, cannot be reversed -- ever",
                 "Get written confirmation from the customer. Do it with Dell Support. Never enable Compliance mode speculatively.",
-              ],
-              [
-                "SED nodes not pre-formatted",
-                "Data written to drives without proper encryption key initialisation",
-                "Check the order for SED drives during planning and add pre-format to the install runbook explicitly.",
               ],
               [
                 "Firmware not updated before handover",
