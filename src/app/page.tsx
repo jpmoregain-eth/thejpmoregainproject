@@ -88,6 +88,16 @@ const projects = [
     image: "/images/heng-heng-casino-card.jpg",
     imageStyle: "contain" as const,
   },
+  {
+    title: "Fork This Dragon",
+    description:
+      "A retro text-based RPG with developer humor. Fight bugs, gear up, challenge the Legacy Dragon, and climb the global leaderboard.",
+    tags: ["Game", "RPG", "Android", "Mobile"],
+    link: "/fork-this-dragon",
+    slug: "fork-this-dragon",
+    image: "/images/fork-this-dragon-icon.png",
+    imageStyle: "contain" as const,
+  },
 ];
 
 const comingSoonProjects = [
