@@ -4,6 +4,7 @@ import Script from "next/script";
 import "./globals.css";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
+import ConditionalShell from "@/components/ConditionalShell";
 
 const inter = Inter({
   variable: "--font-inter",
@@ -87,9 +88,7 @@ export default function RootLayout({
       className={`${inter.variable} ${jetbrainsMono.variable} h-full antialiased`}
     >
       <body className="min-h-full flex flex-col bg-[#0A0A0F] text-[#E5E5E5] bg-grid-pattern bg-noise">
-        <Navbar />
-        <main className="flex-1">{children}</main>
-        <Footer />
+        <ConditionalShell>{children}</ConditionalShell>
         <Script id="infolinks-vars" strategy="afterInteractive">
           {`var infolinks_pid = 3444508; var infolinks_wsid = 0;`}
         </Script>
