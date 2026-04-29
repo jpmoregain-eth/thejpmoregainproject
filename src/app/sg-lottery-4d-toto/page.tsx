@@ -88,31 +88,6 @@ export default function SGLotteryPage() {
           </div>
         </section>
 
-        {/* Features Carousel */}
-        <section className="mt-8">
-          <div className="flex items-center gap-2 mb-4 text-[#00ff41]/50 text-xs">
-            <span className="text-[#ffbd2e]">$</span> ls features/
-          </div>
-          <div className="flex gap-4 overflow-x-auto snap-x snap-mandatory pb-4 scrollbar-thin scrollbar-thumb-[#00ff41]/30 scrollbar-track-transparent">
-            {[
-              { icon: '🎯', name: 'feature_1', desc: '[Feature 1 description]' },
-              { icon: '📊', name: 'feature_2', desc: '[Feature 2 description]' },
-              { icon: '🔔', name: 'feature_3', desc: '[Feature 3 description]' },
-              { icon: '🎲', name: 'feature_4', desc: '[Feature 4 description]' },
-              { icon: '📈', name: 'feature_5', desc: '[Feature 5 description]' },
-              { icon: '🏆', name: 'feature_6', desc: '[Feature 6 description]' },
-              { icon: '⚡', name: 'feature_7', desc: '[Feature 7 description]' },
-            ].map((f) => (
-              <div key={f.name} className="snap-center shrink-0 w-[260px] sm:w-[300px] border border-[#00ff41]/20 rounded-lg bg-[#0d0d0d] p-5 hover:border-[#00ff41]/50 transition-all group">
-                <div className="text-4xl mb-3 group-hover:scale-110 transition-transform">{f.icon}</div>
-                <div className="text-xs text-[#00ff41]/40 mb-1 font-mono">{f.name}.js</div>
-                <h3 className="text-sm font-bold mb-2 text-[#00ff41]">{f.name.replace(/_/g, ' ').toUpperCase()}</h3>
-                <p className="text-xs text-[#00ff41]/60 leading-relaxed">{f.desc}</p>
-              </div>
-            ))}
-          </div>
-        </section>
-
         {/* Screenshots */}
         <section className="mt-8">
           <div className="flex items-center gap-2 mb-4 text-[#00ff41]/50 text-xs">
