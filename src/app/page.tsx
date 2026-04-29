@@ -108,6 +108,16 @@ const projects = [
     image: "/images/sg-lottery-icon.png",
     imageStyle: "contain" as const,
   },
+  {
+    title: "Quietude",
+    description:
+      "Your personal sanctuary of calm. Ambient music and zen visuals for sleep, focus, and meditation.",
+    tags: ["App", "Wellness", "Music", "Android"],
+    link: "/quietude",
+    slug: "quietude",
+    image: "/images/quietude-icon.png",
+    imageStyle: "contain" as const,
+  },
 ];
 
 const comingSoonProjects = [
