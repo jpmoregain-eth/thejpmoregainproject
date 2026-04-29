@@ -51,11 +51,11 @@ export default function QuietudePage() {
             </h1>
 
             <p className="text-base sm:text-lg text-[#00ff41]/70 mb-8 max-w-2xl mx-auto leading-relaxed">
-              <span className="text-[#ffbd2e]">//</span> [Tagline goes here]
+              <span className="text-[#ffbd2e]">//</span> Quietude is your personal sanctuary of calm.
               <br />
-              <span className="text-[#ffbd2e]">//</span> [Subtitle line 2]
+              <span className="text-[#ffbd2e]">//</span> Drift into sleep, sharpen your focus, or simply breathe
               <br />
-              <span className="text-[#ffbd2e]">//</span> [Subtitle line 3]
+              <span className="text-[#ffbd2e]">//</span> with a curated collection of ambient music and breathtaking zen visuals.
             </p>
 
             <a
