@@ -59,7 +59,7 @@ export default function SGLotteryPage() {
             </p>
 
             <a
-              href="https://play.google.com/store/apps/details?id=com.sglottery.app"
+              href="https://play.google.com/store/apps/details?id=com.totosg"
               target="_blank"
               rel="noopener noreferrer"
               className="inline-flex items-center gap-2 bg-[#00ff41] text-[#0a0a0a] px-8 py-3 rounded font-bold hover:bg-[#00ff41]/90 transition-all hover:shadow-[0_0_20px_rgba(0,255,65,0.4)]"
@@ -161,7 +161,7 @@ export default function SGLotteryPage() {
             <span className="text-[#ffbd2e]">//</span> Download now. Test your luck.
           </p>
           <a
-            href="https://play.google.com/store/apps/details?id=com.sglottery.app"
+            href="https://play.google.com/store/apps/details?id=com.totosg"
             target="_blank"
             rel="noopener noreferrer"
             className="inline-flex items-center gap-2 bg-[#00ff41] text-[#0a0a0a] px-8 py-3 rounded font-bold hover:bg-[#00ff41]/90 transition-all hover:shadow-[0_0_20px_rgba(0,255,65,0.4)]"
