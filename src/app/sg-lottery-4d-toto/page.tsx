@@ -51,11 +51,9 @@ export default function SGLotteryPage() {
             </h1>
 
             <p className="text-base sm:text-lg text-[#00ff41]/70 mb-8 max-w-2xl mx-auto leading-relaxed">
-              <span className="text-[#ffbd2e]">//</span> [Tagline goes here]
+              <span className="text-[#ffbd2e]">//</span> Stay up to date with the latest Singapore Pools 4D &amp; TOTO draw results
               <br />
-              <span className="text-[#ffbd2e]">//</span> [Subtitle line 2]
-              <br />
-              <span className="text-[#ffbd2e]">//</span> [Subtitle line 3]
+              <span className="text-[#ffbd2e]">//</span> all in one clean and simple app.
             </p>
 
             <a
