@@ -1,159 +1,144 @@
+"use client";
+
 export default function QuietudePage() {
   return (
-    <main className="min-h-screen bg-[#0a0a0a] text-[#00ff41] font-mono selection:bg-[#00ff41] selection:text-[#0a0a0a]">
-      {/* Subtle terminal grid background */}
-      <div
-        className="fixed inset-0 opacity-[0.03] pointer-events-none"
-        style={{
-          backgroundImage: `linear-gradient(rgba(0,255,65,0.3) 1px, transparent 1px), linear-gradient(90deg, rgba(0,255,65,0.3) 1px, transparent 1px)`,
-          backgroundSize: '40px 40px',
-        }}
-      />
+    <main className="min-h-screen bg-[#0c0c0c] text-white font-sans selection:bg-[#c9a96e]/30">
+      {/* Soft radial glow */}
+      <div className="fixed inset-0 pointer-events-none">
+        <div className="absolute top-1/4 left-1/2 -translate-x-1/2 w-[600px] h-[600px] bg-[#2a2520]/40 rounded-full blur-[150px]" />
+      </div>
 
-      {/* CRT scanline overlay */}
-      <div
-        className="fixed inset-0 pointer-events-none opacity-[0.08]"
-        style={{
-          background: 'repeating-linear-gradient(0deg, transparent, transparent 2px, rgba(0,0,0,0.3) 2px, rgba(0,0,0,0.3) 4px)',
-        }}
-      />
-
-      <div className="relative max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
-
-        {/* Terminal Header */}
-        <div className="border border-[#00ff41]/30 rounded-t-lg bg-[#111] px-4 py-2 flex items-center gap-2">
-          <div className="w-3 h-3 rounded-full bg-[#ff5f56]" />
-          <div className="w-3 h-3 rounded-full bg-[#ffbd2e]" />
-          <div className="w-3 h-3 rounded-full bg-[#27c93f]" />
-          <span className="ml-2 text-xs text-[#00ff41]/60">quietude — bash — 80x24</span>
-        </div>
+      <div className="relative max-w-4xl mx-auto px-6 sm:px-8 py-16">
 
         {/* Hero Section */}
-        <div className="border border-[#00ff41]/30 border-t-0 rounded-b-lg bg-[#0d0d0d] p-8 sm:p-12">
-          <header className="text-center">
-            {/* App Icon with glow */}
-            <div className="relative inline-block mb-8">
-              <div className="absolute inset-0 bg-[#00ff41]/20 blur-xl rounded-3xl" />
-              <img
-                src="/images/quietude-icon.png"
-                alt="Quietude"
-                className="relative w-28 h-28 rounded-2xl border-2 border-[#00ff41]/40 shadow-[0_0_30px_rgba(0,255,65,0.3)]"
-              />
-            </div>
-
-            <div className="mb-2 text-[#00ff41]/50 text-sm">
-              <span className="text-[#ffbd2e]">$</span> ./play_music.sh
-            </div>
-
-            <h1 className="text-3xl sm:text-4xl lg:text-5xl font-bold mb-4 tracking-tight">
-              <span className="text-[#00ff41]">&gt;</span> Quietude
-              <span className="animate-pulse">_</span>
-            </h1>
-
-            <p className="text-base sm:text-lg text-[#00ff41]/70 mb-8 max-w-2xl mx-auto leading-relaxed">
-              <span className="text-[#ffbd2e]">//</span> Quietude is your personal sanctuary of calm.
-              <br />
-              <span className="text-[#ffbd2e]">//</span> Drift into sleep, sharpen your focus, or simply breathe
-              <br />
-              <span className="text-[#ffbd2e]">//</span> with a curated collection of ambient music and breathtaking zen visuals.
-            </p>
-
-            <a
-              href="https://play.google.com/store/apps/details?id=com.yourdomain.quietude"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="inline-flex items-center gap-2 bg-[#00ff41] text-[#0a0a0a] px-8 py-3 rounded font-bold hover:bg-[#00ff41]/90 transition-all hover:shadow-[0_0_20px_rgba(0,255,65,0.4)]"
-            >
-              <span>[</span> 📱 DOWNLOAD_APK <span>]</span>
-            </a>
-          </header>
-        </div>
-
-        {/* About Section */}
-        <section className="mt-8 border border-[#00ff41]/30 rounded-lg bg-[#0d0d0d] overflow-hidden">
-          <div className="border-b border-[#00ff41]/20 px-4 py-2 bg-[#111] text-xs text-[#00ff41]/50 flex items-center gap-2">
-            <span className="text-[#ffbd2e]">$</span> cat README.md
+        <header className="text-center pt-12 pb-16">
+          {/* App Icon */}
+          <div className="relative inline-block mb-10">
+            <div className="absolute inset-0 bg-[#c9a96e]/15 blur-2xl rounded-full" />
+            <img
+              src="/images/quietude-icon.png"
+              alt="Quietude"
+              className="relative w-24 h-24 rounded-3xl shadow-2xl"
+            />
           </div>
-          <div className="p-8 sm:p-10 space-y-6 text-[#00ff41]/80 leading-relaxed text-sm sm:text-base">
-            <div>
-              <h3 className="text-[#00ff41] font-bold mb-3 text-base">What Quietude Offers</h3>
-              <div className="space-y-3">
-                <div className="flex gap-3">
-                  <span className="text-[#ffbd2e] shrink-0">01</span>
-                  <p>Beautiful ambient and atmospheric music that plays continuously</p>
-                </div>
-                <div className="flex gap-3">
-                  <span className="text-[#ffbd2e] shrink-0">02</span>
-                  <p>Stunning zen wallpapers that transition smoothly between scenes</p>
-                </div>
-                <div className="flex gap-3">
-                  <span className="text-[#ffbd2e] shrink-0">03</span>
-                  <p>Choose which tracks you want in your personal rotation</p>
-                </div>
-                <div className="flex gap-3">
-                  <span className="text-[#ffbd2e] shrink-0">04</span>
-                  <p>Tap anywhere on screen for playback controls</p>
-                </div>
-                <div className="flex gap-3">
-                  <span className="text-[#ffbd2e] shrink-0">05</span>
-                  <p>Keeps your screen on while you drift away</p>
-                </div>
+
+          {/* Title with wide letter spacing */}
+          <h1 className="text-3xl sm:text-4xl lg:text-5xl font-extralight tracking-[0.3em] mb-4 uppercase">
+            Quietude
+          </h1>
+
+          <p className="text-sm tracking-[0.4em] text-white/30 mb-10 lowercase">
+            sleep &nbsp;·&nbsp; focus &nbsp;·&nbsp; calm
+          </p>
+
+          <p className="text-base sm:text-lg text-white/40 mb-10 max-w-lg mx-auto leading-relaxed font-light">
+            Your personal sanctuary of calm. Drift into sleep, sharpen your focus, or simply breathe — with ambient music and zen visuals.
+          </p>
+
+          {/* Minimal play button */}
+          <div className="flex justify-center mb-8">
+            <div className="relative w-20 h-20">
+              <div className="absolute inset-0 rounded-full border border-[#c9a96e]/30 animate-ping opacity-20" />
+              <div className="absolute inset-2 rounded-full border border-[#c9a96e]/20" />
+              <div className="relative w-full h-full rounded-full border border-[#c9a96e]/40 flex items-center justify-center bg-[#c9a96e]/5 hover:bg-[#c9a96e]/10 transition-colors cursor-pointer">
+                <div className="w-0 h-0 border-t-[8px] border-t-transparent border-l-[14px] border-l-[#c9a96e] border-b-[8px] border-b-transparent ml-1" />
               </div>
             </div>
+          </div>
 
-            <div className="border-t border-[#00ff41]/10 pt-6">
-              <p className="text-[#00ff41]/60 italic mb-4">
-                No complicated settings. No distractions. No sign-in required. Just press play and let go.
-              </p>
+          <a
+            href="https://play.google.com/store/apps/details?id=com.yourdomain.quietude"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="inline-flex items-center gap-2 border border-[#c9a96e]/30 text-[#c9a96e] px-8 py-3 rounded-full text-sm tracking-wider hover:bg-[#c9a96e]/10 transition-all"
+          >
+            Download on Google Play
+          </a>
+        </header>
+
+        {/* Features in elegant cards */}
+        <section className="space-y-4 mb-16">
+          <div className="bg-white/[0.03] backdrop-blur-sm rounded-2xl p-6 sm:p-8 border border-white/[0.05] hover:border-white/10 transition-all">
+            <div className="flex items-center gap-4 mb-3">
+              <div className="w-8 h-8 rounded-full bg-[#c9a96e]/10 flex items-center justify-center text-sm">🎵</div>
+              <h3 className="text-sm tracking-wider text-white/60 uppercase">Ambient Music</h3>
             </div>
+            <p className="text-white/30 text-sm leading-relaxed pl-12">
+              Beautiful atmospheric music that plays continuously. Curated tracks for sleep, focus, and calm.
+            </p>
+          </div>
 
-            <div>
-              <h3 className="text-[#00ff41] font-bold mb-3 text-base">Perfect For</h3>
-              <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
-                <div className="flex gap-3">
-                  <span className="text-[#ffbd2e]">◆</span>
-                  <p>Falling asleep</p>
+          <div className="bg-white/[0.03] backdrop-blur-sm rounded-2xl p-6 sm:p-8 border border-white/[0.05] hover:border-white/10 transition-all">
+            <div className="flex items-center gap-4 mb-3">
+              <div className="w-8 h-8 rounded-full bg-[#c9a96e]/10 flex items-center justify-center text-sm">🖼️</div>
+              <h3 className="text-sm tracking-wider text-white/60 uppercase">Zen Visuals</h3>
+            </div>
+            <p className="text-white/30 text-sm leading-relaxed pl-12">
+              Stunning wallpapers that transition smoothly between scenes — mountains, water, mist, and stillness.
+            </p>
+          </div>
+
+          <div className="bg-white/[0.03] backdrop-blur-sm rounded-2xl p-6 sm:p-8 border border-white/[0.05] hover:border-white/10 transition-all">
+            <div className="flex items-center gap-4 mb-3">
+              <div className="w-8 h-8 rounded-full bg-[#c9a96e]/10 flex items-center justify-center text-sm">✨</div>
+              <h3 className="text-sm tracking-wider text-white/60 uppercase">Simple & Intentional</h3>
+            </div>
+            <p className="text-white/30 text-sm leading-relaxed pl-12">
+              No complicated settings. No sign-in required. Tap anywhere for controls. Keeps your screen on while you drift away.
+            </p>
+          </div>
+        </section>
+
+        {/* Song library preview */}
+        <section className="mb-16">
+          <div className="text-center mb-8">
+            <p className="text-xs tracking-[0.3em] text-white/20 uppercase">Your Library</p>
+          </div>
+          <div className="bg-white/[0.02] rounded-3xl p-6 border border-white/[0.04]">
+            {[
+              { name: 'Brown Tide Beneath', active: true },
+              { name: 'Midnight Rain Drift', active: true },
+              { name: 'Midnight Rain Drift Reprise', active: true },
+              { name: 'Rainroom Reverie', active: true },
+              { name: 'Rainroom Reverie Reprise', active: true },
+            ].map((song) => (
+              <div key={song.name} className="flex items-center justify-between py-3.5 border-b border-white/[0.03] last:border-0">
+                <div className="flex items-center gap-3">
+                  <div className="w-8 h-8 rounded-full bg-[#c9a96e]/10 flex items-center justify-center text-xs text-[#c9a96e]/60">♪</div>
+                  <span className="text-sm text-white/50">{song.name}</span>
                 </div>
-                <div className="flex gap-3">
-                  <span className="text-[#ffbd2e]">◆</span>
-                  <p>Deep focus and study</p>
-                </div>
-                <div className="flex gap-3">
-                  <span className="text-[#ffbd2e]">◆</span>
-                  <p>Meditation and mindfulness</p>
-                </div>
-                <div className="flex gap-3">
-                  <span className="text-[#ffbd2e]">◆</span>
-                  <p>Yoga and breathwork</p>
-                </div>
-                <div className="flex gap-3">
-                  <span className="text-[#ffbd2e]">◆</span>
-                  <p>Background ambience while working</p>
+                <div className={`w-10 h-5 rounded-full ${song.active ? 'bg-[#c9a96e]/30' : 'bg-white/10'} relative`}>
+                  <div className={`absolute top-0.5 w-4 h-4 rounded-full ${song.active ? 'bg-[#c9a96e] right-0.5' : 'bg-white/30 left-0.5'} transition-all`} />
                 </div>
               </div>
-            </div>
+            ))}
+            <p className="text-center text-xs text-white/20 mt-4">9 of 11 songs enabled</p>
+          </div>
+        </section>
 
-            <div className="border-t border-[#00ff41]/10 pt-6 text-center">
-              <p className="text-[#00ff41] text-lg font-light tracking-widest">Be still.</p>
-            </div>
+        {/* Perfect For */}
+        <section className="mb-16">
+          <div className="text-center mb-8">
+            <p className="text-xs tracking-[0.3em] text-white/20 uppercase">Perfect For</p>
+          </div>
+          <div className="grid grid-cols-2 sm:grid-cols-3 gap-3">
+            {['Falling asleep', 'Deep focus', 'Meditation', 'Yoga', 'Study', 'Breathwork'].map((use) => (
+              <div key={use} className="bg-white/[0.02] rounded-xl py-4 px-3 text-center border border-white/[0.04]">
+                <p className="text-xs text-white/30">{use}</p>
+              </div>
+            ))}
           </div>
         </section>
 
         {/* Screenshots */}
-        <section className="mt-8">
-          <div className="flex items-center gap-2 mb-4 text-[#00ff41]/50 text-xs">
-            <span className="text-[#ffbd2e]">$</span> ls screenshots/
+        <section className="mb-16">
+          <div className="text-center mb-8">
+            <p className="text-xs tracking-[0.3em] text-white/20 uppercase">Screenshots</p>
           </div>
-          <div className="flex gap-4 overflow-x-auto snap-x snap-mandatory pb-4 scrollbar-thin scrollbar-thumb-[#00ff41]/30 scrollbar-track-transparent">
-            {[1,2,3].map((n) => (
-              <div key={n} className="snap-center shrink-0 w-[240px] sm:w-[280px]">
-                <div className="border border-[#00ff41]/20 rounded-lg overflow-hidden bg-[#0d0d0d]">
-                  <div className="border-b border-[#00ff41]/10 px-3 py-1.5 bg-[#111] flex items-center gap-1.5">
-                    <div className="w-2 h-2 rounded-full bg-[#ff5f56]" />
-                    <div className="w-2 h-2 rounded-full bg-[#ffbd2e]" />
-                    <div className="w-2 h-2 rounded-full bg-[#27c93f]" />
-                    <span className="ml-2 text-[10px] text-[#00ff41]/30">screen_{n}.png</span>
-                  </div>
+          <div className="flex gap-4 overflow-x-auto snap-x snap-mandatory pb-4 scrollbar-thin scrollbar-thumb-[#c9a96e]/20 scrollbar-track-transparent">
+            {[1, 2, 3].map((n) => (
+              <div key={n} className="snap-center shrink-0 w-[220px] sm:w-[260px]">
+                <div className="rounded-3xl overflow-hidden bg-[#0c0c0c] border border-white/[0.05] shadow-xl">
                   <img src={`/images/quietude-screenshot-${n}.webp`} alt={`Screenshot ${n}`} className="w-full h-auto" />
                 </div>
               </div>
@@ -162,41 +147,32 @@ export default function QuietudePage() {
         </section>
 
         {/* CTA Section */}
-        <section className="mt-8 border border-[#00ff41]/30 rounded-lg bg-[#0d0d0d] p-10 sm:p-14 text-center">
-          <div className="text-xs text-[#00ff41]/50 mb-4">
-            <span className="text-[#ffbd2e]">$</span> sudo apt install quietude
-          </div>
-          <h2 className="text-2xl sm:text-3xl font-bold mb-4">
-            <span className="text-[#00ff41]">&gt;</span> READY_TO_LISTEN?
-            <span className="animate-pulse">_</span>
-          </h2>
-          <p className="text-[#00ff41]/60 mb-6 text-sm">
-            <span className="text-[#ffbd2e]">//</span> Download now. Find your quiet.
+        <section className="text-center py-16">
+          <p className="text-2xl sm:text-3xl font-extralight tracking-wider text-white/40 mb-2">
+            Be still.
+          </p>
+          <p className="text-xs tracking-[0.3em] text-white/20 uppercase mb-8">
+            Download now. Let go.
           </p>
           <a
             href="https://play.google.com/store/apps/details?id=com.yourdomain.quietude"
             target="_blank"
             rel="noopener noreferrer"
-            className="inline-flex items-center gap-2 bg-[#00ff41] text-[#0a0a0a] px-8 py-3 rounded font-bold hover:bg-[#00ff41]/90 transition-all hover:shadow-[0_0_20px_rgba(0,255,65,0.4)]"
+            className="inline-flex items-center gap-2 border border-[#c9a96e]/30 text-[#c9a96e] px-8 py-3 rounded-full text-sm tracking-wider hover:bg-[#c9a96e]/10 transition-all"
           >
-            <span>[</span> 📱 EXECUTE_DOWNLOAD <span>]</span>
+            Download on Google Play
           </a>
         </section>
 
         {/* Footer */}
-        <footer className="mt-10 text-center text-[#00ff41]/30 text-xs space-y-1">
+        <footer className="text-center text-white/10 text-xs space-y-2 pt-8 border-t border-white/[0.03]">
           <p>
-            <span className="text-[#ffbd2e]">//</span> Built with ❤️ by{" "}
-            <a href="/" className="text-[#00ff41]/50 hover:text-[#00ff41] underline">
-              The_JPMoreGain_Project
+            Built with ❤️ by{" "}
+            <a href="/" className="text-white/20 hover:text-white/40 transition-colors">
+              The JPMoreGain Project
             </a>
           </p>
-          <p>
-            <span className="text-[#ffbd2e]">//</span> © 2026 — All rights reserved. Keep the music playing.
-          </p>
-          <p className="text-[#00ff41]/20 pt-2">
-            ─────────────────────────────────────
-          </p>
+          <p>© 2026 — All rights reserved.</p>
         </footer>
       </div>
     </main>
