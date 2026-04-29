@@ -74,18 +74,67 @@ export default function QuietudePage() {
           <div className="border-b border-[#00ff41]/20 px-4 py-2 bg-[#111] text-xs text-[#00ff41]/50 flex items-center gap-2">
             <span className="text-[#ffbd2e]">$</span> cat README.md
           </div>
-          <div className="p-8 sm:p-10 space-y-5 text-[#00ff41]/80 leading-relaxed text-sm sm:text-base">
-            <div className="flex gap-3">
-              <span className="text-[#ffbd2e] shrink-0">01</span>
-              <p><span className="text-[#00ff41] font-bold">[FEATURE_1]()</span> — [Description goes here]</p>
+          <div className="p-8 sm:p-10 space-y-6 text-[#00ff41]/80 leading-relaxed text-sm sm:text-base">
+            <div>
+              <h3 className="text-[#00ff41] font-bold mb-3 text-base">What Quietude Offers</h3>
+              <div className="space-y-3">
+                <div className="flex gap-3">
+                  <span className="text-[#ffbd2e] shrink-0">01</span>
+                  <p>Beautiful ambient and atmospheric music that plays continuously</p>
+                </div>
+                <div className="flex gap-3">
+                  <span className="text-[#ffbd2e] shrink-0">02</span>
+                  <p>Stunning zen wallpapers that transition smoothly between scenes</p>
+                </div>
+                <div className="flex gap-3">
+                  <span className="text-[#ffbd2e] shrink-0">03</span>
+                  <p>Choose which tracks you want in your personal rotation</p>
+                </div>
+                <div className="flex gap-3">
+                  <span className="text-[#ffbd2e] shrink-0">04</span>
+                  <p>Tap anywhere on screen for playback controls</p>
+                </div>
+                <div className="flex gap-3">
+                  <span className="text-[#ffbd2e] shrink-0">05</span>
+                  <p>Keeps your screen on while you drift away</p>
+                </div>
+              </div>
             </div>
-            <div className="flex gap-3">
-              <span className="text-[#ffbd2e] shrink-0">02</span>
-              <p><span className="text-[#00ff41] font-bold">[FEATURE_2]()</span> — [Description goes here]</p>
+
+            <div className="border-t border-[#00ff41]/10 pt-6">
+              <p className="text-[#00ff41]/60 italic mb-4">
+                No complicated settings. No distractions. No sign-in required. Just press play and let go.
+              </p>
             </div>
-            <div className="flex gap-3">
-              <span className="text-[#ffbd2e] shrink-0">03</span>
-              <p><span className="text-[#00ff41] font-bold">[FEATURE_3]()</span> — [Description goes here]</p>
+
+            <div>
+              <h3 className="text-[#00ff41] font-bold mb-3 text-base">Perfect For</h3>
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
+                <div className="flex gap-3">
+                  <span className="text-[#ffbd2e]">◆</span>
+                  <p>Falling asleep</p>
+                </div>
+                <div className="flex gap-3">
+                  <span className="text-[#ffbd2e]">◆</span>
+                  <p>Deep focus and study</p>
+                </div>
+                <div className="flex gap-3">
+                  <span className="text-[#ffbd2e]">◆</span>
+                  <p>Meditation and mindfulness</p>
+                </div>
+                <div className="flex gap-3">
+                  <span className="text-[#ffbd2e]">◆</span>
+                  <p>Yoga and breathwork</p>
+                </div>
+                <div className="flex gap-3">
+                  <span className="text-[#ffbd2e]">◆</span>
+                  <p>Background ambience while working</p>
+                </div>
+              </div>
+            </div>
+
+            <div className="border-t border-[#00ff41]/10 pt-6 text-center">
+              <p className="text-[#00ff41] text-lg font-light tracking-widest">Be still.</p>
             </div>
           </div>
         </section>
