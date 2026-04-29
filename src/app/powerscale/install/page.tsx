@@ -594,14 +594,14 @@ isi status`}
         </p>
 
         <div style={S.codeBlock}>
-{`# Run HealthCheck from the CLI
+{`# Collect logs and run HealthCheck
 isi_gather_info
 
 # Check overall cluster status
 isi status
 
-# List critical events
-isi events list --severity critical
+# List events
+isi event events list
 
 # Verify NTP synchronisation
 isi ntp servers list`}
@@ -684,12 +684,17 @@ isi ntp servers list`}
         </p>
 
         <div style={S.codeBlock}>
-{`# Download the current NFP from Dell Support to /ifs/data/firmware/
-# Then apply:
-isi upgrade firmware start --package /ifs/data/firmware/<NFP-package-name>.tar
+{`# Step 1 -- run a firmware assessment to see what needs updating
+isi upgrade firmware assess --fw-pkg=/ifs/<path-to-NFP>
 
-# Monitor progress:
-isi upgrade firmware status`}
+# Step 2 -- view the assessment report
+isi_upgrade_logs --get-fw-report
+
+# Step 3 -- run the upgrade (choose rolling, parallel, or simultaneous)
+isi upgrade cluster firmware start --fw-pkg=/ifs/<path-to-NFP> --nodes-to-upgrade=all --parallel
+
+# Step 4 -- monitor progress
+isi upgrade cluster nodes firmware progress list`}
         </div>
 
         <h3 style={S.h3}>Drive Support Package (DSP)</h3>
@@ -708,15 +713,16 @@ isi upgrade firmware status`}
         </WhyBlock>
 
         <div style={S.codeBlock}>
-{`# Check which drives need firmware updates before applying:
-isi_dsp_update --check
-
-# Apply the DSP:
-isi_dsp_update --install /path/to/DSP-package/
-
-# Verify after update:
-isi_dsp_update --verify`}
+{`# Copy DSP package to the cluster first (via SCP, NFS, SMB, or FTP)
+# Then install -- this applies to the entire cluster automatically
+isi_dsp_install /ifs/data/Isilon_Support/Drive_Support_<version>.tar`}
         </div>
+        <Note>
+          Do not use <span style={S.code}>isi upgrade patches</span> to install the DSP -- it must
+          be installed using <span style={S.code}>isi_dsp_install</span> only. The installation
+          process handles all necessary files and cleanup automatically. You do not need to delete
+          the package file after installation.
+        </Note>
 
         <h3 style={S.h3}>OneFS version (if an upgrade is needed)</h3>
         <p style={S.p}>

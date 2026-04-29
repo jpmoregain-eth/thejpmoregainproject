@@ -17,13 +17,7 @@ const SECTIONS = [
     href: "/powerscale/install",
     title: "Install",
     desc: "Hardware installation, node setup, and cluster formation. When to rack-mount vs nested, and why getting this right avoids pain later.",
-    status: "soon" as const,
-    icon: (
-      <svg width="18" height="18" viewBox="0 0 15 15" fill="none" stroke="currentColor" strokeWidth="1.4">
-        <rect x="1.5" y="2" width="12" height="4" rx="1" />
-        <rect x="1.5" y="9" width="12" height="4" rx="1" />
-        <circle cx="11.5" cy="4" r="0.75" fill="currentColor" stroke="none" />
-        <circle cx="11.5" cy="11" r="0.75" fill="currentColor" stroke="none" />
+    status: "live" as const,
       </svg>
     ),
   },

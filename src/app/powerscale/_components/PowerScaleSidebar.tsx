@@ -93,7 +93,7 @@ const NAV: NavEntry[] = [
   { type: "item", href: "/powerscale", label: "Overview", icon: <IconGrid /> },
   { type: "item", href: "/powerscale/concepts", label: "Concepts", icon: <IconBook />, badge: "toggle" },
   { type: "divider", label: "Guides" },
-  { type: "item", href: "/powerscale/install",   label: "Install",    icon: <IconServer />,   badge: "soon" },
+  { type: "item", href: "/powerscale/install",   label: "Install",    icon: <IconServer /> },
   { type: "item", href: "/powerscale/design",    label: "Design",     icon: <IconLayers />,   badge: "soon" },
   { type: "item", href: "/powerscale/implement", label: "Implement",  icon: <IconSettings />, badge: "soon" },
   { type: "item", href: "/powerscale/migrate",   label: "Migrate",    icon: <IconMove />,     badge: "soon" },
