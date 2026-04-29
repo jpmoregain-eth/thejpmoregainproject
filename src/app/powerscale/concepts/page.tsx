@@ -24,6 +24,34 @@ const TOPICS = [
     expert:
       "SmartPools manages file placement via file pool policies evaluated against node pool tiers. Policies match on file attributes (age, access time, size, path, type) and direct data to designated node pools. Tiering operates via a background job that re-evaluates and moves data according to policy. SSD strategy can be set per pool: metadata read/write acceleration vs. L3 cache vs. data placement.",
   },
+  {
+    title: "Networking",
+    simple:
+      "PowerScale has two separate networks: a frontend network that clients connect to, and a backend network that nodes use to talk to each other internally. SmartConnect is the feature that makes the cluster look like a single address to clients -- it uses DNS to spread connections across all nodes automatically, so no one node becomes a bottleneck.",
+    expert:
+      "The frontend network is client-facing and carries NFS/SMB/S3 traffic. The backend carries intra-cluster traffic (data stripe writes, metadata, journal) and runs on InfiniBand or dedicated 25GbE. SmartConnect operates as a DNS delegation zone: the cluster's SmartConnect service IP responds to DNS queries with node IPs according to the configured allocation policy (round-robin, CPU utilization, connection count, or throughput). Each SmartConnect zone maps to an IP pool and access zone. Link aggregation (LACP, round-robin, failover) is supported per-node but does not increase per-session bandwidth -- a single TCP session is confined to one physical link. MTU should be consistent end-to-end; jumbo frames (9000 MTU) are recommended for high-throughput workloads. Source-based routing (SBR) must be configured when nodes have interfaces on multiple subnets to ensure return traffic egresses the correct interface.",
+  },
+  {
+    title: "Replication and Business Continuity",
+    simple:
+      "SyncIQ is PowerScale's built-in replication engine. It copies your data to a second cluster -- at another site -- on a schedule you define. If your primary cluster goes down, you can fail over to the copy. When the primary comes back, you fail back. The key numbers are RPO (how much data you could lose, measured in time) and RTO (how long it takes to get back online).",
+    expert:
+      "SyncIQ is asynchronous, policy-driven replication built on snapshot differentials. At job start, a source snapshot is taken; the coordinator compares it against the previous run's snapshot to identify changed LINs. Workers on source and target nodes establish TCP connections and transfer only the delta. After completion, the previous snapshot is deleted and the new one becomes 'latest'. Supported topologies: one-to-one, one-to-many, many-to-one, cascaded, and local target. A SyncIQ policy should never be broken without understanding the resync implications -- breaking the association forces a full re-baseline. Failover makes the target read-write; failback requires a reverse sync. Superna Eyeglass DR Edition provides orchestration, DNS automation, and runbook execution on top of native SyncIQ for automated failover. SyncIQ bandwidth throttling and performance rules allow coexistence with production workloads.",
+  },
+  {
+    title: "Security",
+    simple:
+      "PowerScale has a WORM (Write Once, Read Many) feature called SmartLock that prevents files from being changed or deleted until their retention period expires. There are two versions: Enterprise mode, where an admin can still override things in emergencies, and Compliance mode, which locks things down so tightly that not even the root user can touch them -- required for certain financial regulations.",
+    expert:
+      "SmartLock operates at the directory level within the OneFS filesystem. Enterprise mode preserves root access and allows privileged delete (configurable). Compliance mode disables root (UID 0) entirely; the compadmin sudo account replaces it. Compliance mode is governed by a tamper-proof compliance clock (isi worm cdate) distinct from the system clock, preventing early release of WORM files by clock manipulation. Compliance mode is required for SEC rule 17a-4(f). Key operational constraint: Compliance mode is a one-way conversion -- it cannot be reverted. Enterprise-to-Compliance directory upgrade is allowed; the reverse is not. SyncIQ replication of Compliance SmartLock directories requires the target to also be a Compliance SmartLock directory. Files committed on source are not automatically committed on target after replication -- this must be managed explicitly. RBAC should be configured before converting to Compliance mode to avoid losing administrative access.",
+  },
+  {
+    title: "Protocols",
+    simple:
+      "PowerScale speaks the same storage languages your applications already use: NFS for Linux/Unix, SMB for Windows, S3 for object storage and cloud-native apps, and HDFS for big data workloads. Multiple protocols can access the same data at the same time, which is rare in the storage world and is one of PowerScale's most useful capabilities.",
+    expert:
+      "OneFS supports NFS (v3/v4/v4.1), SMB (v1/v2/v3), S3 (OneFS 9.0+), and HDFS on the same underlying filesystem with concurrent multi-protocol access. S3 is exposed via a dedicated service on ports 9020 (HTTP) and 9021 (HTTPS). S3 buckets map to OneFS directories via the x-isi-path extended header. OneFS S3 is a subset of AWS S3 -- supported APIs include core CRUD operations, multipart upload, ACLs, and object lock (S3 object lock added in OneFS 9.12). Unsupported AWS-specific APIs (lifecycle, versioning, replication, website) are silently ignored. SMBv3 Multichannel provides automatic multi-path throughput and does not require link aggregation configuration. NFSv4 with Kerberos requires SmartConnect zone alignment with KDC configuration. Protocol access is scoped per access zone -- a zone can expose only specific protocols on specific IP pools, which is the primary isolation mechanism for multi-tenancy.",
+  },
 ];
 
 export default function ConceptsPage() {
@@ -69,24 +97,6 @@ export default function ConceptsPage() {
           </div>
         </div>
       ))}
-
-      <p className="ps-outline-label" style={{ marginTop: "2rem" }}>
-        More topics coming
-      </p>
-      <div className="ps-outline">
-        {[
-          "Networking -- SmartConnect, access zones, frontend/backend fabric",
-          "Replication and Business Continuity -- SyncIQ, RPO/RTO, failover",
-          "Security -- SmartLock, auth providers, auditing",
-          "Protocols -- NFS, SMB, S3, HDFS, multi-protocol access",
-        ].map((t, i) => (
-          <div key={i} className="ps-outline-item">
-            <span className="ps-outline-num">{String(i + 4).padStart(2, "0")}</span>
-            <span className="ps-outline-title">{t}</span>
-            <span className="ps-outline-bar" />
-          </div>
-        ))}
-      </div>
     </div>
   );
 }
