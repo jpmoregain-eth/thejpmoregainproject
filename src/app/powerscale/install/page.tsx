@@ -589,15 +589,49 @@ isi status`}
         </WhyBlock>
 
         <p style={S.p}>
-          OneFS includes a built-in HealthCheck tool that validates hardware state, cluster
-          configuration, and software settings. Run it from the CLI or WebUI:
+          The standard health check tool is the Isilon On-Cluster Analysis (IOCA) tool -- a Perl
+          script maintained by Dell Support that runs a comprehensive set of checks against a live
+          cluster. It is used before upgrades, before major maintenance, and as the pre-handover
+          gate on new installs. Download the latest version from Dell Lightning or via your Dell
+          Support contact and stage it on the cluster:
         </p>
 
         <div style={S.codeBlock}>
-{`# Collect logs and run HealthCheck
-isi_gather_info
+{`# Verify you are on the correct cluster first
+isi_for_array cat /etc/isilon_serial_number
 
-# Check overall cluster status
+# Stage IOCA to the standard support directory
+mkdir -pv /ifs/data/Isilon_Support
+cd /ifs/data/Isilon_Support
+# (transfer IOCA.tar to this location via SCP, NFS, or SMB)
+
+# Unpack and verify integrity
+tar -xvf IOCA.tar
+sha256sum -c IOCA.sha256
+
+# Run IOCA health check
+perl IOCA
+
+# Run with an upgrade plan for a target OneFS version
+perl IOCA -u <target-onefs-version>`}
+        </div>
+
+        <p style={S.p}>
+          IOCA outputs a result for each check -- PASS, WARN, or FAIL. Each FAIL or WARN
+          typically references a Dell KB article with resolution steps. Do not hand over a cluster
+          with open FAILs. WARNs should be reviewed and documented before handover.
+        </p>
+
+        <Note>
+          IOCA gets updated frequently. Always use the latest version -- the date on the download
+          may appear older than expected, but it is still the latest release. Check the version
+          with <span style={S.code}>perl IOCA -v</span> before running.
+        </Note>
+
+        <p style={S.p}>In addition to IOCA, verify the following manually:</p>
+
+        <div style={S.codeBlock}>
+{`# Check overall cluster status
 isi status
 
 # List events
