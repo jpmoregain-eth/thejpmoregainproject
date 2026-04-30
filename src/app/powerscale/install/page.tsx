@@ -226,8 +226,8 @@ export default function InstallPage() {
           <li>Rack and rail installation -- physical mounting of chassis and nodes</li>
           <li>Cabling -- frontend, backend, and management connections</li>
           <li>Initial cluster formation -- serial console, configuration wizard</li>
-          <li>Health check -- verify cluster is clean before handover</li>
           <li>Firmware update -- Node Firmware Package and Drive Support Package</li>
+          <li>Health check -- verify cluster is clean before handover</li>
         </ol>
         <Note>
           Always verify the exact procedure for your specific node model against the current
@@ -375,16 +375,21 @@ export default function InstallPage() {
 
         <h3 style={S.h3}>Network readiness</h3>
         <p style={S.p}>
-          The install team cannot form the cluster without a working network. The following must be
-          ready and confirmed before the team arrives -- not on the day:
+          The only hard prerequisite to forming the cluster is the backend network -- the backend
+          cables must be connected before nodes are powered on, because OneFS expects the backend
+          fabric to be present at boot. Everything else -- frontend, management, DNS, NTP -- can
+          be configured after the cluster is formed.
+        </p>
+        <p style={S.p}>
+          That said, having these ready before the install team arrives avoids unnecessary delays
+          on the day:
         </p>
         <ul style={{ ...S.p, paddingLeft: "1.5rem" }}>
-          <li>Frontend switch ports patched and configured (correct VLAN, MTU consistent end-to-end, flow control settings confirmed)</li>
-          <li>Backend switch ports ready if using Ethernet backend</li>
-          <li>Management network reachable from the install laptop</li>
           <li>IP address scheme finalised -- frontend IPs per node, management IPs, SmartConnect service IP</li>
+          <li>Frontend switch ports patched and configured (correct VLAN, MTU consistent end-to-end, flow control settings confirmed)</li>
+          <li>Management network reachable from the install laptop</li>
           <li>DNS delegation zone prepared for SmartConnect (or explicitly deferred to post-install)</li>
-          <li>NTP server reachable from the cluster management network</li>
+          <li>NTP server identified and reachable</li>
         </ul>
 
         <WhyBlock>
@@ -449,12 +454,16 @@ export default function InstallPage() {
           on install day.
         </Note>
 
-        <h3 style={S.h3}>Cabling order and why it matters</h3>
+        <h3 style={S.h3}>Cabling</h3>
         <p style={S.p}>
-          Connect cables in this order: backend first, frontend second, management last, power last.
-          The reason is that powering a node before management is cabled can cause the node to attempt
-          network operations before you are ready to intercept them. The backend should be connected
-          before any node is powered because OneFS expects the backend fabric to be present at boot.
+          The only cable required to form the cluster is the backend. Connect backend cables on all
+          nodes before powering anything on -- OneFS expects the backend fabric to be present at
+          boot and nodes will not join the cluster without it.
+        </p>
+        <p style={S.p}>
+          Frontend, management, and power cable sequencing does not affect the install process.
+          They can be connected before or after cluster formation. That said, connecting management
+          early gives you out-of-band access to nodes if anything goes wrong during formation.
         </p>
 
         <table style={S.table}>
@@ -635,10 +644,7 @@ perl IOCA -u <target-onefs-version>`}
 isi status
 
 # List events
-isi event events list
-
-# Verify NTP synchronisation
-isi ntp servers list`}
+isi event events list`}
         </div>
 
         <p style={S.p}>Verify manually before handover:</p>
