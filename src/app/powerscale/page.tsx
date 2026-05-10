@@ -31,7 +31,7 @@ const SECTIONS = [
     href: "/powerscale/design",
     title: "Design",
     desc: "Cluster sizing, network architecture, protection planning, and SmartPools design. How to build a cluster you will not regret in 18 months.",
-    status: "soon" as const,
+    status: "live" as const,
     icon: (
       <svg width="18" height="18" viewBox="0 0 15 15" fill="none" stroke="currentColor" strokeWidth="1.4">
         <path d="M7.5 1.5L13 4.5L7.5 7.5L2 4.5L7.5 1.5z" />
