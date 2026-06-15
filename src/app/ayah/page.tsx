@@ -5,7 +5,7 @@ import { Star, BookOpen, Music, Share2, Image as ImageIcon } from "lucide-react"
 export default function AyahPage() {
   return (
     <main className="min-h-screen bg-[#0a0a0a] text-white">
-      <div className="max-w-4xl mx-auto px-6 py-8">
+      <div className="max-w-4xl mx-auto px-6 py-8 pt-24">
         <div className="flex flex-col md:flex-row gap-8 items-start mb-12">
           <div className="w-full md:w-48 h-48 shrink-0">
             <Image
