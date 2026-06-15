@@ -79,12 +79,13 @@ export default function ThisIsHomePage() {
 
         <div className="mb-12">
           <h2 className="text-2xl font-bold mb-6">Screenshots</h2>
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
+          <div className="grid grid-cols-2 md:grid-cols-5 gap-4">
             {[
               "/images/this-is-home-screenshot-1.jpg",
               "/images/this-is-home-screenshot-2.jpg",
               "/images/this-is-home-screenshot-3.jpg",
               "/images/this-is-home-screenshot-4.jpg",
+              "/images/this-is-home-screenshot-5.jpg",
             ].map((src, i) => (
               <div key={i} className="bg-zinc-900 rounded-xl overflow-hidden aspect-[9/16]">
                 <Image
