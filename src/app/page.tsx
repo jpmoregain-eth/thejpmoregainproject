@@ -119,6 +119,16 @@ const projects = [
     imageStyle: "contain" as const,
   },
   {
+    title: "This Is Home",
+    description:
+      "Singapore property app with latest news, sales listings, rentals, and market trends. Your complete real estate companion.",
+    tags: ["App", "React Native", "Android", "Property"],
+    link: "/this-is-home",
+    slug: "this-is-home",
+    image: "/images/this-is-home-icon.png",
+    imageStyle: "contain" as const,
+  },
+  {
     title: "SG Lottery 4D TOTO",
     description:
       "Stay up to date with the latest Singapore Pools 4D & TOTO draw results. History, lucky number generator, and prize breakdowns.",
