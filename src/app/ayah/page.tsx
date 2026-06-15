@@ -15,13 +15,13 @@ export default function AyahPage() {
         </Link>
 
         <div className="flex flex-col md:flex-row gap-8 items-start mb-12">
-          <div className="w-full md:w-48 h-48 bg-[#1a1a2e] rounded-2xl flex items-center justify-center shrink-0">
+          <div className="w-full md:w-48 h-48 shrink-0">
             <Image
-              src="/images/ayah-icon.png"
+              src="/images/ayah-hero.png"
               alt="Ayah App"
-              width={160}
-              height={160}
-              className="rounded-xl"
+              width={192}
+              height={192}
+              className="rounded-xl w-full h-full object-cover"
             />
           </div>
           <div className="flex-1">
