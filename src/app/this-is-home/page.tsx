@@ -53,18 +53,18 @@ export default function ThisIsHomePage() {
           </div>
           <div className="bg-zinc-900 rounded-xl p-6">
             <Home className="w-8 h-8 text-[#c9a96e] mb-4" />
-            <h3 className="text-xl font-semibold mb-2">Sales Listings</h3>
+            <h3 className="text-xl font-semibold mb-2">Sales Transactions</h3>
             <p className="text-zinc-400">
-              Browse latest HDB, condo, and landed property sales. Filter by 
-              location, price, and property type.
+              Browse past HDB and private property sales transactions. 
+              Filter by location, price, and property type to understand market value.
             </p>
           </div>
           <div className="bg-zinc-900 rounded-xl p-6">
             <Key className="w-8 h-8 text-[#c9a96e] mb-4" />
-            <h3 className="text-xl font-semibold mb-2">Rentals</h3>
+            <h3 className="text-xl font-semibold mb-2">Rental Transactions</h3>
             <p className="text-zinc-400">
-              Find rental properties across Singapore. From HDB flats to 
-              luxury condos, find your perfect home.
+              View past HDB and private property rental transactions. 
+              Check rental yields and price trends by location.
             </p>
           </div>
           <div className="bg-zinc-900 rounded-xl p-6">
