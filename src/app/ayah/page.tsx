@@ -1,19 +1,11 @@
 import Image from "next/image";
 import Link from "next/link";
-import { ArrowLeft, Star, BookOpen, Music, Share2, Image as ImageIcon } from "lucide-react";
+import { Star, BookOpen, Music, Share2, Image as ImageIcon } from "lucide-react";
 
 export default function AyahPage() {
   return (
     <main className="min-h-screen bg-[#0a0a0a] text-white">
       <div className="max-w-4xl mx-auto px-6 py-8">
-        <Link
-          href="/"
-          className="inline-flex items-center gap-2 text-zinc-400 hover:text-white transition-colors mb-12"
-        >
-          <ArrowLeft className="w-4 h-4" />
-          Back to projects
-        </Link>
-
         <div className="flex flex-col md:flex-row gap-8 items-start mb-12">
           <div className="w-full md:w-48 h-48 shrink-0">
             <Image
