@@ -99,6 +99,16 @@ const projects = [
     imageStyle: "contain" as const,
   },
   {
+    title: "Ayah",
+    description:
+      "A beautiful daily Quran verse app with audio recitation, shareable quote cards, and stunning wallpapers. Get your daily spiritual inspiration.",
+    tags: ["App", "Flutter", "Android", "Spirituality"],
+    link: "/ayah",
+    slug: "ayah",
+    image: "/images/ayah-icon.png",
+    imageStyle: "contain" as const,
+  },
+  {
     title: "SG Lottery 4D TOTO",
     description:
       "Stay up to date with the latest Singapore Pools 4D & TOTO draw results. History, lucky number generator, and prize breakdowns.",
