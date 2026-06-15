@@ -109,6 +109,16 @@ const projects = [
     imageStyle: "contain" as const,
   },
   {
+    title: "Gita",
+    description:
+      "Daily Bhagavad Gita shloka companion with Sanskrit verses, English translations, audio recitation, and shareable quote cards.",
+    tags: ["App", "Flutter", "Android", "Spirituality"],
+    link: "/gita",
+    slug: "gita",
+    image: "/images/gita-icon.png",
+    imageStyle: "contain" as const,
+  },
+  {
     title: "SG Lottery 4D TOTO",
     description:
       "Stay up to date with the latest Singapore Pools 4D & TOTO draw results. History, lucky number generator, and prize breakdowns.",
