@@ -74,7 +74,7 @@ export default function QuietudePage() {
             </a>
 
             <a
-              href="https://apps.apple.com/app/jing-静-sleep-study-focus/idYOUR_APPLE_ID"
+              href="https://apps.apple.com/us/app/jing-%E9%9D%99-sleep-study-focus/id6789123531"
               target="_blank"
               rel="noopener noreferrer"
               className="group inline-flex items-center gap-3 border border-white/20 text-white px-7 py-3.5 rounded-full text-sm tracking-wider hover:bg-white/5 transition-all"
@@ -205,7 +205,7 @@ export default function QuietudePage() {
             </a>
 
             <a
-              href="https://apps.apple.com/app/jing-静-sleep-study-focus/idYOUR_APPLE_ID"
+              href="https://apps.apple.com/us/app/jing-%E9%9D%99-sleep-study-focus/id6789123531"
               target="_blank"
               rel="noopener noreferrer"
               className="group inline-flex items-center gap-3 border border-white/20 text-white px-7 py-3.5 rounded-full text-sm tracking-wider hover:bg-white/5 transition-all"
