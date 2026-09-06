@@ -1,12 +1,16 @@
 import Anthropic from "@anthropic-ai/sdk";
 import {
   EXTRACTION_SYSTEM_PROMPT,
+  MAX_OUTPUT_TOKENS,
   MODEL,
+  NOT_A_POST,
   TRANSLATOR_SYSTEM_PROMPT,
 } from "./constants";
 
 export class ClaudeUnavailableError extends Error {}
 export class ClaudeRequestError extends Error {}
+/** The input was not a post — someone is using the box for something else. */
+export class NotAPostError extends Error {}
 
 let client: Anthropic | null = null;
 
@@ -32,6 +36,7 @@ function firstText(message: Anthropic.Message): string {
 function toFriendlyError(error: unknown): Error {
   if (error instanceof ClaudeUnavailableError) return error;
   if (error instanceof ClaudeRequestError) return error;
+  if (error instanceof NotAPostError) return error;
   if (error instanceof Anthropic.RateLimitError) {
     return new ClaudeRequestError("Too many translations right now. Try again in a moment.");
   }
@@ -59,15 +64,29 @@ function stripFormatting(text: string): string {
     .trim();
 }
 
+/** Keeps pasted text from closing the tag early and posing as our own prompt. */
+function fenced(post: string): string {
+  const safe = post.replace(/<\/?post>/gi, "");
+  return `Translate the LinkedIn post below.\n\n<post>\n${safe}\n</post>`;
+}
+
+/** Lenient: only a response that is essentially just the sentinel counts. */
+function isRefusal(output: string): boolean {
+  return output.length < 40 && output.toUpperCase().includes(NOT_A_POST);
+}
+
 export async function translatePost(post: string): Promise<string> {
   try {
     const message = await getClient().messages.create({
       model: MODEL,
-      max_tokens: 2000,
+      max_tokens: MAX_OUTPUT_TOKENS,
       system: TRANSLATOR_SYSTEM_PROMPT,
-      messages: [{ role: "user", content: post }],
+      messages: [{ role: "user", content: fenced(post) }],
     });
     const output = stripFormatting(firstText(message));
+    if (isRefusal(output)) {
+      throw new NotAPostError("That doesn't look like a LinkedIn post");
+    }
     if (!output) throw new ClaudeRequestError("Claude returned an empty translation.");
     return output;
   } catch (error) {
@@ -83,7 +102,7 @@ export async function extractPostText(
   try {
     const message = await getClient().messages.create({
       model: MODEL,
-      max_tokens: 2000,
+      max_tokens: MAX_OUTPUT_TOKENS,
       system: EXTRACTION_SYSTEM_PROMPT,
       messages: [
         {

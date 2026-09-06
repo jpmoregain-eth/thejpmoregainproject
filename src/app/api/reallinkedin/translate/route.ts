@@ -1,8 +1,10 @@
 import { MAX_POST_CHARS } from "@/app/reallinkedin/_lib/constants";
 import {
   ClaudeUnavailableError,
+  NotAPostError,
   translatePost,
 } from "@/app/reallinkedin/_lib/claude";
+import { forbidden, isSameOrigin } from "@/app/reallinkedin/_lib/origin";
 import {
   consumeTranslation,
   isLocked,
@@ -10,6 +12,8 @@ import {
 } from "@/app/reallinkedin/_lib/entitlements";
 
 export async function POST(request: Request) {
+  if (!isSameOrigin(request)) return forbidden();
+
   const entitlements = await readEntitlements();
   if (isLocked(entitlements)) {
     return Response.json(
@@ -41,6 +45,10 @@ export async function POST(request: Request) {
     const updated = await consumeTranslation();
     return Response.json({ output, ...updated });
   } catch (error) {
+    // A rejected input costs the visitor nothing — the counter never moved.
+    if (error instanceof NotAPostError) {
+      return Response.json({ error: error.message }, { status: 422 });
+    }
     const message =
       error instanceof Error ? error.message : "Translation failed.";
     const status = error instanceof ClaudeUnavailableError ? 503 : 502;

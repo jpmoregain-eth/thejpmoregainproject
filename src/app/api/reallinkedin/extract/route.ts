@@ -7,6 +7,7 @@ import {
   extractPostText,
 } from "@/app/reallinkedin/_lib/claude";
 import { isLocked, readEntitlements } from "@/app/reallinkedin/_lib/entitlements";
+import { forbidden, isSameOrigin } from "@/app/reallinkedin/_lib/origin";
 
 /**
  * Reads the post text out of an uploaded screenshot so the input card can show
@@ -14,6 +15,8 @@ import { isLocked, readEntitlements } from "@/app/reallinkedin/_lib/entitlements
  * the counter moves in /translate — but it is gated on having one left.
  */
 export async function POST(request: Request) {
+  if (!isSameOrigin(request)) return forbidden();
+
   const entitlements = await readEntitlements();
   if (isLocked(entitlements)) {
     return Response.json(
@@ -42,7 +45,7 @@ export async function POST(request: Request) {
   }
   if (file.size > MAX_IMAGE_BYTES) {
     return Response.json(
-      { error: "That screenshot is over 5MB." },
+      { error: "That screenshot is over 4MB." },
       { status: 413 },
     );
   }

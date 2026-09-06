@@ -1,7 +1,7 @@
 "use client";
 
 import { useRef, useState } from "react";
-import type { Tier } from "../_lib/constants";
+import { MAX_POST_CHARS, type Tier } from "../_lib/constants";
 
 export type ScreenshotState = {
   name: string;
@@ -181,8 +181,17 @@ export default function InputCard({
 
       <div className="flex flex-wrap items-center justify-between gap-4 border-t border-[#D4A843]/12 bg-[rgba(10,10,15,0.35)] px-6 py-4">
         <div className="flex items-center gap-[14px]">
-          <span className="font-mono text-[12px] tracking-[0.04em] text-[#E5E5E5]/40">
-            {text.trim().length} chars
+          <span
+            className={[
+              "font-mono text-[12px] tracking-[0.04em]",
+              text.trim().length > MAX_POST_CHARS
+                ? "text-[#FF5C5C]"
+                : "text-[#E5E5E5]/40",
+            ].join(" ")}
+          >
+            {text.trim().length > MAX_POST_CHARS
+              ? `${text.trim().length} / ${MAX_POST_CHARS} chars`
+              : `${text.trim().length} chars`}
           </span>
           {tier === "free" && (
             <span className="rounded-full border border-[#D4A843]/30 bg-[#D4A843]/10 px-3 py-[5px] font-mono text-[11px] font-semibold uppercase tracking-[0.1em] text-[#D4A843]">

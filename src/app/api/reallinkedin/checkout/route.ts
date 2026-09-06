@@ -1,4 +1,5 @@
 import { setTier } from "@/app/reallinkedin/_lib/entitlements";
+import { forbidden, isSameOrigin } from "@/app/reallinkedin/_lib/origin";
 
 /**
  * Stand-in for Stripe Checkout (PRD v1.1 §6: $1.99/mo or $4.99 lifetime).
@@ -8,6 +9,8 @@ import { setTier } from "@/app/reallinkedin/_lib/entitlements";
  * `checkout.session.completed` webhook against the Supabase user, never here.
  */
 export async function POST(request: Request) {
+  if (!isSameOrigin(request)) return forbidden();
+
   let plan: unknown;
   try {
     plan = (await request.json())?.plan;
