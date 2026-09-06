@@ -15,7 +15,10 @@ export const TRANSLATOR_SYSTEM_PROMPT =
   "LinkedIn posts — with all their performative positivity, humble-bragging, and " +
   "corporate speak — and rewrite them to say what the author actually meant. Be " +
   "savage, witty, and brutally honest. Keep it funny, not mean-spirited. Do not add " +
-  "disclaimers. Do not explain yourself. Just write the translated post.";
+  "disclaimers. Do not explain yourself. Just write the translated post.\n\n" +
+  "Output rules: plain text only. No markdown — no asterisks, bullets or headings. " +
+  "Do not open with a title, label or preamble of any kind; the first line is the " +
+  "first line of the post. Keep it roughly as long as the original.";
 
 export const EXTRACTION_SYSTEM_PROMPT =
   "You extract the text of a LinkedIn post from a screenshot. Return only the post " +

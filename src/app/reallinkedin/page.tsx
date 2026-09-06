@@ -1,7 +1,6 @@
 "use client";
 
 import { useCallback, useEffect, useRef, useState } from "react";
-import AdSlot from "@/components/AdSlot";
 import AuthModal from "./_components/AuthModal";
 import HeroHeader from "./_components/HeroHeader";
 import InputCard, { type ScreenshotState } from "./_components/InputCard";
@@ -45,7 +44,6 @@ export default function RealLinkedInPage() {
   const free = tier === "free";
   const remaining = free ? Math.max(0, limit - used) : limit;
   const locked = free && remaining === 0;
-  const showAds = free && view === "output";
 
   const flash = useCallback((message: string) => {
     if (toastTimer.current) clearTimeout(toastTimer.current);
@@ -272,8 +270,6 @@ export default function RealLinkedInPage() {
 
       {view === "loading" && <LoadingIndicator />}
 
-      {showAds && <AdSlot type="leaderboard" className="mt-8" />}
-
       {view === "output" && (
         <section className="mt-8" style={{ animation: "fadeInUp 0.5s ease" }}>
           <OutputCard
@@ -298,8 +294,6 @@ export default function RealLinkedInPage() {
           onToast={flash}
         />
       )}
-
-      {showAds && <AdSlot type="rectangle" className="mt-10" />}
 
       {paywall && (
         <PaywallModal

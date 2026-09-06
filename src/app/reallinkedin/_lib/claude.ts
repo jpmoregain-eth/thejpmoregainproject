@@ -47,6 +47,18 @@ function toFriendlyError(error: unknown): Error {
   return new ClaudeRequestError("Something went wrong translating that post.");
 }
 
+/**
+ * Haiku occasionally opens with a label line or reaches for markdown; the output
+ * card renders plain text, so the asterisks would show up literally.
+ */
+function stripFormatting(text: string): string {
+  return text
+    .replace(/^\s*\**\s*(the\s+)?translation\s*:?\s*\**\s*(\n+|$)/i, "")
+    .replace(/\*\*([\s\S]+?)\*\*/g, "$1")
+    .replace(/(^|[\s(])\*(\S(?:[^*\n]*\S)?)\*(?=[\s).,!?;:]|$)/g, "$1$2")
+    .trim();
+}
+
 export async function translatePost(post: string): Promise<string> {
   try {
     const message = await getClient().messages.create({
@@ -55,7 +67,7 @@ export async function translatePost(post: string): Promise<string> {
       system: TRANSLATOR_SYSTEM_PROMPT,
       messages: [{ role: "user", content: post }],
     });
-    const output = firstText(message);
+    const output = stripFormatting(firstText(message));
     if (!output) throw new ClaudeRequestError("Claude returned an empty translation.");
     return output;
   } catch (error) {

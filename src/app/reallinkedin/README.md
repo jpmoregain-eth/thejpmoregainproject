@@ -37,5 +37,6 @@ Two pieces from the PRD are stubbed at a single seam each, both marked with TODO
   paid. It should create a Checkout Session, redirect to it, and let the
   `checkout.session.completed` webhook set the tier.
 
-Ad slots are the existing `AdSlot` placeholders and render for free users only,
-once output is on screen. They need the real AdSense units before launch.
+Ad slots were removed from this page. The PRD budgets two AdSense units for the
+free tier (leaderboard above the output, rectangle at the bottom) — re-add
+`<AdSlot type="..." />` guarded on `free && view === "output"` if they come back.
