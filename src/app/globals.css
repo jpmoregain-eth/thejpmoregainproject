@@ -136,6 +136,16 @@ body {
   animation: blink 1s infinite;
 }
 
+/* Loading dots (RealLinkedIn) */
+@keyframes pulseDot {
+  0%, 100% { opacity: 0.25; transform: translateY(0); }
+  50% { opacity: 1; transform: translateY(-3px); }
+}
+
+.pulse-dot {
+  animation: pulseDot 1s infinite;
+}
+
 /* Typing effect */
 @keyframes typing {
   from { width: 0; }

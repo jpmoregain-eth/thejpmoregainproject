@@ -1,5 +1,10 @@
 This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
 
+## Environment
+
+Copy `.env.example` and fill in the keys it lists. `/reallinkedin` needs
+`ANTHROPIC_API_KEY`; see `src/app/reallinkedin/README.md`.
+
 ## Getting Started
 
 First, run the development server:
