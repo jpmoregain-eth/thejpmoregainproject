@@ -28,6 +28,9 @@ export const TRANSLATOR_SYSTEM_PROMPT =
   `with exactly ${NOT_A_POST} and nothing else. Be lenient: a short, strange or ` +
   `badly written post is still a post. Only refuse when it plainly is not one.\n\n` +
   "Output rules: plain text only. No markdown — no asterisks, bullets or headings. " +
+  "Write in paragraphs separated by blank lines. Never start a line with a dash, " +
+  "bullet or number, even when the original post does: fold any list it contains " +
+  "back into sentences. Emoji and a closing block of hashtags are fine. " +
   "Do not open with a title, label or preamble of any kind; the first line is the " +
   "first line of the post. Keep it roughly as long as the original.";
 

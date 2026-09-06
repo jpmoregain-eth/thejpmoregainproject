@@ -61,7 +61,24 @@ function stripFormatting(text: string): string {
     .replace(/^\s*\**\s*(the\s+)?translation\s*:?\s*\**\s*(\n+|$)/i, "")
     .replace(/\*\*([\s\S]+?)\*\*/g, "$1")
     .replace(/(^|[\s(])\*(\S(?:[^*\n]*\S)?)\*(?=[\s).,!?;:]|$)/g, "$1$2")
+    // The model still mirrors a list-shaped original now and then.
+    .replace(/^[ \t]*[-–—•*][ \t]+/gm, "")
     .trim();
+}
+
+/**
+ * A response that hit the token ceiling stops mid-sentence. Falling back to the
+ * last complete sentence reads as finished; a dangling clause reads as broken.
+ */
+function trimToLastSentence(text: string): string {
+  const end = Math.max(
+    text.lastIndexOf("."),
+    text.lastIndexOf("!"),
+    text.lastIndexOf("?"),
+    text.lastIndexOf("…"),
+  );
+  // Only trim when a sentence actually ends late enough to keep most of it.
+  return end > text.length / 2 ? text.slice(0, end + 1).trimEnd() : text;
 }
 
 /** Keeps pasted text from closing the tag early and posing as our own prompt. */
@@ -83,7 +100,9 @@ export async function translatePost(post: string): Promise<string> {
       system: TRANSLATOR_SYSTEM_PROMPT,
       messages: [{ role: "user", content: fenced(post) }],
     });
-    const output = stripFormatting(firstText(message));
+    const raw = stripFormatting(firstText(message));
+    const output =
+      message.stop_reason === "max_tokens" ? trimToLastSentence(raw) : raw;
     if (isRefusal(output)) {
       throw new NotAPostError("That doesn't look like a LinkedIn post");
     }
