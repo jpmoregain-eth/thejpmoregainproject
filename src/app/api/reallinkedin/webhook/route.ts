@@ -55,20 +55,30 @@ async function grantPro(session: Stripe.Checkout.Session) {
 
   // Signed-in checkout carries the user id straight through.
   if (session.client_reference_id) {
-    await db.from("profiles").update(fields).eq("id", session.client_reference_id);
+    const { error } = await db
+      .from("profiles")
+      .update(fields)
+      .eq("id", session.client_reference_id);
+    if (error) throw new Error(error.message);
     return;
   }
 
   if (!email) return;
 
-  const { data: existing } = await db
+  const { data: existing, error: lookupError } = await db
     .from("profiles")
     .select("id")
     .eq("email", email)
     .maybeSingle();
 
+  // Throwing here answers Stripe with a 500, so it retries for up to three days
+  // — which is what rescues a purchase made before the schema caught up. Going
+  // on would create a duplicate account for someone who already has one.
+  if (lookupError) throw new Error(lookupError.message);
+
   if (existing) {
-    await db.from("profiles").update(fields).eq("id", existing.id);
+    const { error } = await db.from("profiles").update(fields).eq("id", existing.id);
+    if (error) throw new Error(error.message);
     return;
   }
 
@@ -80,7 +90,11 @@ async function grantPro(session: Stripe.Checkout.Session) {
   });
   if (error || !created.user) throw error ?? new Error("Could not create the account");
 
-  await db.from("profiles").update(fields).eq("id", created.user.id);
+  const { error: updateError } = await db
+    .from("profiles")
+    .update(fields)
+    .eq("id", created.user.id);
+  if (updateError) throw new Error(updateError.message);
 }
 
 async function revokeMonthly(subscription: Stripe.Subscription) {
@@ -90,9 +104,10 @@ async function revokeMonthly(subscription: Stripe.Subscription) {
       : subscription.customer.id;
 
   // Lifetime buyers have no subscription, so they can never be caught by this.
-  await adminClient()
+  const { error } = await adminClient()
     .from("profiles")
     .update({ tier: "free" })
     .eq("stripe_customer_id", customer)
     .eq("plan", "monthly");
+  if (error) throw new Error(error.message);
 }
