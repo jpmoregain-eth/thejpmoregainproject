@@ -17,7 +17,15 @@ import { forbidden, isSameOrigin } from "@/app/reallinkedin/_lib/origin";
 export async function POST(request: Request) {
   if (!isSameOrigin(request)) return forbidden();
 
-  const entitlements = await readEntitlements();
+  let entitlements;
+  try {
+    entitlements = await readEntitlements();
+  } catch {
+    return Response.json(
+      { error: "Usage is temporarily unavailable. Try again shortly." },
+      { status: 503 },
+    );
+  }
   if (isLocked(entitlements)) {
     return Response.json(
       { error: "limit_reached", ...entitlements },

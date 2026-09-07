@@ -10,9 +10,12 @@ cynical version back from Claude Haiku.
 | `page.tsx` | All page state (tier, usage, tabs, view, modals, toast) |
 | `_components/` | Presentational pieces — hero, input card, output, share panel, modals |
 | `_lib/constants.ts` | Free limit, watermark, model id, the PRD system prompts |
-| `_lib/entitlements.ts` | Server-side tier + free-usage counter |
+| `_lib/entitlements.ts` | Who the visitor is, what they have used, what they are owed |
+| `_lib/supabase.ts` | Session and service-role clients |
+| `_lib/stripe.ts` | Stripe client and price ids |
 | `_lib/claude.ts` | Haiku calls: translate, and read post text out of a screenshot |
-| `../api/reallinkedin/*` | Route handlers: `usage`, `translate`, `extract`, `checkout` |
+| `../api/reallinkedin/*` | `usage`, `translate`, `extract`, `checkout`, `checkout/confirm`, `webhook`, `auth/magic-link` |
+| `../auth/callback` | Where the magic link lands |
 
 The nav and footer come from the root layout. The tier indicator (Sign in / Pro
 pill) is portalled into `#navbar-action-slot`, which `src/components/Navbar.tsx`
@@ -20,8 +23,9 @@ renders on every page.
 
 ## Setup
 
-Set `ANTHROPIC_API_KEY` (see `.env.example`). The page renders without it; the
-translate and extract endpoints return a "not configured" message instead.
+Environment variables and the Supabase/Stripe dashboard steps are in `SETUP.md`.
+Without any keys the page still runs on a cookie counter; sign-in and payments
+report themselves as unconfigured rather than failing oddly.
 
 Note: the site no longer builds as a static export — these route handlers need a
 Node runtime, so deploy to a host that runs the Next.js server.
@@ -40,16 +44,12 @@ Node runtime, so deploy to a host that runs the Next.js server.
 Still open: there is no rate limit. The free counter is a cookie, so clearing it
 grants five more. Both need a store — Supabase or Upstash — see below.
 
-## Still to wire up
+## Setup
 
-Two pieces from the PRD are stubbed at a single seam each, both marked with TODOs:
+Environment variables and the Supabase/Stripe dashboard steps are in
+`SETUP.md`. Without the keys the page still runs on a cookie counter, and
+sign-in and payments report themselves as unconfigured.
 
-- **Supabase** — auth and the usage row. Today the free counter and the tier live
-  in httpOnly cookies (`_lib/entitlements.ts`); the "Send magic link" button only
-  toasts. Swap the cookie reads for a session-keyed usage row.
-- **Stripe** — `api/reallinkedin/checkout` currently flips the tier straight to
-  paid. It should create a Checkout Session, redirect to it, and let the
-  `checkout.session.completed` webhook set the tier.
 
 Ad slots were removed from this page. The PRD budgets two AdSense units for the
 free tier (leaderboard above the output, rectangle at the bottom) — re-add

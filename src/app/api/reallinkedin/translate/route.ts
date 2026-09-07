@@ -14,7 +14,15 @@ import {
 export async function POST(request: Request) {
   if (!isSameOrigin(request)) return forbidden();
 
-  const entitlements = await readEntitlements();
+  let entitlements;
+  try {
+    entitlements = await readEntitlements();
+  } catch {
+    return Response.json(
+      { error: "Usage is temporarily unavailable. Try again shortly." },
+      { status: 503 },
+    );
+  }
   if (isLocked(entitlements)) {
     return Response.json(
       { error: "limit_reached", ...entitlements },
@@ -42,7 +50,7 @@ export async function POST(request: Request) {
   try {
     const output = await translatePost(post.trim());
     // Only a successful translation costs the visitor one of their five.
-    const updated = await consumeTranslation();
+    const updated = await consumeTranslation(entitlements);
     return Response.json({ output, ...updated });
   } catch (error) {
     // A rejected input costs the visitor nothing — the counter never moved.

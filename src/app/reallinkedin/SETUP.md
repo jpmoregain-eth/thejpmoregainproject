@@ -72,6 +72,26 @@ There are deliberately no write policies. All counting and tier changes happen
 server-side with the service role key, which bypasses RLS. That is what stops
 someone resetting their own counter from the browser.
 
+**Then run this second block.** Payments arrive from Stripe carrying an email,
+not a user id, so profiles need an email to match against — and someone who pays
+before ever signing in needs an account created for them:
+
+```sql
+alter table public.profiles add column if not exists email text unique;
+
+update public.profiles p
+   set email = u.email
+  from auth.users u
+ where u.id = p.id and p.email is null;
+
+create or replace function public.handle_new_user()
+returns trigger language plpgsql security definer set search_path = '' as $$
+begin
+  insert into public.profiles (id, email) values (new.id, new.email);
+  return new;
+end $$;
+```
+
 **Collect the keys** — Project Settings → API keys. Three values:
 
 - Project URL
@@ -103,7 +123,7 @@ end to end. Test and live mode have completely separate keys and products.
    - If you only see "restricted keys", create one with write access to
      Checkout Sessions, Customers and Subscriptions.
 
-**Add the webhook** (after the route exists — tell me and I'll say when)
+**Add the webhook** (the route exists now)
 
 5. Developers → Webhooks → Add endpoint:
    - URL: `https://thejpmoregainproject.com/api/reallinkedin/webhook`
@@ -140,11 +160,29 @@ Only the `NEXT_PUBLIC_` ones reach the browser. Everything else stays server-sid
 
 ---
 
-## 4. What gets wired once these exist
+## 4. How it fits together
 
-- `_lib/entitlements.ts` reads the Supabase session and the usage row instead of
-  cookies; signed-out visitors fall back to an anonymous device id.
-- "Send magic link" calls Supabase auth for real, and the session survives.
-- `api/reallinkedin/checkout` creates a Stripe Checkout Session and redirects;
-  a new `api/reallinkedin/webhook` route sets the tier when payment completes.
-- The Pro state stops being a cookie and starts being an account.
+**Who am I?** `_lib/entitlements.ts` answers this on every request. A signed-in
+visitor is counted against their `profiles` row; a signed-out one against an
+`anon_usage` row keyed by an httpOnly device id. Signing in merges whatever the
+device used onto the account, so signing up is not a way to reset the count.
+
+**Signing in.** `POST /api/reallinkedin/auth/magic-link` asks Supabase to email a
+link; the link lands on `/auth/callback`, which exchanges the code for a session
+and redirects back to the page.
+
+**Paying.** `POST /api/reallinkedin/checkout` opens a Stripe Checkout Session and
+the visitor is redirected to Stripe. They come back to
+`/reallinkedin?session_id=…`, which the page posts to `checkout/confirm` — that
+route asks Stripe whether the session was actually paid before unlocking Pro on
+that browser. The id in the URL grants nothing on its own.
+
+**The durable record** is set by `POST /api/reallinkedin/webhook`, which Stripe
+calls directly. It attaches Pro to the account behind the paying email, creating
+that account if the payer never signed in, so their Pro is waiting the first time
+they use a magic link. The signature check is what authenticates Stripe.
+
+**When Supabase is unreachable** every route fails closed — no translation runs
+and no credit is spent, rather than handing out uncounted free calls. With no
+Supabase keys at all (local dev, preview builds) it falls back to the old cookie
+counter so the page still works.

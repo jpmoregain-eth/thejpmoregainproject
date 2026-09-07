@@ -12,9 +12,11 @@ const subscribe = () => () => {};
  */
 export default function NavTierIndicator({
   tier,
+  signedIn,
   onSignIn,
 }: {
   tier: Tier;
+  signedIn: boolean;
   onSignIn: () => void;
 }) {
   // The slot only exists once the Navbar has mounted on the client.
@@ -31,6 +33,13 @@ export default function NavTierIndicator({
       <div className="flex items-center gap-[9px] rounded-full border border-[#00FF88]/30 bg-[#00FF88]/10 px-[13px] py-[6px] font-mono text-[11px] font-semibold uppercase tracking-[0.12em] text-[#00FF88]">
         <span className="h-[6px] w-[6px] rounded-full bg-[#00FF88]" aria-hidden />
         Pro
+      </div>
+    ) : signedIn ? (
+      // Not in the handoff: a signed-in free visitor is neither "Sign in" nor
+      // "Pro", so they get the same pill in gold.
+      <div className="flex items-center gap-[9px] rounded-full border border-[#D4A843]/30 bg-[#D4A843]/10 px-[13px] py-[6px] font-mono text-[11px] font-semibold uppercase tracking-[0.12em] text-[#D4A843]">
+        <span className="h-[6px] w-[6px] rounded-full bg-[#D4A843]" aria-hidden />
+        Free
       </div>
     ) : (
       <button

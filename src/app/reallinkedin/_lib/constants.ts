@@ -60,4 +60,6 @@ export type Entitlements = {
   used: number;
   limit: number;
   remaining: number;
+  /** Whether this visitor has a Supabase session, not whether they have paid. */
+  signedIn: boolean;
 };

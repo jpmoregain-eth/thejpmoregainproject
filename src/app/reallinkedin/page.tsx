@@ -15,6 +15,7 @@ import { FREE_LIMIT, type Entitlements, type Tier } from "./_lib/constants";
 
 export default function RealLinkedInPage() {
   const [tier, setTier] = useState<Tier>("free");
+  const [signedIn, setSignedIn] = useState(false);
   const [used, setUsed] = useState(0);
   const [limit, setLimit] = useState(FREE_LIMIT);
 
@@ -53,23 +54,62 @@ export default function RealLinkedInPage() {
 
   const applyEntitlements = useCallback((data: Partial<Entitlements>) => {
     if (data.tier) setTier(data.tier);
+    if (typeof data.signedIn === "boolean") setSignedIn(data.signedIn);
     if (typeof data.used === "number") setUsed(data.used);
     if (typeof data.limit === "number") setLimit(data.limit);
   }, []);
 
-  // Tier and the lifetime free counter are owned by the server.
+  // Tier and the lifetime free counter are owned by the server. This also
+  // handles the two ways a visitor comes back to the page: from Stripe with a
+  // checkout session to verify, and from a magic link with a fresh session.
   useEffect(() => {
     let cancelled = false;
-    fetch("/api/reallinkedin/usage")
-      .then((response) => (response.ok ? response.json() : null))
-      .then((data) => {
-        if (!cancelled && data) applyEntitlements(data);
-      })
-      .catch(() => {});
+    const params = new URLSearchParams(window.location.search);
+    const sessionId = params.get("session_id");
+    const signin = params.get("signin");
+    const cancelled_ = params.get("checkout") === "cancelled";
+
+    const clearQuery = () =>
+      window.history.replaceState(null, "", window.location.pathname);
+
+    const load = async () => {
+      if (sessionId) {
+        clearQuery();
+        const response = await fetch("/api/reallinkedin/checkout/confirm", {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify({ session_id: sessionId }),
+        });
+        const data = await response.json();
+        if (!cancelled && response.ok) {
+          applyEntitlements(data);
+          flash("Payment complete — you're Pro");
+          return;
+        }
+        if (!cancelled) flash(data?.error ?? "Could not confirm that payment");
+      }
+
+      if (signin) {
+        clearQuery();
+        if (!cancelled) {
+          flash(signin === "ok" ? "You're signed in" : "That link has expired");
+        }
+      }
+
+      if (cancelled_) {
+        clearQuery();
+        if (!cancelled) flash("Checkout cancelled");
+      }
+
+      const response = await fetch("/api/reallinkedin/usage");
+      if (response.ok && !cancelled) applyEntitlements(await response.json());
+    };
+
+    load().catch(() => {});
     return () => {
       cancelled = true;
     };
-  }, [applyEntitlements]);
+  }, [applyEntitlements, flash]);
 
   useEffect(
     () => () => {
@@ -203,37 +243,36 @@ export default function RealLinkedInPage() {
   };
 
   const submitAuth = async (email: string) => {
-    if (authMode === "signin") {
-      // TODO(supabase): send a magic link for `email` via Supabase auth.
-      void email;
-      setAuth(false);
-      flash("Check your inbox for the link");
-      return;
-    }
-
     setAuthBusy(true);
     try {
-      // TODO(stripe): redirect to the Checkout Session this returns instead of
-      // treating the response as a completed payment.
-      const response = await fetch("/api/reallinkedin/checkout", {
+      const endpoint =
+        authMode === "signin"
+          ? "/api/reallinkedin/auth/magic-link"
+          : "/api/reallinkedin/checkout";
+      const response = await fetch(endpoint, {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ plan: pendingPlan, email }),
+        body: JSON.stringify(
+          authMode === "signin" ? { email } : { plan: pendingPlan, email },
+        ),
       });
       const data = await response.json();
 
       if (!response.ok) {
-        flash(data?.error ?? "Checkout failed");
+        flash(data?.error ?? "Something went wrong");
         return;
       }
 
-      applyEntitlements(data);
-      setAuth(false);
-      flash("Payment complete — you're Pro");
-      // Land the newly-paid visitor straight on the feature they bought.
-      if (view === "output") setShare(true);
+      if (authMode === "signin") {
+        setAuth(false);
+        flash("Check your inbox for the link");
+        return;
+      }
+
+      // Hand off to Stripe. Pro is granted on the way back, not here.
+      window.location.href = data.url;
     } catch {
-      flash("Checkout failed");
+      flash("Something went wrong");
     } finally {
       setAuthBusy(false);
     }
@@ -245,6 +284,7 @@ export default function RealLinkedInPage() {
     <div className="mx-auto w-full max-w-[760px] px-6 pt-[136px] pb-24">
       <NavTierIndicator
         tier={tier}
+        signedIn={signedIn}
         onSignIn={() => {
           setAuthMode("signin");
           setAuth(true);
