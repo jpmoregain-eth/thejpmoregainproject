@@ -1,6 +1,11 @@
 "use client";
 
 import { useRef, useState } from "react";
+import {
+  readStoredAvatar,
+  storeAvatar,
+  toAvatarDataUrl,
+} from "../_lib/avatar";
 import SectionLabel from "./SectionLabel";
 
 const PAGE_URL = "https://thejpmoregainproject.com/reallinkedin";
@@ -28,7 +33,27 @@ export default function SharePanel({
   onToast,
 }: Props) {
   const cardRef = useRef<HTMLDivElement>(null);
+  const avatarInput = useRef<HTMLInputElement>(null);
   const [exporting, setExporting] = useState(false);
+  // Safe as a lazy initialiser: this panel only ever mounts after a
+  // translation, so it never renders on the server.
+  const [avatar, setAvatar] = useState(readStoredAvatar);
+
+  const pickAvatar = async (file: File | undefined) => {
+    if (!file) return;
+    try {
+      const dataUrl = await toAvatarDataUrl(file);
+      setAvatar(dataUrl);
+      storeAvatar(dataUrl);
+    } catch {
+      onToast("Could not read that image");
+    }
+  };
+
+  const clearAvatar = () => {
+    setAvatar("");
+    storeAvatar("");
+  };
 
   const formattedText = `${output}\n\n— via RealLinkedIn · ${PAGE_URL}`;
 
@@ -120,17 +145,39 @@ export default function SharePanel({
           </label>
         </div>
 
+        <input
+          ref={avatarInput}
+          type="file"
+          accept="image/png,image/jpeg,image/webp,image/gif"
+          className="hidden"
+          onChange={(event) => {
+            void pickAvatar(event.target.files?.[0]);
+            event.target.value = "";
+          }}
+        />
+
         {/* The export target: nothing outside this node ends up in the PNG. */}
         <div
           ref={cardRef}
           className="rounded-[10px] bg-white px-[22px] pb-4 pt-5 shadow-[0_18px_40px_rgba(0,0,0,0.45)]"
         >
           <div className="flex items-center gap-3">
-            <span
-              className="h-12 w-12 flex-none rounded-full"
-              style={{ background: AVATAR_STRIPES }}
-              aria-hidden
-            />
+            <button
+              type="button"
+              onClick={() => avatarInput.current?.click()}
+              aria-label={avatar ? "Change profile photo" : "Add a profile photo"}
+              className="group relative h-12 w-12 flex-none overflow-hidden rounded-full"
+              style={avatar ? undefined : { background: AVATAR_STRIPES }}
+            >
+              {avatar ? (
+                /* eslint-disable-next-line @next/next/no-img-element */
+                <img src={avatar} alt="" className="h-full w-full object-cover" />
+              ) : null}
+              {/* Hidden until hover or keyboard focus, so it never lands in the PNG. */}
+              <span className="absolute inset-0 flex items-center justify-center bg-black/55 font-mono text-[9px] uppercase tracking-[0.08em] text-white opacity-0 transition-opacity duration-[250ms] group-hover:opacity-100 group-focus-visible:opacity-100">
+                {avatar ? "Change" : "Add"}
+              </span>
+            </button>
             <span className="min-w-0">
               <span className="block truncate text-[15px] font-semibold text-[#191919]">
                 {name.trim() || "Your Name Here"}
@@ -157,6 +204,23 @@ export default function SharePanel({
             </span>
           </div>
         </div>
+
+        <p className="mt-3 font-mono text-[11.5px] text-[#E5E5E5]/45">
+          {avatar ? (
+            <>
+              Photo stays on this device.{" "}
+              <button
+                type="button"
+                onClick={clearAvatar}
+                className="cursor-pointer border-0 bg-transparent p-0 font-mono text-[11.5px] text-[#E5E5E5]/60 underline transition-colors duration-[250ms] hover:text-[#D4A843]"
+              >
+                Remove photo
+              </button>
+            </>
+          ) : (
+            "Click the avatar to add a photo — it stays on this device."
+          )}
+        </p>
 
         <div className="mt-[22px] flex flex-wrap gap-[10px]">
           <button

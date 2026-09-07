@@ -14,6 +14,7 @@ cynical version back from Claude Haiku.
 | `_lib/supabase.ts` | Session and service-role clients |
 | `_lib/stripe.ts` | Stripe client and price ids |
 | `_lib/claude.ts` | Haiku calls: translate, and read post text out of a screenshot |
+| `_lib/avatar.ts` | Share-card photo: browser-side crop, resize and local storage |
 | `../api/reallinkedin/*` | `usage`, `translate`, `extract`, `checkout`, `checkout/confirm`, `webhook`, `auth/magic-link` |
 | `../auth/callback` | Where the magic link lands |
 
