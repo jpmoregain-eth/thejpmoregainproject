@@ -132,9 +132,16 @@ end to end. Test and live mode have completely separate keys and products.
 **Add the webhook** (the route exists now)
 
 5. Developers → Webhooks → Add endpoint:
-   - URL: `https://thejpmoregainproject.com/api/reallinkedin/webhook`
+   - URL: `https://www.thejpmoregainproject.com/api/reallinkedin/webhook`
    - Events: `checkout.session.completed` and `customer.subscription.deleted`
 6. Copy the **signing secret** (`whsec_...`).
+
+   **Use the www host.** The apex redirects to www, and Stripe does not follow
+   redirects — every delivery fails with a 307 and the purchase never reaches
+   the account. A browser follows the redirect happily, so nothing else in the
+   app reveals the problem. Keep `NEXT_PUBLIC_SITE_URL` on www for the same
+   reason. If deliveries are failing, read the response body in
+   Stripe → Webhooks → Event deliveries before assuming it is the code.
 
 **Going live later:** live mode needs your business details filled in before
 Stripe will accept real payments, and you redo steps 1-6 in live mode for a
