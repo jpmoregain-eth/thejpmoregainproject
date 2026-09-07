@@ -24,9 +24,15 @@ collected are what matter.
    - Site URL: `https://thejpmoregainproject.com`
    - Redirect URLs: `https://thejpmoregainproject.com/**` and
      `http://localhost:3000/**`
-4. Optional but wise before any real traffic: Project Settings → Auth → SMTP,
-   pointed at Resend or Postmark. Supabase's built-in sender is rate limited to
-   a handful of emails an hour, and sign-ins fail silently once it throttles.
+4. Required before any real traffic: **Authentication → Emails** (under
+   NOTIFICATIONS in the sidebar) → custom SMTP, pointed at Resend or Postmark.
+   The built-in sender is capped at 2 emails an hour and cannot be raised, so
+   sign-ins stop working for everyone once it throttles. With custom SMTP set,
+   the emails/hour field on the Rate Limits page unlocks.
+
+   The magic-link template lives in `emails/magic-link.html` in this folder —
+   edit it there and paste it into that same Emails page, so the version in the
+   dashboard is not the only copy.
 
 **Create the tables** — SQL Editor → New query → run this whole block:
 
