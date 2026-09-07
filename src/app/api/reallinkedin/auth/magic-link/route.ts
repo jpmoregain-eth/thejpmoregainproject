@@ -27,8 +27,14 @@ export async function POST(request: Request) {
   });
 
   if (error) {
-    // Rate limits are the common case here — Supabase's built-in mailer is
-    // capped, so say something the visitor can act on.
+    // The mail sender's hourly cap is the common failure, so name it rather
+    // than implying a retry will work straight away.
+    if (error.status === 429) {
+      return Response.json(
+        { error: "Too many sign-in emails just now. Try again later." },
+        { status: 429 },
+      );
+    }
     return Response.json(
       { error: "Could not send the link. Try again in a minute." },
       { status: 502 },
