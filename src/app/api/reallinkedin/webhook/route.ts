@@ -1,4 +1,5 @@
 import type Stripe from "stripe";
+import { grantPro } from "@/app/reallinkedin/_lib/pro";
 import { isStripeConfigured, stripe } from "@/app/reallinkedin/_lib/stripe";
 import { adminClient, isSupabaseConfigured } from "@/app/reallinkedin/_lib/supabase";
 
@@ -44,58 +45,6 @@ export async function POST(request: Request) {
   return Response.json({ received: true });
 }
 
-async function grantPro(session: Stripe.Checkout.Session) {
-  const email = session.customer_details?.email ?? session.metadata?.email;
-  const plan = session.metadata?.plan === "lifetime" ? "lifetime" : "monthly";
-  const customer =
-    typeof session.customer === "string" ? session.customer : (session.customer?.id ?? null);
-
-  const db = adminClient();
-  const fields = { tier: "paid", plan, stripe_customer_id: customer };
-
-  // Signed-in checkout carries the user id straight through.
-  if (session.client_reference_id) {
-    const { error } = await db
-      .from("profiles")
-      .update(fields)
-      .eq("id", session.client_reference_id);
-    if (error) throw new Error(error.message);
-    return;
-  }
-
-  if (!email) return;
-
-  const { data: existing, error: lookupError } = await db
-    .from("profiles")
-    .select("id")
-    .eq("email", email)
-    .maybeSingle();
-
-  // Throwing here answers Stripe with a 500, so it retries for up to three days
-  // — which is what rescues a purchase made before the schema caught up. Going
-  // on would create a duplicate account for someone who already has one.
-  if (lookupError) throw new Error(lookupError.message);
-
-  if (existing) {
-    const { error } = await db.from("profiles").update(fields).eq("id", existing.id);
-    if (error) throw new Error(error.message);
-    return;
-  }
-
-  // Paid before ever signing in: make the account now so the purchase has
-  // somewhere to live. The signup trigger creates the profile row.
-  const { data: created, error } = await db.auth.admin.createUser({
-    email,
-    email_confirm: true,
-  });
-  if (error || !created.user) throw error ?? new Error("Could not create the account");
-
-  const { error: updateError } = await db
-    .from("profiles")
-    .update(fields)
-    .eq("id", created.user.id);
-  if (updateError) throw new Error(updateError.message);
-}
 
 async function revokeMonthly(subscription: Stripe.Subscription) {
   const customer =
