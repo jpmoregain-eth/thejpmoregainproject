@@ -11,12 +11,14 @@ export default function ConditionalShell({
 }) {
   const pathname = usePathname();
   const isPowerScale = pathname.startsWith("/powerscale");
+  const isJing = pathname.startsWith("/jing");
+  const hideShell = isPowerScale || isJing;
 
   return (
     <>
-      {!isPowerScale && <Navbar />}
+      {!hideShell && <Navbar />}
       <main className="flex-1">{children}</main>
-      {!isPowerScale && <Footer />}
+      {!hideShell && <Footer />}
     </>
   );
 }
