@@ -139,12 +139,12 @@ const projects = [
     imageStyle: "contain" as const,
   },
   {
-    title: "Quietude",
+    title: "Jing",
     description:
-      "Your personal sanctuary of calm. Ambient music and zen visuals for sleep, focus, and meditation.",
-    tags: ["App", "Wellness", "Music", "Android"],
-    link: "/quietude",
-    slug: "quietude",
+      "Your personal sanctuary of calm. Immersive soundscapes and gentle countdown sessions for sleep, focus, and calm.",
+    tags: ["App", "Wellness", "Sleep", "iOS", "Android"],
+    link: "/jing",
+    slug: "jing",
     image: "/images/quietude-icon.png",
     imageStyle: "contain" as const,
   },
