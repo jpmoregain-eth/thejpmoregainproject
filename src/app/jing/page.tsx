@@ -4,7 +4,7 @@ import "./jing.css";
 const APP_STORE_URL =
   "https://apps.apple.com/us/app/jing-%E9%9D%99-sleep-study-focus/id6789123531";
 const GOOGLE_PLAY_URL =
-  "https://play.google.com/store/apps/details?id=com.yourdomain.quietude";
+  "https://play.google.com/store/apps/details?id=com.yourdomain.quietude&hl=et";
 
 const features = [
   {
@@ -186,6 +186,15 @@ export default function JingPage() {
                 color: "#f2ece0",
               }}
             >
+              <svg
+                width="22"
+                height="24"
+                viewBox="0 0 24 24"
+                fill="currentColor"
+                aria-hidden="true"
+              >
+                <path d="M3.609 1.814L13.792 12 3.61 22.186a.996.996 0 0 1-.61-.92V2.734a1 1 0 0 1 .609-.92zm10.89 10.893l2.302 2.302-10.937 6.333 8.635-8.635zm3.199-3.23l2.807 1.626a1 1 0 0 1 0 1.737l-2.807 1.626L15.206 12l2.492-2.523zM5.864 2.658L16.802 8.99l-2.303 2.302-8.635-8.634z" />
+              </svg>
               <span style={{ lineHeight: 1.15 }}>
                 <span style={{ display: "block", fontSize: 10, letterSpacing: ".2em", opacity: 0.55 }}>
                   GET IT ON
@@ -409,6 +418,7 @@ export default function JingPage() {
                 minHeight: 56,
                 display: "flex",
                 alignItems: "center",
+                gap: 10,
                 padding: "14px 34px",
                 borderRadius: 6,
                 fontSize: 16,
@@ -416,6 +426,15 @@ export default function JingPage() {
                 color: "#f2ece0",
               }}
             >
+              <svg
+                width="18"
+                height="20"
+                viewBox="0 0 24 24"
+                fill="currentColor"
+                aria-hidden="true"
+              >
+                <path d="M3.609 1.814L13.792 12 3.61 22.186a.996.996 0 0 1-.61-.92V2.734a1 1 0 0 1 .609-.92zm10.89 10.893l2.302 2.302-10.937 6.333 8.635-8.635zm3.199-3.23l2.807 1.626a1 1 0 0 1 0 1.737l-2.807 1.626L15.206 12l2.492-2.523zM5.864 2.658L16.802 8.99l-2.303 2.302-8.635-8.634z" />
+              </svg>
               Get it on Google Play
             </a>
           </div>
