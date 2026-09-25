@@ -148,6 +148,16 @@ const projects = [
     image: "/images/quietude-icon.png",
     imageStyle: "contain" as const,
   },
+  {
+    title: "TotoMY",
+    description:
+      "Daily lucky numbers for Malaysian 3D, 4D, 5D, 6D and Lotto, read from your birth chart by the God of Fortune.",
+    tags: ["App", "Malaysia", "Lottery", "iOS", "Android"],
+    link: "/totomy",
+    slug: "totomy",
+    image: "/images/totomy-icon.png",
+    imageStyle: "contain" as const,
+  },
 ];
 
 const comingSoonProjects = [
