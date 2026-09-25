@@ -1,9 +1,7 @@
 import Image from "next/image";
 import Link from "next/link";
 
-// Store listings are not live yet; swap these in when they are.
-const IOS = "#";
-const PLAY = "#";
+const SUPPORT_EMAIL = "moregainjp@gmail.com";
 const IMG = "/images/totomy";
 
 const NAVY = "#05056B";
@@ -22,25 +20,13 @@ function Shot({ src, alt }: { src: string; alt: string }) {
   );
 }
 
-function StoreButtons({ onNavy = false }: { onNavy?: boolean }) {
+// Store listings are not live yet; swap in App Store / Google Play links when they are.
+function StoreButtons() {
   return (
     <div className="flex flex-wrap items-center gap-3">
-      <a
-        href={IOS}
-        className="rounded-2xl bg-[#FFCC00] px-7 py-4 text-[15px] font-bold text-[#05056B] transition-transform hover:-translate-y-0.5"
-      >
-        Download for iPhone
-      </a>
-      <a
-        href={PLAY}
-        className={`rounded-2xl border-2 px-7 py-[14px] text-[15px] font-bold transition-colors ${
-          onNavy
-            ? "border-white text-white hover:bg-white hover:text-[#05056B]"
-            : "border-[#05056B] text-[#05056B] hover:bg-[#05056B] hover:text-white"
-        }`}
-      >
-        Get it on Google Play
-      </a>
+      <span className="rounded-2xl bg-[#FFCC00] px-7 py-4 text-[15px] font-bold text-[#05056B]">
+        Coming soon to iPhone &amp; Android
+      </span>
     </div>
   );
 }
@@ -58,8 +44,8 @@ export default function TotoMYPage() {
               <span className="text-xs text-[#FFCC00]">财神到 · 恭喜发财</span>
             </div>
           </div>
-          <a href={IOS} className="rounded-xl bg-[#FFCC00] px-4 py-2 text-sm font-bold text-[#05056B]">
-            Get the app
+          <a href="#support" className="rounded-xl bg-[#FFCC00] px-4 py-2 text-sm font-bold text-[#05056B]">
+            Support
           </a>
         </div>
       </header>
@@ -81,7 +67,7 @@ export default function TotoMYPage() {
               Your daily lucky numbers, read from your birth chart by the God of Fortune. Enter your birthday, pick a
               lucky colour, and get fresh sets every day.
             </p>
-            <StoreButtons onNavy />
+            <StoreButtons />
             <p className="mt-4 text-sm text-white/55">Free · No account needed · Resets every midnight</p>
           </div>
           <div className="flex min-w-0 justify-center">
@@ -168,6 +154,34 @@ export default function TotoMYPage() {
         </div>
       </section>
 
+      {/* Support */}
+      <section id="support" className="mx-auto max-w-[1180px] scroll-mt-6 px-6 py-20">
+        <div className="mb-3 font-mono text-xs uppercase tracking-[0.22em] text-[#05056B]/60">Support</div>
+        <h2 className="mb-4 text-[clamp(28px,4vw,42px)] font-extrabold leading-[1.1] tracking-[-0.02em] text-[#05056B]">
+          Need a hand?
+        </h2>
+        <p className="mb-10 max-w-[56ch] text-[17px] leading-relaxed text-[#55555c] text-pretty">
+          Questions, bug reports or feedback — email us at{" "}
+          <a href={`mailto:${SUPPORT_EMAIL}?subject=TotoMY%20support`} className="font-semibold text-[#05056B] underline">
+            {SUPPORT_EMAIL}
+          </a>{" "}
+          and we&apos;ll get back to you as soon as we can.
+        </p>
+        <div className="grid grid-cols-[repeat(auto-fit,minmax(240px,1fr))] gap-5">
+          {[
+            ["Do I need an account?", "No. TotoMY works without any sign-up or account."],
+            ["Why did my numbers change?", "Numbers reset at midnight each day. Changing your birthday, gender, colour or name also gives a new reading."],
+            ["Why is there a video before the reveal?", "A short, skippable ad plays before your numbers appear. It keeps the app free — there is nothing to buy."],
+            ["Can TotoMY predict winning numbers?", "No. TotoMY is for entertainment only and does not sell tickets or place bets. You must be 18+ to play any lottery. Please play responsibly."],
+          ].map(([q, a]) => (
+            <div key={q} className="rounded-3xl border border-black/5 bg-white p-7">
+              <h3 className="mb-2 text-lg font-bold text-[#05056B]">{q}</h3>
+              <p className="text-[15px] leading-relaxed text-[#55555c]">{a}</p>
+            </div>
+          ))}
+        </div>
+      </section>
+
       {/* CTA */}
       <section style={{ backgroundColor: NAVY }} className="text-white">
         <div className="mx-auto flex max-w-[1180px] flex-wrap items-center justify-between gap-8 px-6 py-20">
@@ -177,10 +191,10 @@ export default function TotoMYPage() {
               <h2 className="mb-2 text-[clamp(28px,4vw,44px)] font-extrabold leading-none tracking-[-0.02em]">
                 Ready for your <span style={{ color: GOLD }}>ong</span>?
               </h2>
-              <p className="text-[17px] text-white/75">Free on iPhone and Android. No account needed.</p>
+              <p className="text-[17px] text-white/75">Coming soon, free on iPhone and Android. No account needed.</p>
             </div>
           </div>
-          <StoreButtons onNavy />
+          <StoreButtons />
         </div>
       </section>
 
@@ -198,6 +212,7 @@ export default function TotoMYPage() {
         <div className="flex gap-5 font-semibold">
           <Link href="/privacy" className="text-[#05056B] hover:underline">Privacy</Link>
           <Link href="/terms" className="text-[#05056B] hover:underline">Terms</Link>
+          <a href={`mailto:${SUPPORT_EMAIL}`} className="text-[#05056B] hover:underline">Contact</a>
           <Link href="/" className="text-[#05056B] hover:underline">All projects</Link>
         </div>
       </footer>
