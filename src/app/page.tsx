@@ -149,9 +149,9 @@ const projects = [
     imageStyle: "contain" as const,
   },
   {
-    title: "TotoMY",
+    title: "4D TOTO MY Lottery Results",
     description:
-      "Daily lucky numbers for Malaysian 3D, 4D, 5D, 6D and Lotto, read from your birth chart by the God of Fortune.",
+      "Malaysian 3D, 4D, 5D, 6D and Lotto results for Magnum, Sports Toto and Da Ma Cai, plus a number generator and daily lucky numbers from 财神.",
     tags: ["App", "Malaysia", "Lottery", "iOS", "Android"],
     link: "/totomy",
     slug: "totomy",
