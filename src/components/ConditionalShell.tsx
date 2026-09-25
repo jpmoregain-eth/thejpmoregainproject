@@ -13,7 +13,8 @@ export default function ConditionalShell({
   const isPowerScale = pathname.startsWith("/powerscale");
   const isJing = pathname.startsWith("/jing");
   const isSgLottery = pathname.startsWith("/sg-lottery-4d-toto");
-  const hideShell = isPowerScale || isJing || isSgLottery;
+  const isTotoMY = pathname.startsWith("/totomy");
+  const hideShell = isPowerScale || isJing || isSgLottery || isTotoMY;
 
   return (
     <>
