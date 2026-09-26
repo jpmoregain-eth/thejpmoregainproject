@@ -35,8 +35,8 @@ export default function PrivacyPage() {
           </li>
           <li>
             <strong>Our mobile apps</strong> on the App Store and Google Play, including SG
-            Lottery 4D TOTO, 4D TOTO MY Lottery Results, Jing, Ayah, Gita, This Is Home and Fork
-            This Dragon
+            Lottery 4D TOTO, 4D TOTO MY Lottery Results, Jing, Verbum, Ayah, Gita, This Is Home
+            and Fork This Dragon
           </li>
         </ul>
         <p>
@@ -79,7 +79,7 @@ export default function PrivacyPage() {
         <ul>
           <li>
             <strong>No account needed for most apps.</strong> SG Lottery 4D TOTO, 4D TOTO MY
-            Lottery Results, Jing, Ayah, Gita and This Is Home work without signing up.
+            Lottery Results, Jing, Verbum, Ayah, Gita and This Is Home work without signing up.
           </li>
           <li>
             <strong>Details you enter for a feature.</strong> Some features ask for personal
