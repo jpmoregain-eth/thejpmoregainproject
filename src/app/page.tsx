@@ -1,37 +1,14 @@
-import Link from "next/link";
-import { Space_Grotesk } from "next/font/google";
+import { X_URL } from "@/components/site/SiteHeader";
 import HeroCanvas from "./_home/HeroCanvas";
 import ProjectGrid from "./_home/ProjectGrid";
 import { projects } from "./_home/projects";
 import styles from "./_home/home.module.css";
 
-const spaceGrotesk = Space_Grotesk({
-  subsets: ["latin"],
-  weight: ["400", "500", "600", "700"],
-  display: "swap",
-});
-
-const X_URL = "https://x.com/jp_moregain";
-
 export default function Home() {
   return (
-    <div className={`${styles.page} ${spaceGrotesk.className}`}>
+    <div className={`theme-lab ${styles.page}`}>
       <HeroCanvas />
       <div className={styles.overlay} aria-hidden="true" />
-
-      <header className={styles.header}>
-        <Link href="/" className={styles.logo}>
-          <span className={styles.logoMark} />
-          <span>JPMoreGain</span>
-        </Link>
-        <nav className={styles.nav}>
-          <a href="#projects">Projects</a>
-          <Link href="/about">About</Link>
-          <a href={X_URL} target="_blank" rel="noopener noreferrer">
-            X
-          </a>
-        </nav>
-      </header>
 
       <section className={styles.hero}>
         <div className={styles.eyebrow}>
@@ -68,21 +45,6 @@ export default function Home() {
       <section id="projects" className={styles.projects}>
         <ProjectGrid />
       </section>
-
-      <footer className={styles.footer}>
-        <div className={styles.wordmark}>JPMoreGain</div>
-        <div className={styles.footRow}>
-          <span>
-            © {new Date().getFullYear()} The JPMoreGain Project. Built with AI, caffeine, and
-            questionable financial metaphors.
-          </span>
-          <div className={styles.footLinks}>
-            <Link href="/about">About</Link>
-            <Link href="/privacy">Privacy</Link>
-            <Link href="/terms">Terms</Link>
-          </div>
-        </div>
-      </footer>
     </div>
   );
 }
