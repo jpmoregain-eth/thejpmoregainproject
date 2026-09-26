@@ -1,36 +1,9 @@
 .page {
-  --bg: #07090c;
-  --card: #0a0d11;
-  --card-hover: #10161c;
-  --text: #e8edf2;
-  --text-2: #aab3c0;
-  --muted: #8a94a3;
-  --dim: #5d6673;
-  --accent: #3cf0c8;
-  --pad-x: clamp(20px, 4vw, 56px);
-  --mono: var(--font-jetbrains-mono), "JetBrains Mono", monospace;
-
   position: relative;
   z-index: 1; /* sit above the body's noise overlay */
   min-height: 100vh;
   overflow-x: clip;
   background: var(--bg);
-  color: var(--text);
-  -webkit-font-smoothing: antialiased;
-}
-
-.page a {
-  color: var(--text);
-  text-decoration: none;
-}
-
-.page a:hover {
-  color: var(--accent);
-}
-
-.page ::selection {
-  background: var(--accent);
-  color: var(--bg);
 }
 
 .accent {
@@ -60,57 +33,6 @@
   z-index: 1;
   pointer-events: none;
   background: radial-gradient(ellipse at 20% 50%, rgba(7, 9, 12, 0.85), rgba(7, 9, 12, 0) 60%);
-}
-
-/* Header */
-.header {
-  position: fixed;
-  top: 0;
-  left: 0;
-  right: 0;
-  z-index: 10;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  gap: 24px;
-  padding: 20px var(--pad-x);
-  backdrop-filter: blur(14px);
-  -webkit-backdrop-filter: blur(14px);
-  background: rgba(7, 9, 12, 0.45);
-  border-bottom: 1px solid rgba(255, 255, 255, 0.06);
-}
-
-.logo {
-  display: flex;
-  align-items: center;
-  gap: 10px;
-  font-weight: 700;
-  letter-spacing: -0.01em;
-  font-size: 18px;
-}
-
-.logoMark {
-  width: 10px;
-  height: 10px;
-  background: var(--accent);
-  transform: rotate(45deg);
-  box-shadow: 0 0 16px var(--accent);
-}
-
-.nav {
-  display: flex;
-  gap: 28px;
-  font-family: var(--mono);
-  font-size: 13px;
-  white-space: nowrap;
-}
-
-.page .nav a {
-  color: var(--muted);
-}
-
-.page .nav a:hover {
-  color: var(--accent);
 }
 
 /* Hero */
@@ -357,37 +279,4 @@
 .arrow {
   font-size: 20px;
   color: var(--accent);
-}
-
-/* Footer */
-.footer {
-  position: relative;
-  z-index: 2;
-  background: var(--bg);
-  border-top: 1px solid rgba(255, 255, 255, 0.06);
-  padding: 80px var(--pad-x) 40px;
-}
-
-.wordmark {
-  font-size: clamp(48px, 11vw, 180px);
-  font-weight: 700;
-  letter-spacing: -0.05em;
-  line-height: 0.85;
-  color: var(--card-hover);
-}
-
-.footRow {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: space-between;
-  gap: 24px;
-  margin-top: 40px;
-  font-family: var(--mono);
-  font-size: 13px;
-  color: var(--dim);
-}
-
-.footLinks {
-  display: flex;
-  gap: 24px;
 }

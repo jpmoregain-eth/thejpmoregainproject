@@ -275,3 +275,38 @@ body {
 .carousel-scroll .glass-card p {
   flex: 1;
 }
+
+/* "Lab" theme tokens, shared by the home page, site header/footer and
+   the About / Privacy / Terms pages */
+.theme-lab {
+  --bg: #07090c;
+  --card: #0a0d11;
+  --card-hover: #10161c;
+  --text: #e8edf2;
+  --text-2: #aab3c0;
+  --muted: #8a94a3;
+  --dim: #5d6673;
+  --accent: #3cf0c8;
+  --accent-2: #7a5cff;
+  --pad-x: clamp(20px, 4vw, 56px);
+  --display: var(--font-space-grotesk), "Space Grotesk", system-ui, sans-serif;
+  --mono: var(--font-jetbrains-mono), "JetBrains Mono", monospace;
+
+  font-family: var(--display);
+  color: var(--text);
+  -webkit-font-smoothing: antialiased;
+}
+
+.theme-lab a {
+  color: var(--text);
+  text-decoration: none;
+}
+
+.theme-lab a:hover {
+  color: var(--accent);
+}
+
+.theme-lab ::selection {
+  background: var(--accent);
+  color: var(--bg);
+}
