@@ -71,8 +71,8 @@ export default function AboutPage() {
           building tools, apps and experiments at the intersection of artificial intelligence,
           technology and creativity. Some projects are serious (an AI news platform tracking the
           frontier of machine learning, or lottery results for Singapore and Malaysia in your
-          pocket). Some are playful (a presidential speech generator that is probably too
-          accurate for comfort, or an RPG where you fight bugs and the Legacy Dragon). All of
+          pocket). Some are playful (a translator that tells you what LinkedIn posts actually
+          mean, or an RPG where you fight bugs and the Legacy Dragon). All of
           them are built with genuine curiosity and a belief that technology should be
           accessible, useful, and occasionally funny.
         </p>
