@@ -84,8 +84,8 @@ export default function PrivacyPage() {
           <li>
             <strong>Details you enter for a feature.</strong> Some features ask for personal
             details to work — for example, 4D TOTO MY asks for your birthday, gender, favourite
-            colour and name to generate your daily lucky numbers. We use these details only to
-            provide that feature.
+            colour and name to generate your daily lucky numbers. These details stay on your
+            device and are used only to provide that feature.
           </li>
           <li>
             <strong>Fork This Dragon</strong> uses Google Sign-In. When you sign in we receive
