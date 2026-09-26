@@ -30,8 +30,8 @@ export default function PrivacyPage() {
             <strong>Our website</strong>{" "}at thejpmoregainproject.com (the &quot;Site&quot;)
           </li>
           <li>
-            <strong>Our web tools</strong>, such as RealLinkedIn, AgentBear Corps, Covfefe,
-            Virtual MPS and our other web projects
+            <strong>Our web tools</strong>, such as RealLinkedIn, AgentBear Corps and our other
+            web projects
           </li>
           <li>
             <strong>Our mobile apps</strong> on the App Store and Google Play, including SG
@@ -191,7 +191,7 @@ export default function PrivacyPage() {
           </li>
           <li>
             <strong>AI providers:</strong> content you submit to our AI tools is sent to AI model
-            providers such as Anthropic and Groq to generate a response
+            providers such as Anthropic to generate a response
           </li>
           <li>
             <strong>Payments:</strong> Stripe, Apple and Google

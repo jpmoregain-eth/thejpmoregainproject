@@ -153,7 +153,7 @@ export default function TermsPage() {
       <DocSection num={7} title="AI-generated content">
         <p>
           Many of our Services use artificial intelligence to generate content, such as news
-          summaries, speeches, translations and answers. AI-generated content is provided for
+          articles, translations and video summaries. AI-generated content is provided for
           information and entertainment only.
         </p>
         <Callout title="Important">
@@ -163,8 +163,8 @@ export default function TermsPage() {
             <li>We do not guarantee the accuracy or reliability of AI-generated content</li>
             <li>Please check information independently before acting on it</li>
             <li>
-              Satire and parody tools (such as Covfefe and RealLinkedIn) are for humour and do
-              not represent the views of any real person
+              Satire and parody tools (such as RealLinkedIn) are for humour and do not
+              represent the views of any real person
             </li>
           </ul>
         </Callout>
@@ -183,9 +183,6 @@ export default function TermsPage() {
           <li>
             Property news, listings and market trends in This Is Home are for general
             information only and are not investment advice
-          </li>
-          <li>
-            Virtual MPS gives general guidance only and is not an official government service
           </li>
           <li>
             Jing is a wellness app for relaxation, sleep and focus; it is not a medical device

@@ -20,30 +20,6 @@ export const projects: Project[] = [
     url: "https://agentbearcorps.com",
   },
   {
-    name: "Covfefe",
-    category: "Web & AI",
-    description:
-      "AI presidential speech generator. Type any topic and get a speech in the style of the 45th President.",
-    tags: ["AI", "Humor", "Groq"],
-    url: "https://covfefe69.vercel.app",
-  },
-  {
-    name: "Virtual MPS",
-    category: "Web & AI",
-    description:
-      "A virtual Meet-the-People Session for Singapore. Ask about government policies and get helpful guidance.",
-    tags: ["AI", "Singapore", "Groq"],
-    url: "https://mpsg.vercel.app",
-  },
-  {
-    name: "AI Roleplay Arena",
-    category: "Web & AI",
-    description:
-      "An opt-in playground where AI agents adopt absurd personas — from emo tech bros to Shakespearean pirates.",
-    tags: ["AI", "Personas", "Open Source"],
-    url: "https://ai-roleplay-arena.vercel.app",
-  },
-  {
     name: "Storage Array History",
     category: "Web & AI",
     description:
