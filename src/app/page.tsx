@@ -1,197 +1,88 @@
-import Hero from "@/components/Hero";
-import ProjectCarousel from "@/components/ProjectCarousel";
+import Link from "next/link";
+import { Space_Grotesk } from "next/font/google";
+import HeroCanvas from "./_home/HeroCanvas";
+import ProjectGrid from "./_home/ProjectGrid";
+import { projects } from "./_home/projects";
+import styles from "./_home/home.module.css";
 
-const projects = [
-  {
-    title: "AgentBear Corps",
-    description:
-      "AI-powered news platform covering the frontier of artificial intelligence. Breaking stories, hot takes, and deep analysis.",
-    tags: ["AI", "News", "Next.js", "Python"],
-    link: "https://agentbearcorps.com",
-    slug: "agentbearcorps",
-    image: "/images/agentbear-card.jpg",
-  },
-  {
-    title: "Covfefe",
-    description:
-      "AI-powered presidential speech generator. Type any topic and get a speech in the style of the 45th President.",
-    tags: ["AI", "Humor", "Groq", "LLM"],
-    link: "https://covfefe69.vercel.app",
-    slug: "covfefe",
-    image: "/images/covfefe-card.jpg",
-  },
-  {
-    title: "Virtual MPS",
-    description:
-      "AI-powered virtual Meet-the-People Session for Singapore. Ask questions about government policies and get helpful guidance.",
-    tags: ["AI", "Singapore", "Gov", "Groq"],
-    link: "https://mpsg.vercel.app",
-    slug: "vmps",
-    image: "/images/vmps-card.jpg",
-  },
-  {
-    title: "AI Roleplay Arena",
-    description:
-      "A fun, opt-in playground where AI agents adopt random absurd personas — from emo constipated tech bros to Shakespearean pirates. Safety-first with time-limited sessions.",
-    tags: ["AI", "Fun", "Personas", "Open Source"],
-    link: "https://ai-roleplay-arena.vercel.app",
-    slug: "roleplay-arena",
-    image: "/images/roleplay-arena-card.jpg",
-  },
-  {
-    title: "Storage Array History",
-    description:
-      "Comprehensive archive of enterprise storage arrays — 50+ spec sheets covering DellEMC, IBM, HPE, NetApp, Hitachi, and Everpure from 2000 to 2025.",
-    tags: ["Storage", "Enterprise", "Archive", "Hardware"],
-    link: "https://storage-array-history.vercel.app",
-    slug: "storage-history",
-    image: "/images/storage-history-card.jpg",
-    imageStyle: "contain" as const,
-  },
-  {
-    title: "DragonClaw",
-    description:
-      "AI tools for OpenClaw power users. Includes a bilingual video summarizer for YouTube and Bilibili with automatic language detection.",
-    tags: ["AI", "OpenClaw", "Tools", "Bilingual"],
-    link: "https://github.com/jpmoregain-eth/dragonclaw",
-    slug: "dragonclaw",
-    image: "/images/github-repo-card.png",
-    imageStyle: "contain" as const,
-  },
-  {
-    title: "OpenClaw BRM",
-    description:
-      "Backup, Recovery, and Migration CLI tool for OpenClaw agents. Move your AI agents between systems with one command.",
-    tags: ["OpenClaw", "CLI", "DevOps", "Python"],
-    link: "https://github.com/jpmoregain-eth/openclaw-brm",
-    slug: "openclaw-brm",
-    image: "/images/github-repo-card.png",
-    imageStyle: "contain" as const,
-  },
-  {
-    title: "Tiered Memory",
-    description:
-      "Two-tier memory system for OpenClaw agents published on ClawHub. Tier 0 uses QMD semantic search for hot memories, Tier 1 archives to SQLite with LLM summarization.",
-    tags: ["OpenClaw", "ClawHub", "Memory", "Python"],
-    link: "https://clawhub.com/jpmoregain-eth/agent-tiered-memory",
-    slug: "tiered-memory",
-    image: "/images/tiered-memory-card.png",
-    imageStyle: "contain" as const,
-  },
-  {
-    title: "Heng Heng Casino",
-    description:
-      "Side project for a good friend who loves running casino games at home in his spare time.",
-    tags: ["Next.js", "React", "TypeScript"],
-    link: "https://henghengcasino.vercel.app",
-    slug: "heng-heng-casino",
-    image: "/images/heng-heng-casino-card.jpg",
-    imageStyle: "contain" as const,
-  },
-  {
-    title: "Fork This Dragon",
-    description:
-      "A retro text-based RPG with developer humor. Fight bugs, gear up, challenge the Legacy Dragon, and climb the global leaderboard.",
-    tags: ["Game", "RPG", "Android", "Mobile"],
-    link: "/fork-this-dragon",
-    slug: "fork-this-dragon",
-    image: "/images/fork-this-dragon-icon.png",
-    imageStyle: "contain" as const,
-  },
-  {
-    title: "Ayah",
-    description:
-      "A beautiful daily Quran verse app with audio recitation, shareable quote cards, and stunning wallpapers. Get your daily spiritual inspiration.",
-    tags: ["App", "Flutter", "Android", "Spirituality"],
-    link: "/ayah",
-    slug: "ayah",
-    image: "/images/ayah-icon.png",
-    imageStyle: "contain" as const,
-  },
-  {
-    title: "Gita",
-    description:
-      "Daily Bhagavad Gita shloka companion with Sanskrit verses, English translations, audio recitation, and shareable quote cards.",
-    tags: ["App", "Flutter", "Android", "Spirituality"],
-    link: "/gita",
-    slug: "gita",
-    image: "/images/gita-icon.png",
-    imageStyle: "contain" as const,
-  },
-  {
-    title: "This Is Home",
-    description:
-      "Singapore property app with latest news, sales listings, rentals, and market trends. Your complete real estate companion.",
-    tags: ["App", "React Native", "Android", "Property"],
-    link: "/this-is-home",
-    slug: "this-is-home",
-    image: "/images/this-is-home-icon.png",
-    imageStyle: "contain" as const,
-  },
-  {
-    title: "SG Lottery 4D TOTO",
-    description:
-      "Stay up to date with the latest Singapore Pools 4D & TOTO draw results. History, lucky number generator, and prize breakdowns.",
-    tags: ["App", "Singapore", "Lottery", "iOS", "Android"],
-    link: "/sg-lottery-4d-toto",
-    slug: "sg-lottery-4d-toto",
-    image: "/images/sg-lottery-icon.png",
-    imageStyle: "contain" as const,
-  },
-  {
-    title: "Jing",
-    description:
-      "Your personal sanctuary of calm. Immersive soundscapes and gentle countdown sessions for sleep, focus, and calm.",
-    tags: ["App", "Wellness", "Sleep", "iOS", "Android"],
-    link: "/jing",
-    slug: "jing",
-    image: "/images/quietude-icon.png",
-    imageStyle: "contain" as const,
-  },
-  {
-    title: "4D TOTO MY Lottery Results",
-    description:
-      "Malaysian 3D, 4D, 5D, 6D and Lotto results for Magnum, Sports Toto and Da Ma Cai, plus a number generator and daily lucky numbers from 财神.",
-    tags: ["App", "Malaysia", "Lottery", "iOS", "Android"],
-    link: "/totomy",
-    slug: "totomy",
-    image: "/images/totomy-icon.png",
-    imageStyle: "contain" as const,
-  },
-];
+const spaceGrotesk = Space_Grotesk({
+  subsets: ["latin"],
+  weight: ["400", "500", "600", "700"],
+  display: "swap",
+});
 
-const comingSoonProjects = [
-  {
-    title: "Coming Soon",
-    description: "Something new is brewing...",
-    slug: "coming-soon-1",
-  },
-];
+const X_URL = "https://x.com/jp_moregain";
 
 export default function Home() {
   return (
-    <>
-      {/* Hero Section */}
-      <Hero />
+    <div className={`${styles.page} ${spaceGrotesk.className}`}>
+      <HeroCanvas />
+      <div className={styles.overlay} aria-hidden="true" />
 
-      {/* Projects Section */}
-      <section className="py-16 px-4 sm:px-6 lg:px-8">
-        <div className="max-w-7xl mx-auto">
-          {/* Section Header */}
-          <div className="mb-12">
-            <p className="section-title">// Our Projects</p>
-            <h2 className="text-3xl sm:text-4xl font-bold text-[#E5E5E5] gold-underline inline-block">
-              What We&apos;re Building
-            </h2>
-          </div>
+      <header className={styles.header}>
+        <Link href="/" className={styles.logo}>
+          <span className={styles.logoMark} />
+          <span>JPMoreGain</span>
+        </Link>
+        <nav className={styles.nav}>
+          <a href="#projects">Projects</a>
+          <Link href="/about">About</Link>
+          <a href={X_URL} target="_blank" rel="noopener noreferrer">
+            X
+          </a>
+        </nav>
+      </header>
 
-          {/* Projects Carousel */}
-          <ProjectCarousel projects={[...projects, ...comingSoonProjects.map(p => ({ ...p, tags: [], link: "#" }))]} />
+      <section className={styles.hero}>
+        <div className={styles.eyebrow}>
+          <span className={styles.eyebrowDot} />
+          <span>SINGAPORE · {projects.length} PROJECTS SHIPPED</span>
+        </div>
+        <h1 className={styles.h1}>
+          Where technology meets <span className={styles.accent}>alpha.</span>
+        </h1>
+        <p className={styles.sub}>
+          The JPMoreGain Project builds AI-powered tools, platforms and experiments at the
+          intersection of technology, finance and creativity.
+        </p>
+        <div className={styles.ctas}>
+          <a href="#projects" className={`${styles.btn} ${styles.btnPrimary}`}>
+            <span>Explore the lab</span>
+            <span>↓</span>
+          </a>
+          <a
+            href={X_URL}
+            target="_blank"
+            rel="noopener noreferrer"
+            className={`${styles.btn} ${styles.btnGhost}`}
+          >
+            <span>Follow @jp_moregain</span>
+          </a>
+        </div>
+        <div className={styles.heroStrip}>
+          <span>{"// move your cursor through the field"}</span>
+          <span>scroll ↓</span>
         </div>
       </section>
 
-      {/* Bottom Spacer */}
-      <div className="py-8" />
-    </>
+      <section id="projects" className={styles.projects}>
+        <ProjectGrid />
+      </section>
+
+      <footer className={styles.footer}>
+        <div className={styles.wordmark}>JPMoreGain</div>
+        <div className={styles.footRow}>
+          <span>
+            © {new Date().getFullYear()} The JPMoreGain Project. Built with AI, caffeine, and
+            questionable financial metaphors.
+          </span>
+          <div className={styles.footLinks}>
+            <Link href="/about">About</Link>
+            <Link href="/privacy">Privacy</Link>
+            <Link href="/terms">Terms</Link>
+          </div>
+        </div>
+      </footer>
+    </div>
   );
 }

@@ -10,11 +10,13 @@ export default function ConditionalShell({
   children: React.ReactNode;
 }) {
   const pathname = usePathname();
+  // The home page renders its own header and footer
+  const isHome = pathname === "/";
   const isPowerScale = pathname.startsWith("/powerscale");
   const isJing = pathname.startsWith("/jing");
   const isSgLottery = pathname.startsWith("/sg-lottery-4d-toto");
   const isTotoMY = pathname.startsWith("/totomy");
-  const hideShell = isPowerScale || isJing || isSgLottery || isTotoMY;
+  const hideShell = isHome || isPowerScale || isJing || isSgLottery || isTotoMY;
 
   return (
     <>
