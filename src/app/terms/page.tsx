@@ -189,8 +189,8 @@ export default function TermsPage() {
             and does not diagnose or treat any condition
           </li>
           <li>
-            Ayah and Gita share verses and translations for daily reflection and are not a
-            substitute for guidance from religious scholars
+            Verbum, Ayah and Gita share verses and translations for daily reflection and are not
+            a substitute for guidance from religious scholars
           </li>
           <li>Always consult qualified professionals for advice on your own situation</li>
         </ul>

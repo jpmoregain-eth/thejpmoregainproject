@@ -84,6 +84,14 @@ export const projects: Project[] = [
     url: "/gita",
   },
   {
+    name: "Verbum",
+    category: "Mobile Apps",
+    description:
+      "Daily Bible verse in Jerome's Latin Vulgate beside the King James — 66 books and 30,000+ verses.",
+    tags: ["Bible", "Latin", "Android"],
+    url: "/verbum",
+  },
+  {
     name: "This Is Home",
     category: "Mobile Apps",
     description:
