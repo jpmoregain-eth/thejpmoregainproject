@@ -145,8 +145,8 @@ export default function PrivacyPage() {
             <strong>Website:</strong> the Site shows in-text ads from Infolinks.
           </li>
           <li>
-            <strong>Mobile apps:</strong> free apps such as SG Lottery 4D TOTO, 4D TOTO MY and
-            Fork This Dragon show ads served by third-party ad networks such as Google AdMob.
+            <strong>Mobile apps:</strong> free apps such as SG Lottery 4D TOTO, 4D TOTO MY, Verbum
+            and Fork This Dragon show ads served by third-party ad networks such as Google AdMob.
             Jing does not show ads.
           </li>
         </ul>

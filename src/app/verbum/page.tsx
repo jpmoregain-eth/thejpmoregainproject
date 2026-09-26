@@ -85,7 +85,7 @@ export default function VerbumPage() {
             </p>
             <div className={s.ctaRow}>
               <PlayButton />
-              <span className={s.ctaNote}>Free · No data collected</span>
+              <span className={s.ctaNote}>Free · No account needed</span>
             </div>
           </div>
           <div className={s.center}>
@@ -189,7 +189,7 @@ export default function VerbumPage() {
             Jerome’s fourth-century translation, paired with the King James — so you hear the Word
             as it has echoed through the centuries.
           </p>
-          <p className={s.closingSub}>No clutter, no noise. No data collected, none shared.</p>
+          <p className={s.closingSub}>No clutter, no noise. No account, no sign-up.</p>
           <PlayButton wide />
         </div>
       </section>
