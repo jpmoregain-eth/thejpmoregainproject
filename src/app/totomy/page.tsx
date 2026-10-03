@@ -2,10 +2,9 @@ import Image from "next/image";
 import Link from "next/link";
 import Faq from "./Faq";
 
-// Swap in the real store listings when the app goes live, and flip COMING_SOON off.
-const APP_STORE_URL = "";
-const PLAY_STORE_URL = "";
-const COMING_SOON = true;
+const APP_STORE_URL = "https://apps.apple.com/us/app/4d-toto-my-lottery-results/id6815806376";
+const PLAY_STORE_URL = "https://play.google.com/store/apps/details?id=com.totomy";
+const COMING_SOON = false;
 
 const SUPPORT_EMAIL = "moregainjp@gmail.com";
 const ICON = "/images/totomy-icon.png";
