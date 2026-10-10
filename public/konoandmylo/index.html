@@ -1,0 +1,79 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Join me on TOGE和THER</title>
+<meta name="description" content="A tiny private room for two. Come and join me.">
+<meta property="og:title" content="Come be in our little room on TOGE和THER">
+<meta property="og:image" content="https://thejpmoregainproject.com/konoandmylo/mylo_face.png">
+<style>
+  :root { --bg:#fdf3ee; --card:#fff; --ink:#3b2a30; --soft:#8a747c; --pink:#f08aa6; --pink-d:#d9688a; --line:#f1dfe3; }
+  @media (prefers-color-scheme: dark) {
+    :root { --bg:#2a2024; --card:#372a30; --ink:#fbeef1; --soft:#c4a9b2; --line:#4a3a41; }
+  }
+  * { box-sizing:border-box; }
+  body { margin:0; min-height:100vh; display:flex; align-items:center; justify-content:center;
+         background:var(--bg); color:var(--ink); font-family:system-ui,-apple-system,"Segoe UI",Roboto,sans-serif; }
+  main { width:100%; max-width:420px; margin:24px 16px; padding:28px 22px; background:var(--card);
+         border:1px solid var(--line); border-radius:24px; text-align:center; }
+  .pair img { width:84px; height:84px; object-fit:contain; }
+  h1 { font-size:22px; margin:14px 0 6px; }
+  p { color:var(--soft); line-height:1.5; margin:6px 0; }
+  .code { display:none; margin:18px 0 6px; padding:14px; border:2px dashed var(--pink); border-radius:16px;
+          font:700 30px/1 ui-monospace,Menlo,Consolas,monospace; letter-spacing:.14em; color:var(--ink); }
+  .btn { display:block; width:100%; margin-top:12px; padding:14px; border-radius:999px; border:0;
+         font-size:16px; font-weight:700; text-decoration:none; cursor:pointer; }
+  .primary { background:var(--pink); color:#fff; }
+  .primary:active { background:var(--pink-d); }
+  .ghost { background:transparent; color:var(--ink); border:1.5px solid var(--line); }
+  .small { font-size:13px; margin-top:18px; }
+  .hidden { display:none !important; }
+</style>
+</head>
+<body>
+<main>
+  <div class="pair"><img src="/konoandmylo/mylo_face.png" alt="Mylo"><img src="/konoandmylo/kono_face.png" alt="Kono"></div>
+  <h1 id="title">Someone wants you in their little room</h1>
+  <p id="lead">TOGE和THER is a tiny private space for two: letters, photos and a daily question.</p>
+
+  <div class="code" id="code"></div>
+  <p id="codeHint" class="hidden">Your invite code</p>
+
+  <a class="btn primary" id="open" href="together://join/" >Open in the app</a>
+  <a class="btn ghost" id="store" href="https://play.google.com/store/apps/details?id=com.thejpmoregainproject.harmony">Get the app on Google Play</a>
+  <button class="btn ghost hidden" id="copy" type="button">Copy code</button>
+
+  <p class="small">Already have the app? Tap <b>Open in the app</b>, or type the code in when it asks for one.</p>
+  <p class="small" id="ios">iPhone version: coming soon.</p>
+</main>
+<script>
+(function () {
+  var q = new URLSearchParams(location.search);
+  var raw = (q.get('join') || '').toUpperCase().replace(/[^A-Z0-9]/g, '');
+  var ok = raw.length >= 4 && raw.length <= 12;
+  var open = document.getElementById('open');
+  if (ok) {
+    var pretty = raw.slice(0, 2) + '\u00b7' + raw.slice(2);
+    var c = document.getElementById('code');
+    c.textContent = pretty; c.style.display = 'block';
+    document.getElementById('codeHint').classList.remove('hidden');
+    document.getElementById('copy').classList.remove('hidden');
+    document.getElementById('title').textContent = 'Come be in our little room';
+    open.href = 'together://join/' + raw;
+    document.getElementById('copy').onclick = function () {
+      var b = this;
+      (navigator.clipboard ? navigator.clipboard.writeText(raw) : Promise.reject())
+        .then(function () { b.textContent = 'Copied'; }, function () { b.textContent = pretty; });
+    };
+    // On a phone, try to open the app straight away; if it isn't installed nothing happens.
+    if (/Android|iPhone|iPad/i.test(navigator.userAgent)) setTimeout(function () { location.href = open.href; }, 400);
+  } else {
+    open.href = 'together://';
+  }
+  if (/iPhone|iPad/i.test(navigator.userAgent)) document.getElementById('store').classList.add('hidden');
+  else if (!/Android/i.test(navigator.userAgent)) document.getElementById('open').classList.add('hidden');
+})();
+</script>
+</body>
+</html>

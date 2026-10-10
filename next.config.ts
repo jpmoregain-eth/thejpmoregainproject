@@ -4,6 +4,10 @@ const nextConfig: NextConfig = {
   images: {
     unoptimized: true,
   },
+  async rewrites() {
+    // Invite-link page for the Kono & Mylo app: static file in public/konoandmylo/
+    return [{ source: "/konoandmylo", destination: "/konoandmylo/index.html" }];
+  },
   async redirects() {
     return [
       {
