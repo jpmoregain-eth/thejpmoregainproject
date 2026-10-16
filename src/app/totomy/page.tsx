@@ -204,7 +204,7 @@ export default function TotoMYPage() {
           </div>
           <div className="grid w-full max-w-[560px] grid-cols-2 gap-5 justify-self-center">
             <Phone src="toto-jackpot.jpg" alt="Toto 4D Jackpot winning pairs" />
-            <Phone src="toto-lotto.jpg" alt="Supreme, Power and Star Toto results" className="mt-[60px]" />
+            <Phone src="toto-lotto.jpg" alt="Da Ma Cai 1+3D Jackpot winning pairs" className="mt-[60px]" />
           </div>
         </section>
 
@@ -254,7 +254,7 @@ export default function TotoMYPage() {
           <div className="w-full max-w-[300px] justify-self-center">
             <Phone
               src="sifu-score.jpg"
-              alt="Sifu bet score of 45 out of 100"
+              alt="Sifu bet score of 69 out of 100"
               large
               className="!bg-white !shadow-[0_30px_70px_-20px_rgba(0,0,0,0.6)]"
             />
