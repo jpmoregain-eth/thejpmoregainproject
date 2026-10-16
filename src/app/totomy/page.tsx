@@ -64,15 +64,15 @@ const OPERATORS = [
 ];
 
 const RESULT_SPECS = [
-  ["Lotto jackpots", "Supreme 6/58 · Power 6/55 · Star 6/50"],
-  ["Draw history", "Filter by month, tap any draw"],
-  ["Draw shape", "Odd/even, frequent digits, digit sum"],
+  ["Jackpots", "Toto 4D Jackpot · Da Ma Cai 1+3D Jackpot"],
+  ["Draw history", "Filter by year, tap any draw for the full result"],
+  ["Next draw", "Live countdown on every game"],
 ];
 
 const SIFU_BARS = [
-  { label: "Value", weight: "50%", note: "Prize-to-cost ratio", fill: "70%", color: "#FFCC00" },
-  { label: "Coverage", weight: "30%", note: "Combinations covered", fill: "44%", color: "#FFFFFF" },
-  { label: "Efficiency", weight: "20%", note: "Bet type fits the game", fill: "24%", color: "#FF4B4B" },
+  { label: "Prize quality", weight: "50%", note: "Prize size and bet type", fill: "70%", color: "#FFCC00" },
+  { label: "Coverage", weight: "30%", note: "Combinations you cover", fill: "66%", color: "#FFFFFF" },
+  { label: "Efficiency", weight: "20%", note: "Bet type fits the game", fill: "71%", color: "#FF4B4B" },
 ];
 
 const CAISHEN_STEPS = [
@@ -123,8 +123,7 @@ export default function TotoMYPage() {
             </h1>
             <div className="mt-[18px] text-2xl font-bold tracking-[0.04em] text-[#FFCC00]">财神到 · 恭喜发财</div>
             <p className="mt-[22px] max-w-[520px] text-[19px] leading-[1.55] text-[#D6D6F2] [text-wrap:pretty]">
-              Every 3D, 4D, 5D, 6D and Lotto result the moment it&apos;s drawn. Generate sets from each operator&apos;s
-              history, let Sifu score your slip, and get daily lucky numbers read from your birth chart by the God of
+              Every 3D, 4D, 5D, 6D and Lotto result the moment it&apos;s drawn. Let Sifu score your slip, and get daily lucky numbers read from your birth chart by the God of
               Fortune.
             </p>
             <div className="mt-[34px]">
@@ -188,7 +187,7 @@ export default function TotoMYPage() {
             <h2 className="tmH2">Every draw, the moment it lands.</h2>
             <p className="tmBody">
               1st, 2nd and 3rd prize up top, all 23 Special and Consolation numbers underneath. Numbers that also came
-              out last draw are highlighted in yellow, and Toto 4D Jackpot shows every winning pair.
+              out last draw are highlighted in yellow, and the Toto 4D and Da Ma Cai 1+3D jackpots show every winning pair.
             </p>
             <div className="mt-7 flex max-w-[480px] flex-col">
               {RESULT_SPECS.map(([label, value], i) => (
@@ -208,17 +207,19 @@ export default function TotoMYPage() {
           </div>
         </section>
 
-        {/* Generate */}
+        {/* Every game */}
         <section className="tmRow">
-          <div className="w-full max-w-[300px] justify-self-center">
-            <Phone src="generate.jpg" alt="Generate number sets per operator" large />
+          <div className="grid w-full max-w-[560px] grid-cols-2 gap-5 justify-self-center">
+            <Phone src="magnum-life.jpg" alt="Magnum Life 8/36 draw with two bonus numbers" />
+            <Phone src="damacai-3d.jpg" alt="Da Ma Cai 3D results and 3D Jackpot" className="mt-[60px]" />
           </div>
           <div>
-            <Eyebrow>GENERATE · WHAT IF?</Eyebrow>
-            <h2 className="tmH2">Fresh sets, built from each operator&apos;s own history.</h2>
+            <Eyebrow>EVERY GAME · EVERY OPERATOR</Eyebrow>
+            <h2 className="tmH2">Magnum, Sports Toto and Da Ma Cai, one tap apart.</h2>
             <p className="tmBody">
-              Pick Magnum, Sports Toto or Da Ma Cai, choose how many sets per game, and switch off repeated digits if
-              you like. Star the ones you want, copy them, or save them all.
+              Switch operator and game from the top of the screen. Magnum Life shows all 8 numbers plus 2 bonus with its
+              daily prize details, and Da Ma Cai 3D shows the top 3 prizes, the 3D Jackpot and a countdown to the next
+              draw.
             </p>
           </div>
         </section>
@@ -254,7 +255,7 @@ export default function TotoMYPage() {
           <div className="w-full max-w-[300px] justify-self-center">
             <Phone
               src="sifu-score.jpg"
-              alt="Sifu bet score of 69 out of 100"
+              alt="Sifu bet score of 69 out of 100 with a prize quality, coverage and efficiency breakdown"
               large
               className="!bg-white !shadow-[0_30px_70px_-20px_rgba(0,0,0,0.6)]"
             />

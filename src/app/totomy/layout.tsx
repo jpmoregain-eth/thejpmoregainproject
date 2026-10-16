@@ -18,7 +18,7 @@ const notoSansSC = Noto_Sans_SC({
 
 const TITLE = "4D TOTO MY Lottery Results — Malaysian 4D, Toto & Lotto results, numbers and your fortune";
 const DESCRIPTION =
-  "4D TOTO MY Lottery Results: live results for Magnum, Sports Toto and Da Ma Cai, a number generator, Sifu bet scoring and daily lucky numbers read by 财神. For entertainment only.";
+  "4D TOTO MY Lottery Results: live results for Magnum, Sports Toto and Da Ma Cai, Sifu bet scoring and daily lucky numbers read by 财神. For entertainment only.";
 
 export const metadata: Metadata = {
   title: TITLE,
