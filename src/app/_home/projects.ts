@@ -131,4 +131,12 @@ export const projects: Project[] = [
     tags: ["Malaysia", "iOS", "Android"],
     url: "/totomy",
   },
+  {
+    name: "PH Lotto 2D-6D",
+    category: "Mobile Apps",
+    description:
+      "PCSO 2D EZ2, 3D Swertres, 4D, 6D and Lotto results, five years of history, Swerte lucky numbers and Tito's bet check.",
+    tags: ["Philippines", "Android"],
+    url: "/totoph",
+  },
 ];

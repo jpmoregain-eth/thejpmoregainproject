@@ -1,0 +1,224 @@
+/* TotoPH page. Mirrors the app: PH flag red / blue / gold, square "notice board" cards, Plex Mono numbers. */
+html:has(.phPage) {
+  scroll-behavior: smooth;
+}
+
+.phPage {
+  --ph-red: #ce1126;
+  --ph-blue: #0038a8;
+  --ph-gold: #fcd116;
+  --ph-ink: #1a1a1a;
+  --ph-mute: #6e6e6e;
+  --ph-rule: #e4dede;
+  --ph-tint: #fdf0f1;
+  min-height: 100vh;
+  background: #faf8f6;
+  color: var(--ph-ink);
+  font-family: var(--font-totoph-mono), ui-monospace, monospace;
+  -webkit-font-smoothing: antialiased;
+}
+
+.phPage *,
+.phPage *::before,
+.phPage *::after {
+  box-sizing: border-box;
+}
+
+.phPage a {
+  color: var(--ph-blue);
+  text-decoration: none;
+}
+
+.phPage a:hover {
+  color: var(--ph-red);
+}
+
+.phHead {
+  font-family: var(--font-totoph-head), "Arial Narrow", sans-serif;
+  font-weight: 700;
+}
+
+.phGlyph {
+  font-family: var(--font-totoph-tagalog), sans-serif;
+}
+
+.phH2 {
+  font-family: var(--font-totoph-head), "Arial Narrow", sans-serif;
+  font-weight: 700;
+  font-size: clamp(36px, 4.6vw, 58px);
+  line-height: 1;
+  letter-spacing: -0.01em;
+  margin: 16px 0 0;
+  text-wrap: balance;
+}
+
+.phBody {
+  font-size: 16px;
+  line-height: 1.7;
+  color: #4a4a4a;
+  margin: 20px 0 0;
+  max-width: 500px;
+  text-wrap: pretty;
+}
+
+.phEyebrow {
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: 0.24em;
+  text-transform: uppercase;
+}
+
+.phRow {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 420px), 1fr));
+  gap: 56px;
+  align-items: center;
+}
+
+.phStore {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 56px;
+  background: #000;
+  border: 1px solid #555;
+  border-radius: 12px;
+}
+
+.phPage a.phStore:hover {
+  color: #fff;
+}
+
+.phStore > span {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  line-height: 1.05;
+  color: #fff;
+  font-family: system-ui, sans-serif;
+}
+
+.phStoreSoon {
+  opacity: 0.55;
+  cursor: default;
+}
+
+/* ── Phone mockup drawn in HTML (the app's own layout and tokens) ── */
+.phPhone {
+  width: 100%;
+  max-width: 300px;
+  border: 8px solid #141414;
+  border-radius: 34px;
+  overflow: hidden;
+  background: #fff;
+  box-shadow: 0 34px 70px -30px rgba(20, 10, 10, 0.55);
+  font-size: 10px;
+}
+
+.phPhoneBar {
+  background: var(--ph-red);
+  color: #fff;
+  padding: 18px 12px 10px;
+  border-bottom: 3px solid var(--ph-blue);
+}
+
+.phPhoneBody {
+  padding: 10px 10px 12px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  background: #fff;
+}
+
+.phCard {
+  border: 1px solid var(--ph-rule);
+  padding: 8px 9px 9px;
+  background: #fff;
+}
+
+.phCardRoll {
+  border-color: #e3c200;
+}
+
+.phCardTitle {
+  font-family: var(--font-totoph-head), "Arial Narrow", sans-serif;
+  font-weight: 700;
+  font-size: 14px;
+  color: var(--ph-ink);
+}
+
+.phMeta {
+  font-size: 8px;
+  letter-spacing: 0.1em;
+  color: #7a7a7a;
+}
+
+.phSlot {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  margin-top: 6px;
+}
+
+.phSlotT {
+  width: 26px;
+  font-size: 8.5px;
+  font-weight: 600;
+  color: var(--ph-mute);
+}
+
+.phBox {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 22px;
+  height: 24px;
+  padding: 0 3px;
+  border: 1px solid var(--ph-red);
+  background: var(--ph-tint);
+  color: var(--ph-ink);
+  font-weight: 600;
+  font-size: 12px;
+}
+
+.phBoxBlue {
+  border-color: var(--ph-blue);
+  background: #eef2fb;
+}
+
+.phBoxPending {
+  border: 1px dashed #b9b2b2;
+  background: #fff;
+  color: #b9b2b2;
+}
+
+.phBtn {
+  background: var(--ph-red);
+  color: #fff;
+  text-align: center;
+  font-size: 8.5px;
+  font-weight: 600;
+  letter-spacing: 0.18em;
+  padding: 9px 0;
+}
+
+.phTabs {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  background: var(--ph-red);
+  color: rgba(255, 255, 255, 0.6);
+  font-size: 7.5px;
+  font-weight: 600;
+  letter-spacing: 0.16em;
+  text-align: center;
+}
+
+.phTabs > span {
+  padding: 9px 0 10px;
+  border-top: 3px solid transparent;
+}
+
+.phTabs > .on {
+  color: #fff;
+  border-top-color: var(--ph-gold);
+}

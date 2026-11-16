@@ -14,8 +14,9 @@ export default function ConditionalShell({
   const isJing = pathname.startsWith("/jing");
   const isSgLottery = pathname.startsWith("/sg-lottery-4d-toto");
   const isTotoMY = pathname.startsWith("/totomy");
+  const isTotoPH = pathname.startsWith("/totoph");
   const isVerbum = pathname.startsWith("/verbum");
-  const hideShell = isPowerScale || isJing || isSgLottery || isTotoMY || isVerbum;
+  const hideShell = isPowerScale || isJing || isSgLottery || isTotoMY || isTotoPH || isVerbum;
 
   return (
     <>

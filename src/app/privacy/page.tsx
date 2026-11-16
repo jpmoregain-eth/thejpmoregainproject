@@ -35,7 +35,7 @@ export default function PrivacyPage() {
           </li>
           <li>
             <strong>Our mobile apps</strong> on the App Store and Google Play, including SG
-            Lottery 4D TOTO, 4D TOTO MY Lottery Results, Jing, Verbum, Ayah, Gita, This Is Home,
+            Lottery 4D TOTO, 4D TOTO MY Lottery Results, 2D-6D Lotto PH Lottery Results, Jing, Verbum, Ayah, Gita, This Is Home,
             Fork This Dragon and Pathway of Eternity
           </li>
         </ul>
@@ -79,14 +79,15 @@ export default function PrivacyPage() {
         <ul>
           <li>
             <strong>No account needed for most apps.</strong> SG Lottery 4D TOTO, 4D TOTO MY
-            Lottery Results, Jing, Verbum, Ayah, Gita, This Is Home and Pathway of Eternity work
+            Lottery Results, 2D-6D Lotto PH Lottery Results, Jing, Verbum, Ayah, Gita, This Is Home and Pathway of Eternity work
             without signing up. Pathway of Eternity keeps your game progress only on your device
             (you can export it as a save code yourself); we don&apos;t receive it.
           </li>
           <li>
             <strong>Details you enter for a feature.</strong> Some features ask for personal
             details to work — for example, 4D TOTO MY asks for your birthday, gender, favourite
-            colour and name to generate your daily lucky numbers. These details stay on your
+            colour and name to generate your daily lucky numbers, and 2D-6D Lotto PH asks for
+            your birthday and lucky colour (or the dream you type in) for its Swerte numbers. These details stay on your
             device and are used only to provide that feature.
           </li>
           <li>
@@ -147,7 +148,7 @@ export default function PrivacyPage() {
             <strong>Website:</strong> the Site shows in-text ads from Infolinks.
           </li>
           <li>
-            <strong>Mobile apps:</strong> free apps such as SG Lottery 4D TOTO, 4D TOTO MY, Verbum,
+            <strong>Mobile apps:</strong> free apps such as SG Lottery 4D TOTO, 4D TOTO MY, 2D-6D Lotto PH, Verbum,
             Fork This Dragon and Pathway of Eternity show ads served by third-party ad networks such as Google AdMob.
             Jing does not show ads.
           </li>
@@ -307,8 +308,8 @@ export default function PrivacyPage() {
       <DocSection num={12} title="Children">
         <p>
           The Services are not directed at children under 13, and we do not knowingly collect
-          personal information from them. Our lottery results apps (SG Lottery 4D TOTO and 4D
-          TOTO MY) are intended for adults aged 18 and over only.
+          personal information from them. Our lottery results apps (SG Lottery 4D TOTO, 4D
+          TOTO MY and 2D-6D Lotto PH) are intended for adults aged 18 and over only.
         </p>
         <p>
           If you are a parent or guardian and believe your child has given us personal
