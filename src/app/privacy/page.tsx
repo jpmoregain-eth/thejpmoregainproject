@@ -35,8 +35,8 @@ export default function PrivacyPage() {
           </li>
           <li>
             <strong>Our mobile apps</strong> on the App Store and Google Play, including SG
-            Lottery 4D TOTO, 4D TOTO MY Lottery Results, Jing, Verbum, Ayah, Gita, This Is Home
-            and Fork This Dragon
+            Lottery 4D TOTO, 4D TOTO MY Lottery Results, Jing, Verbum, Ayah, Gita, This Is Home,
+            Fork This Dragon and Pathway of Eternity
           </li>
         </ul>
         <p>
@@ -79,7 +79,9 @@ export default function PrivacyPage() {
         <ul>
           <li>
             <strong>No account needed for most apps.</strong> SG Lottery 4D TOTO, 4D TOTO MY
-            Lottery Results, Jing, Verbum, Ayah, Gita and This Is Home work without signing up.
+            Lottery Results, Jing, Verbum, Ayah, Gita, This Is Home and Pathway of Eternity work
+            without signing up. Pathway of Eternity keeps your game progress only on your device
+            (you can export it as a save code yourself); we don&apos;t receive it.
           </li>
           <li>
             <strong>Details you enter for a feature.</strong> Some features ask for personal
@@ -145,8 +147,8 @@ export default function PrivacyPage() {
             <strong>Website:</strong> the Site shows in-text ads from Infolinks.
           </li>
           <li>
-            <strong>Mobile apps:</strong> free apps such as SG Lottery 4D TOTO, 4D TOTO MY, Verbum
-            and Fork This Dragon show ads served by third-party ad networks such as Google AdMob.
+            <strong>Mobile apps:</strong> free apps such as SG Lottery 4D TOTO, 4D TOTO MY, Verbum,
+            Fork This Dragon and Pathway of Eternity show ads served by third-party ad networks such as Google AdMob.
             Jing does not show ads.
           </li>
         </ul>

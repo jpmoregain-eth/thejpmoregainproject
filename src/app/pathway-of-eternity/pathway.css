@@ -1,0 +1,328 @@
+/* Pathway of Eternity app page — styled after the game (dark stone, gold Cinzel) */
+.poe {
+  --poe-bg: #0d0b0a;
+  --poe-panel: #17130f;
+  --poe-line: rgba(242, 193, 78, 0.22);
+  --poe-gold: #f2c14e;
+  --poe-text: #e8dcc0;
+  --poe-muted: #b7aa8f;
+  background: var(--poe-bg);
+  color: var(--poe-text);
+  font-family: var(--font-poe-cinzel), Georgia, serif;
+  overflow-x: hidden;
+}
+.poe a {
+  color: var(--poe-gold);
+}
+.poe-wrap {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+.poe-narrow {
+  max-width: 760px;
+}
+
+/* hero */
+.poe-hero {
+  position: relative;
+  background-size: cover;
+  background-position: 60% 40%;
+  image-rendering: pixelated;
+  min-height: 640px;
+  display: flex;
+  align-items: center;
+}
+.poe-hero-shade {
+  position: absolute;
+  inset: 0;
+  background:
+    linear-gradient(90deg, rgba(8, 6, 10, 0.94) 0%, rgba(8, 6, 10, 0.78) 42%, rgba(8, 6, 10, 0.2) 75%),
+    linear-gradient(0deg, var(--poe-bg) 0%, transparent 30%);
+}
+.poe-hero-inner {
+  position: relative;
+  width: 100%;
+  padding-top: 96px;
+  padding-bottom: 56px;
+}
+.poe-icon {
+  border-radius: 24px;
+  box-shadow: 0 0 0 2px rgba(242, 193, 78, 0.5), 0 0 40px rgba(242, 160, 60, 0.35);
+}
+.poe-title {
+  font-family: var(--font-poe-deco), Georgia, serif;
+  font-weight: 700;
+  color: var(--poe-gold);
+  font-size: clamp(44px, 8vw, 84px);
+  line-height: 0.95;
+  margin: 22px 0 10px;
+  text-shadow: 0 0 22px rgba(255, 170, 60, 0.5), 0 4px 0 #3a1e08, 0 8px 18px #000;
+}
+.poe-title span {
+  display: block;
+  font-size: 0.42em;
+  color: #e8d8b0;
+  margin: 6px 0 4px 6px;
+}
+.poe-tagline {
+  font-weight: 600;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: #cfe8ff;
+  font-size: 18px;
+  margin: 14px 0 12px;
+  text-shadow: 0 2px 6px #000;
+}
+.poe-lead {
+  max-width: 560px;
+  font-family: var(--font-poe-pixel), monospace;
+  font-size: 24px;
+  line-height: 1.3;
+  color: var(--poe-text);
+  text-shadow: 0 2px 4px #000;
+  margin: 0 0 26px;
+}
+.poe-ctas {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 14px;
+}
+.poe-meta {
+  margin-top: 18px;
+  font-family: var(--font-poe-pixel), monospace;
+  font-size: 20px;
+  color: var(--poe-muted);
+}
+
+/* buttons */
+.poe-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 12px;
+  min-height: 56px;
+  padding: 8px 22px 8px 16px;
+  border-radius: 12px;
+  text-decoration: none;
+  font-weight: 700;
+  font-size: 20px;
+  line-height: 1.05;
+  transition: transform 0.15s, box-shadow 0.15s;
+}
+.poe-btn small {
+  display: block;
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  opacity: 0.85;
+}
+.poe-btn-icon {
+  width: 28px;
+  height: 28px;
+  flex: none;
+}
+.poe a.poe-btn-play {
+  background: #000;
+  color: #fff;
+  border: 1px solid #8a7a5a;
+}
+.poe a.poe-btn-play:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 0 24px rgba(242, 193, 78, 0.35);
+}
+.poe-btn-soon {
+  background: rgba(0, 0, 0, 0.55);
+  color: #9a917f;
+  border: 1px dashed #5a5246;
+  cursor: default;
+}
+.poe a.poe-btn-gold {
+  background: linear-gradient(#f2c14e, #b8862a);
+  color: #1a1206;
+  border: 1px solid #ffe08a;
+  font-family: var(--font-poe-pixel), monospace;
+  font-size: 22px;
+  padding: 8px 22px;
+}
+
+/* sections */
+.poe-section {
+  padding: 72px 0;
+}
+.poe-section-dark {
+  background: #090707;
+  border-top: 1px solid var(--poe-line);
+  border-bottom: 1px solid var(--poe-line);
+}
+.poe-h2 {
+  font-family: var(--font-poe-deco), Georgia, serif;
+  font-weight: 700;
+  color: var(--poe-gold);
+  font-size: clamp(30px, 4.6vw, 44px);
+  text-align: center;
+  margin: 0 0 36px;
+  text-shadow: 0 0 16px rgba(255, 170, 60, 0.35), 0 3px 0 #3a1e08;
+}
+.poe-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+  gap: 16px;
+}
+.poe-card {
+  background: var(--poe-panel);
+  border: 1px solid var(--poe-line);
+  border-radius: 14px;
+  padding: 22px 20px;
+}
+.poe-card img {
+  image-rendering: pixelated;
+  filter: drop-shadow(0 0 8px rgba(242, 160, 60, 0.35));
+}
+.poe-card h3 {
+  margin: 12px 0 8px;
+  font-size: 20px;
+  color: var(--poe-gold);
+}
+.poe-card p {
+  margin: 0;
+  font-family: var(--font-poe-pixel), monospace;
+  font-size: 20px;
+  line-height: 1.25;
+  color: var(--poe-muted);
+}
+
+/* screenshots: sideways scroller */
+.poe-shots {
+  display: flex;
+  gap: 18px;
+  overflow-x: auto;
+  scroll-snap-type: x mandatory;
+  padding: 4px 20px 18px;
+  max-width: 1100px;
+  margin: 0 auto;
+}
+.poe-shots img {
+  scroll-snap-align: center;
+  flex: none;
+  width: 250px;
+  height: auto;
+  border-radius: 14px;
+  border: 1px solid var(--poe-line);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.6);
+}
+
+/* Emberhold band */
+.poe-band {
+  position: relative;
+  background-size: cover;
+  background-position: center 30%;
+  image-rendering: pixelated;
+  padding: 96px 0;
+  text-align: center;
+}
+.poe-band-shade {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(180deg, rgba(8, 6, 10, 0.7), rgba(8, 6, 10, 0.85));
+}
+.poe-band-inner {
+  position: relative;
+}
+.poe-band p {
+  max-width: 640px;
+  margin: 0 auto 26px;
+  font-family: var(--font-poe-pixel), monospace;
+  font-size: 24px;
+  line-height: 1.3;
+  text-shadow: 0 2px 4px #000;
+}
+
+/* FAQ & support */
+.poe-faq details {
+  background: var(--poe-panel);
+  border: 1px solid var(--poe-line);
+  border-radius: 12px;
+  margin-bottom: 10px;
+}
+.poe-faq summary {
+  cursor: pointer;
+  list-style: none;
+  padding: 16px 20px;
+  font-weight: 600;
+  font-size: 18px;
+  color: var(--poe-gold);
+  min-height: 44px;
+}
+.poe-faq summary::-webkit-details-marker {
+  display: none;
+}
+.poe-faq summary::after {
+  content: "▸";
+  float: right;
+  color: #8f8676;
+}
+.poe-faq details[open] summary::after {
+  content: "▾";
+}
+.poe-faq details p {
+  margin: 0;
+  padding: 0 20px 18px;
+  font-family: var(--font-poe-pixel), monospace;
+  font-size: 21px;
+  line-height: 1.3;
+  color: var(--poe-text);
+}
+.poe-support {
+  margin-top: 36px;
+  text-align: center;
+  background: linear-gradient(180deg, #1d1712, #120e0b);
+  border: 1px solid rgba(242, 193, 78, 0.4);
+  border-radius: 16px;
+  padding: 30px 20px;
+}
+.poe-support h3 {
+  margin: 0 0 8px;
+  color: var(--poe-gold);
+  font-size: 24px;
+}
+.poe-support p {
+  font-family: var(--font-poe-pixel), monospace;
+  font-size: 21px;
+  margin: 0 0 18px;
+}
+.poe-support .poe-small {
+  margin: 18px 0 0;
+  font-size: 19px;
+}
+
+@media (max-width: 640px) {
+  .poe-hero {
+    min-height: 0;
+    background-position: 62% center;
+  }
+  .poe-hero-shade {
+    background: linear-gradient(180deg, rgba(8, 6, 10, 0.55) 0%, rgba(8, 6, 10, 0.88) 45%, var(--poe-bg) 100%);
+  }
+  .poe-hero-inner {
+    padding-top: 84px;
+    text-align: center;
+  }
+  .poe-icon {
+    margin: 0 auto;
+  }
+  .poe-lead {
+    margin-left: auto;
+    margin-right: auto;
+    font-size: 22px;
+  }
+  .poe-ctas {
+    justify-content: center;
+  }
+  .poe-section {
+    padding: 56px 0;
+  }
+  .poe-shots img {
+    width: 220px;
+  }
+}

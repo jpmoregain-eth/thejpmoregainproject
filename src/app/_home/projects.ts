@@ -60,6 +60,14 @@ export const projects: Project[] = [
     url: "https://clawhub.com/jpmoregain-eth/agent-tiered-memory",
   },
   {
+    name: "Pathway of Eternity",
+    category: "Mobile Apps",
+    description:
+      "Idle dungeon RPG in pixel art. Tap to strike, loot epic gear, craft your build and push deeper with every journey.",
+    tags: ["Game", "Idle RPG", "Android"],
+    url: "/pathway-of-eternity",
+  },
+  {
     name: "Fork This Dragon",
     category: "Mobile Apps",
     description:
