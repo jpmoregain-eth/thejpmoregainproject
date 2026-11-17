@@ -1,25 +1,30 @@
 import type { Metadata } from "next";
-import { Archivo_Narrow, IBM_Plex_Mono, Noto_Sans_Tagalog } from "next/font/google";
+import localFont from "next/font/local";
 import "./totoph.css";
 
-const archivoNarrow = Archivo_Narrow({
+// Fonts are bundled with the page (the same files the app ships) rather than fetched from
+// Google Fonts at build time: the Archivo Narrow Google Fonts request breaks the Vercel build.
+const archivoNarrow = localFont({
   variable: "--font-totoph-head",
-  subsets: ["latin"],
-  weight: ["500", "600", "700"],
+  src: [{ path: "./fonts/ArchivoNarrow-Bold.ttf", weight: "700", style: "normal" }],
   display: "swap",
 });
 
-const plexMono = IBM_Plex_Mono({
+const plexMono = localFont({
   variable: "--font-totoph-mono",
-  subsets: ["latin"],
-  weight: ["400", "500", "600", "700"],
+  src: [
+    { path: "./fonts/IBMPlexMono-Regular.ttf", weight: "400", style: "normal" },
+    { path: "./fonts/IBMPlexMono-Medium.ttf", weight: "500", style: "normal" },
+    { path: "./fonts/IBMPlexMono-SemiBold.ttf", weight: "600", style: "normal" },
+    { path: "./fonts/IBMPlexMono-Bold.ttf", weight: "700", style: "normal" },
+  ],
   display: "swap",
 });
 
 // Baybayin glyphs for Swerte (ᜐ) and Tito (ᜆ)
-const tagalog = Noto_Sans_Tagalog({
+const tagalog = localFont({
   variable: "--font-totoph-tagalog",
-  subsets: ["tagalog"],
+  src: "./fonts/NotoSansTagalog-Regular.ttf",
   weight: "400",
   display: "swap",
   preload: false,
